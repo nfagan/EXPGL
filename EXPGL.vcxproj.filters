@@ -69,6 +69,9 @@
     <ClCompile Include="expgl\render\Shape2DShader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Vendor\glad\src\glad.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="expgl\GL_HEADERS.h">

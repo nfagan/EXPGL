@@ -75,7 +75,7 @@ void EXP::GLContextManager::CloseWindow(EXP::Window *window)
     }
 }
 
-EXP::Window* EXP::GLContextManager::CreateWindow(unsigned index, unsigned width, unsigned height, EXP::Window *other)
+EXP::Window* EXP::GLContextManager::OpenWindow(unsigned index, unsigned width, unsigned height, EXP::Window *other)
 {
     validate_index(index);
     Window* window = new Window(monitors[index], index, windows.size(), width, height, other);
@@ -83,7 +83,7 @@ EXP::Window* EXP::GLContextManager::CreateWindow(unsigned index, unsigned width,
     return window;
 }
 
-EXP::Window* EXP::GLContextManager::CreateWindow(unsigned index, EXP::Window *other)
+EXP::Window* EXP::GLContextManager::OpenWindow(unsigned index, EXP::Window *other)
 {
     validate_index(index);
     has_fullscreen_window[index] = true;

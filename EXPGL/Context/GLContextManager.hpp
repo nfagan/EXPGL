@@ -26,8 +26,8 @@ namespace EXP {
         
         bool DidInitialize(void);
         
-        Window* CreateWindow(unsigned index, Window *other);
-        Window* CreateWindow(unsigned index, unsigned width, unsigned height, Window *other);
+        Window* OpenWindow(unsigned index, Window *other);
+        Window* OpenWindow(unsigned index, unsigned width, unsigned height, Window *other);
         void CloseWindow(Window *window);
         
         RenderTarget* CreateRenderTarget(Window *window);
