@@ -1,0 +1,71 @@
+//
+//  RenderTarget.cpp
+//  EXPGL
+//
+//  Created by Nick Fagan on 10/21/17.
+//  Copyright © 2017 Nick Fagan. All rights reserved.
+//
+
+#include "RenderTarget.hpp"
+
+EXP::RenderTarget::RenderTarget(std::vector<EXP::Window*> windows)
+{
+    this->windows = windows;
+    this->full_rect = new EXP::Rect<int>(0, 0, 0, 0);
+    set_window_titles();
+}
+
+EXP::RenderTarget::~RenderTarget()
+{
+    delete full_rect;
+}
+
+void EXP::RenderTarget::set_window_titles()
+{
+    for (unsigned i = 0; i < windows.size(); ++i)
+    {
+        if (!windows[i]->is_fullscreen)
+        {
+            std::string title = std::string("Window ") + std::to_string(i);
+            glfwSetWindowTitle(windows[i]->GetWindow(), title.c_str());
+        }
+    }
+}
+
+EXP::Rect<int> EXP::RenderTarget::GetFullRect() const
+{
+    return *full_rect;
+}
+
+EXP::Window* EXP::RenderTarget::GetPrimaryWindow() const
+{
+    return windows[0];
+}
+
+void EXP::RenderTarget::SetWindowOffsets(TILING tile_type)
+{
+    //  vertical layouts to come
+    assert(tile_type == HORIZONTAL);
+    
+    EXP::Rect<int> *first = windows[0]->GetRect();
+    first->clone_into(full_rect);
+    
+    windows[0]->SetPosition(first->get_left(), 0);
+    
+    for (unsigned i = 1; i < windows.size(); ++i)
+    {
+        Rect<int> *current = windows[i]->GetRect();
+        
+        if (tile_type == HORIZONTAL)
+        {
+            int width = current->get_width();
+            full_rect->set_right(full_rect->get_right() + width);
+            current->set_right(full_rect->get_right());
+            current->set_left(current->get_right() - width);
+            
+            windows[i]->SetPosition(current->get_left(), 0);
+        }
+    }
+}
+
+
