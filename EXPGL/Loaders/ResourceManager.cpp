@@ -11,13 +11,13 @@
 EXP::ResourceManager::ResourceManager()
 {
     texture_loader = new TextureLoader();
-    shape_2d_loader = new Shape2DLoader(texture_loader);
+    model_loader = new ModelLoader(texture_loader);
 }
 
 EXP::ResourceManager::~ResourceManager()
 {
     delete texture_loader;
-    delete shape_2d_loader;
+    delete model_loader;
 }
 
 EXP::Texture2D* EXP::ResourceManager::GetTexture2D(const char* filename)
@@ -27,5 +27,5 @@ EXP::Texture2D* EXP::ResourceManager::GetTexture2D(const char* filename)
 
 EXP::Rectangle* EXP::ResourceManager::CreateRectangle()
 {
-    return shape_2d_loader->CreateRectangle();
+    return model_loader->CreateRectangle();
 }

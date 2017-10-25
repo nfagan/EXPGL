@@ -19,6 +19,11 @@ EXP::Shape2DRenderer::~Shape2DRenderer()
     delete shader;
 }
 
+void EXP::Shape2DRenderer::SetClearColor(glm::vec3 color)
+{
+    clear_color = color;
+}
+
 glm::mat4 EXP::Shape2DRenderer::GetProjectionMatrix(Rect<float> window_rect)
 {
     return glm::ortho(window_rect.get_left(), window_rect.get_right(),
@@ -31,7 +36,7 @@ void EXP::Shape2DRenderer::Draw(EXP::Shape2D *shape)
     {
         EXP::Window *current = target->windows[i];
         current->MakeCurrent();
-        glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
+        glClearColor(clear_color.x, clear_color.y, clear_color.z, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
         shader->Start();
         Rect<float> wrect = static_cast<Rect<float>>(*(current->GetRect()));

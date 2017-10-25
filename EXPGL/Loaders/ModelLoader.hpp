@@ -16,16 +16,16 @@
 #include "../Model/Rectangle.hpp"
 
 namespace EXP {
-    class Shape2DLoader
+    class ModelLoader
     {
     public:
-        Shape2DLoader(TextureLoader *texture_loader);
-        ~Shape2DLoader();
+        ModelLoader(TextureLoader *texture_loader);
+        ~ModelLoader();
         
         Rectangle* CreateRectangle();
     private:
         TextureLoader *texture_loader;
-        std::vector<Shape2D*> shapes;
+        std::vector<Model*> models;
     };
 }
 

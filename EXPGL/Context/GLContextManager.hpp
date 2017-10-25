@@ -31,7 +31,7 @@ namespace EXP {
         void CloseWindow(Window *window);
         
         RenderTarget* CreateRenderTarget(Window *window);
-        RenderTarget* CreateRenderTarget(std::vector<EXP::Window*> windows);        
+        RenderTarget* CreateRenderTarget(std::vector<EXP::Window*> windows);
     private:
         int init_status;
         

@@ -11,7 +11,7 @@
 
 #include <stdio.h>
 #include "TextureLoader.hpp"
-#include "Shape2DLoader.hpp"
+#include "ModelLoader.hpp"
 
 namespace EXP {
     class ResourceManager
@@ -24,7 +24,7 @@ namespace EXP {
         Rectangle* CreateRectangle();
     private:
         TextureLoader *texture_loader;
-        Shape2DLoader *shape_2d_loader;
+        ModelLoader *model_loader;
         
     };
 }

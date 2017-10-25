@@ -24,6 +24,12 @@ void EXP::Renderer::Draw(EXP::Shape2D *shape)
     shape_2d_renderer->Draw(shape);
 }
 
+void EXP::Renderer::SetClearColor(glm::vec3 color)
+{
+    clear_color = color;
+    shape_2d_renderer->SetClearColor(color);
+}
+
 void EXP::Renderer::Display()
 {
     for (int i = 0; i < target->windows.size(); ++i)

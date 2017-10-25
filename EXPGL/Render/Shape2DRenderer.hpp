@@ -13,6 +13,7 @@
 #include "Shape2DShader.hpp"
 #include "RenderTarget.hpp"
 #include "../Model/Shape2D.hpp"
+#include "../Util/Colors.hpp"
 
 namespace EXP {
     class Shape2DRenderer
@@ -22,10 +23,13 @@ namespace EXP {
         ~Shape2DRenderer();
         
         void Draw(EXP::Shape2D *shape);
+        
+        void SetClearColor(glm::vec3 color);
         glm::mat4 GetProjectionMatrix(Rect<float> window_rect);
     private:
         EXP::RenderTarget *target;
         EXP::Shape2DShader *shader;
+        glm::vec3 clear_color = EXP::Colors::BLACK;
     };
 }
 

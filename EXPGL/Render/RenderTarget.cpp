@@ -59,6 +59,7 @@ void EXP::RenderTarget::SetWindowOffsets(TILING tile_type)
         if (tile_type == HORIZONTAL)
         {
             int width = current->get_width();
+            
             full_rect->set_right(full_rect->get_right() + width);
             current->set_right(full_rect->get_right());
             current->set_left(current->get_right() - width);

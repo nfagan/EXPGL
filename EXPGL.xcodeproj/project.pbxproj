@@ -37,13 +37,10 @@
 		010C2A0C1F9D3E61001DB7BF /* Texture.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 010C2A0A1F9D3E61001DB7BF /* Texture.hpp */; };
 		010C2A0F1F9D418D001DB7BF /* Rectangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 010C2A0D1F9D418D001DB7BF /* Rectangle.cpp */; };
 		010C2A101F9D418D001DB7BF /* Rectangle.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 010C2A0E1F9D418D001DB7BF /* Rectangle.hpp */; };
-		010C2A131F9D4602001DB7BF /* Shape2DLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 010C2A111F9D4602001DB7BF /* Shape2DLoader.cpp */; };
-		010C2A141F9D4602001DB7BF /* Shape2DLoader.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 010C2A121F9D4602001DB7BF /* Shape2DLoader.hpp */; };
+		010C2A131F9D4602001DB7BF /* ModelLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 010C2A111F9D4602001DB7BF /* ModelLoader.cpp */; };
+		010C2A141F9D4602001DB7BF /* ModelLoader.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 010C2A121F9D4602001DB7BF /* ModelLoader.hpp */; };
 		011633C31F9FF5CA00CBB020 /* InputXY.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 011633C11F9FF5CA00CBB020 /* InputXY.cpp */; };
 		011633C41F9FF5CA00CBB020 /* InputXY.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 011633C21F9FF5CA00CBB020 /* InputXY.hpp */; };
-		0176FEF11FA01E6700D41632 /* EXPGLstatic.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 0176FEF01FA01E6700D41632 /* EXPGLstatic.hpp */; };
-		0176FEF31FA01E6700D41632 /* EXPGLstaticPriv.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 0176FEF21FA01E6700D41632 /* EXPGLstaticPriv.hpp */; };
-		0176FEF51FA01E6700D41632 /* EXPGLstatic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0176FEF41FA01E6700D41632 /* EXPGLstatic.cpp */; };
 		01B7645B1F9AE5A0003245EA /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01B7645A1F9AE5A0003245EA /* Cocoa.framework */; };
 		01B7645D1F9AE5A6003245EA /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01B7645C1F9AE5A6003245EA /* IOKit.framework */; };
 		01B7645F1F9AE5AB003245EA /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01B7645E1F9AE5AB003245EA /* CoreVideo.framework */; };
@@ -53,6 +50,8 @@
 		01B7647A1F9AE925003245EA /* Window.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 01B764781F9AE925003245EA /* Window.hpp */; };
 		01B764841F9AEE7B003245EA /* GLContextManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01B764821F9AEE7B003245EA /* GLContextManager.cpp */; };
 		01B764851F9AEE7B003245EA /* GLContextManager.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 01B764831F9AEE7B003245EA /* GLContextManager.hpp */; };
+		01E9754F1FA04266002BF2C4 /* Colors.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 01E9754D1FA04266002BF2C4 /* Colors.hpp */; };
+		01E975531FA046FC002BF2C4 /* Positions2D.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 01E975511FA046FC002BF2C4 /* Positions2D.hpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -90,14 +89,11 @@
 		010C2A0A1F9D3E61001DB7BF /* Texture.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = Texture.hpp; path = EXPGL/Model/Texture.hpp; sourceTree = SOURCE_ROOT; };
 		010C2A0D1F9D418D001DB7BF /* Rectangle.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Rectangle.cpp; path = EXPGL/Model/Rectangle.cpp; sourceTree = SOURCE_ROOT; };
 		010C2A0E1F9D418D001DB7BF /* Rectangle.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = Rectangle.hpp; path = EXPGL/Model/Rectangle.hpp; sourceTree = SOURCE_ROOT; };
-		010C2A111F9D4602001DB7BF /* Shape2DLoader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Shape2DLoader.cpp; sourceTree = "<group>"; };
-		010C2A121F9D4602001DB7BF /* Shape2DLoader.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Shape2DLoader.hpp; sourceTree = "<group>"; };
+		010C2A111F9D4602001DB7BF /* ModelLoader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ModelLoader.cpp; sourceTree = "<group>"; };
+		010C2A121F9D4602001DB7BF /* ModelLoader.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ModelLoader.hpp; sourceTree = "<group>"; };
 		011633C11F9FF5CA00CBB020 /* InputXY.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = InputXY.cpp; sourceTree = "<group>"; };
 		011633C21F9FF5CA00CBB020 /* InputXY.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = InputXY.hpp; sourceTree = "<group>"; };
 		0176FEEE1FA01E6700D41632 /* libEXPGLstatic.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libEXPGLstatic.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		0176FEF01FA01E6700D41632 /* EXPGLstatic.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = EXPGLstatic.hpp; sourceTree = "<group>"; };
-		0176FEF21FA01E6700D41632 /* EXPGLstaticPriv.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = EXPGLstaticPriv.hpp; sourceTree = "<group>"; };
-		0176FEF41FA01E6700D41632 /* EXPGLstatic.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = EXPGLstatic.cpp; sourceTree = "<group>"; };
 		01B7644B1F9AE41D003245EA /* libEXPGL.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libEXPGL.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		01B7645A1F9AE5A0003245EA /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		01B7645C1F9AE5A6003245EA /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
@@ -108,6 +104,8 @@
 		01B764781F9AE925003245EA /* Window.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Window.hpp; sourceTree = "<group>"; };
 		01B764821F9AEE7B003245EA /* GLContextManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GLContextManager.cpp; sourceTree = "<group>"; };
 		01B764831F9AEE7B003245EA /* GLContextManager.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = GLContextManager.hpp; sourceTree = "<group>"; };
+		01E9754D1FA04266002BF2C4 /* Colors.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Colors.hpp; sourceTree = "<group>"; };
+		01E975511FA046FC002BF2C4 /* Positions2D.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Positions2D.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,8 +166,8 @@
 				010C29E11F9D09F6001DB7BF /* TextureLoader.hpp */,
 				010C29E41F9D0EF8001DB7BF /* ResourceManager.cpp */,
 				010C29E51F9D0EF8001DB7BF /* ResourceManager.hpp */,
-				010C2A111F9D4602001DB7BF /* Shape2DLoader.cpp */,
-				010C2A121F9D4602001DB7BF /* Shape2DLoader.hpp */,
+				010C2A111F9D4602001DB7BF /* ModelLoader.cpp */,
+				010C2A121F9D4602001DB7BF /* ModelLoader.hpp */,
 			);
 			path = Loaders;
 			sourceTree = "<group>";
@@ -195,6 +193,8 @@
 			isa = PBXGroup;
 			children = (
 				010C29B21F9B8897001DB7BF /* Rect.hpp */,
+				01E9754D1FA04266002BF2C4 /* Colors.hpp */,
+				01E975511FA046FC002BF2C4 /* Positions2D.hpp */,
 				010C2A021F9D30F0001DB7BF /* Paths.hpp */,
 			);
 			path = Util;
@@ -229,22 +229,11 @@
 			path = Input;
 			sourceTree = "<group>";
 		};
-		0176FEEF1FA01E6700D41632 /* EXPGLstatic */ = {
-			isa = PBXGroup;
-			children = (
-				0176FEF01FA01E6700D41632 /* EXPGLstatic.hpp */,
-				0176FEF21FA01E6700D41632 /* EXPGLstaticPriv.hpp */,
-				0176FEF41FA01E6700D41632 /* EXPGLstatic.cpp */,
-			);
-			path = EXPGLstatic;
-			sourceTree = "<group>";
-		};
 		01B764421F9AE41D003245EA = {
 			isa = PBXGroup;
 			children = (
 				010C29C11F9CF2E2001DB7BF /* glad.c */,
 				01B7644D1F9AE41D003245EA /* EXPGL */,
-				0176FEEF1FA01E6700D41632 /* EXPGLstatic */,
 				01B7644C1F9AE41D003245EA /* Products */,
 				01B764591F9AE5A0003245EA /* Frameworks */,
 			);
@@ -294,8 +283,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0176FEF31FA01E6700D41632 /* EXPGLstaticPriv.hpp in Headers */,
-				0176FEF11FA01E6700D41632 /* EXPGLstatic.hpp in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -307,6 +294,7 @@
 				011633C41F9FF5CA00CBB020 /* InputXY.hpp in Headers */,
 				010C29C81F9CF9AB001DB7BF /* Quad.hpp in Headers */,
 				010C2A0C1F9D3E61001DB7BF /* Texture.hpp in Headers */,
+				01E975531FA046FC002BF2C4 /* Positions2D.hpp in Headers */,
 				010C29FC1F9D2B64001DB7BF /* Shape2DRenderer.hpp in Headers */,
 				010C29CC1F9D0119001DB7BF /* Model.hpp in Headers */,
 				010C29D01F9D016E001DB7BF /* Mesh.hpp in Headers */,
@@ -319,8 +307,9 @@
 				010C2A041F9D30F0001DB7BF /* Paths.hpp in Headers */,
 				01B7647A1F9AE925003245EA /* Window.hpp in Headers */,
 				010C29E71F9D0EF8001DB7BF /* ResourceManager.hpp in Headers */,
-				010C2A141F9D4602001DB7BF /* Shape2DLoader.hpp in Headers */,
+				010C2A141F9D4602001DB7BF /* ModelLoader.hpp in Headers */,
 				010C29BC1F9CE7F4001DB7BF /* Shader.hpp in Headers */,
+				01E9754F1FA04266002BF2C4 /* Colors.hpp in Headers */,
 				010C29E31F9D09F6001DB7BF /* TextureLoader.hpp in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -404,7 +393,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0176FEF51FA01E6700D41632 /* EXPGLstatic.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -425,7 +413,7 @@
 				010C29FF1F9D2C1B001DB7BF /* Shape2DShader.cpp in Sources */,
 				010C29CF1F9D016E001DB7BF /* Mesh.cpp in Sources */,
 				010C29E21F9D09F6001DB7BF /* TextureLoader.cpp in Sources */,
-				010C2A131F9D4602001DB7BF /* Shape2DLoader.cpp in Sources */,
+				010C2A131F9D4602001DB7BF /* ModelLoader.cpp in Sources */,
 				010C29C21F9CF2E2001DB7BF /* glad.c in Sources */,
 				010C2A0F1F9D418D001DB7BF /* Rectangle.cpp in Sources */,
 				010C2A0B1F9D3E61001DB7BF /* Texture.cpp in Sources */,
