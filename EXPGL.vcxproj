@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{EE1A6FBC-8AC3-4EA4-A54C-B216D6EC31A1}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;EXPGL_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+    </ClCompile>
+    <Link>
+      <TargetMachine>MachineX86</TargetMachine>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;EXPGL_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <TargetMachine>MachineX86</TargetMachine>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="expgl\context\GLContextManager.cpp" />
+    <ClCompile Include="expgl\context\Window.cpp" />
+    <ClCompile Include="expgl\input\InputXY.cpp" />
+    <ClCompile Include="expgl\loaders\ModelLoader.cpp" />
+    <ClCompile Include="expgl\loaders\ResourceManager.cpp" />
+    <ClCompile Include="expgl\loaders\TextureLoader.cpp" />
+    <ClCompile Include="expgl\mesh\Mesh.cpp" />
+    <ClCompile Include="expgl\mesh\Quad.cpp" />
+    <ClCompile Include="expgl\model\Model.cpp" />
+    <ClCompile Include="expgl\model\Rectangle.cpp" />
+    <ClCompile Include="expgl\model\Shape2D.cpp" />
+    <ClCompile Include="expgl\model\Texture.cpp" />
+    <ClCompile Include="expgl\model\Texture2D.cpp" />
+    <ClCompile Include="expgl\render\Renderer.cpp" />
+    <ClCompile Include="expgl\render\RenderTarget.cpp" />
+    <ClCompile Include="expgl\render\Shader.cpp" />
+    <ClCompile Include="expgl\render\Shape2DRenderer.cpp" />
+    <ClCompile Include="expgl\render\Shape2DShader.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="expgl\context\GLContextManager.hpp" />
+    <ClInclude Include="expgl\context\Window.hpp" />
+    <ClInclude Include="expgl\GL_HEADERS.h" />
+    <ClInclude Include="expgl\input\InputXY.hpp" />
+    <ClInclude Include="expgl\loaders\ModelLoader.hpp" />
+    <ClInclude Include="expgl\loaders\ResourceManager.hpp" />
+    <ClInclude Include="expgl\loaders\TextureLoader.hpp" />
+    <ClInclude Include="expgl\mesh\Mesh.hpp" />
+    <ClInclude Include="expgl\mesh\Quad.hpp" />
+    <ClInclude Include="expgl\model\Model.hpp" />
+    <ClInclude Include="expgl\model\Rectangle.hpp" />
+    <ClInclude Include="expgl\model\Shape2D.hpp" />
+    <ClInclude Include="expgl\model\Texture.hpp" />
+    <ClInclude Include="expgl\model\Texture2D.hpp" />
+    <ClInclude Include="expgl\render\Renderer.hpp" />
+    <ClInclude Include="expgl\render\RenderTarget.hpp" />
+    <ClInclude Include="expgl\render\Shader.hpp" />
+    <ClInclude Include="expgl\render\Shape2DRenderer.hpp" />
+    <ClInclude Include="expgl\render\Shape2DShader.hpp" />
+    <ClInclude Include="expgl\util\Colors.hpp" />
+    <ClInclude Include="expgl\util\Paths.hpp" />
+    <ClInclude Include="expgl\util\Positions2D.hpp" />
+    <ClInclude Include="expgl\util\Rect.hpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
