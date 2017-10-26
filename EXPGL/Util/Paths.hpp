@@ -16,7 +16,12 @@ namespace EXP {
     namespace PATHS {
         static const std::string get_shader_dir()
         {
+#ifdef _WIN32
+			std::string path = R"(C:\Users\changLab\Repositories\cpp\EXPGL\EXPGL\Shaders\)";
+			return path;
+#elif __APPLE__
             return std::string("/Volumes/external/code/changlab/tasks/exp/EXPGL/EXPGL/Shaders/");
+#endif
         }
         static const std::string get_stimulus_2d_shader_name()
         {

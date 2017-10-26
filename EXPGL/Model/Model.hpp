@@ -34,7 +34,8 @@ namespace EXP {
         virtual void SetPosition(glm::vec3 position);
         virtual void SetRotation(glm::vec3 rotation);
         virtual void SetUnits(UNITS units);
-        
+
+		virtual EXP::Mesh* GetMesh(void) const { return mesh; };
         virtual glm::mat4 GetTransformationMatrix() const;
         virtual void Draw(void);
     protected:

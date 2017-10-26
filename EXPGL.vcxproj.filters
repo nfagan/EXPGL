@@ -63,13 +63,16 @@
     <ClCompile Include="expgl\render\Shader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="expgl\render\Shape2DRenderer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="expgl\render\Shape2DShader.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Vendor\glad\src\glad.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EXPGL\Render\Renderer2D.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EXPGL\Render\Shader2D.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Test\test_window\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -125,12 +128,6 @@
     <ClInclude Include="expgl\render\Shader.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="expgl\render\Shape2DRenderer.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="expgl\render\Shape2DShader.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="expgl\util\Colors.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -143,5 +140,15 @@
     <ClInclude Include="expgl\util\Rect.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="EXPGL\Render\Renderer2D.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EXPGL\Render\Shader2D.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="EXPGL\Shaders\stimulus_2d.fs" />
+    <None Include="EXPGL\Shaders\stimulus_2d.vs" />
   </ItemGroup>
 </Project>

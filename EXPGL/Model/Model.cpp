@@ -11,6 +11,7 @@
 EXP::Model::Model(Mesh *mesh)
 {
     this->mesh = mesh;
+	this->position = glm::vec3(0.0f);
     is_textured = false;
 }
 
@@ -18,6 +19,7 @@ EXP::Model::Model(Mesh *mesh, Texture *texture)
 {
     this->mesh = mesh;
     this->texture = texture;
+	this->position = glm::vec3(0.0f);
     is_textured = true;
 }
 

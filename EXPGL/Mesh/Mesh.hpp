@@ -25,8 +25,8 @@ namespace EXP {
         virtual ~Mesh();
         
         void Draw(void) const;
-        void Bind(void) const;
-        void Unbind(void) const;
+        virtual void Bind(void) const;
+        virtual void Unbind(void) const;
     protected:
         unsigned vao;
         unsigned vbo;

@@ -30,18 +30,23 @@ int main(int argc, const char * argv[]) {
     }
     
     //    Window *window = context_manager->CreateWindow(0, 400, 400, NULL);
-    Window *window = context_manager->OpenWindow(0, NULL);
-    //    Window *window3 = context_manager->CreateWindow(0, 400, 400, window);
+    Window *window = context_manager->OpenWindow(0, 400, 400, NULL);
+	Window *window2 = context_manager->OpenWindow(0, 400, 400, window);
+    Window *window3 = context_manager->OpenWindow(0, 400, 400, window);
     
-    //    std::vector<Window*> windows = { window, window2, window3 };
-    std::vector<Window*> windows = { window };
+    std::vector<Window*> windows = { window, window2, window3 };
     RenderTarget *target = context_manager->CreateRenderTarget(windows);
     target->SetWindowOffsets(RenderTarget::HORIZONTAL);
+
+	//window->SetPosition(30, 30);
     
     Renderer *renderer = new Renderer(target);
-    Rectangle *rectangle = resource_manager->CreateRectangle();
+    EXP::Rectangle *rectangle = resource_manager->CreateRectangle();
+
+	windows[2]->MakeCurrent();
+	EXP::Rectangle *rect2 = resource_manager->CreateRectangle();
     
-    renderer->SetClearColor(Colors::WHITE);
+    renderer->SetClearColor(Colors::GREY_50);
     glm::vec2 rect_pos = Positions2D::CENTER;
     float step_amount = 0.005f;
     
@@ -49,7 +54,7 @@ int main(int argc, const char * argv[]) {
     rectangle->SetDimensions(50.0f, 50.0f);
     rectangle->SetPosition(rect_pos);
     
-    windows[0]->Focus();
+    target->GetPrimaryWindow()->Focus();
     
     double mouse_x, mouse_y;
     
@@ -58,6 +63,7 @@ int main(int argc, const char * argv[]) {
     while (true)
     {
         renderer->Draw(rectangle);
+		//renderer->Draw(rect2);
         if (glfwGetKey(window->GetWindow(), GLFW_KEY_ESCAPE) == GLFW_PRESS)
         {
             context_manager->CloseWindow(window);
