@@ -10,6 +10,7 @@
 
 EXP::Renderer::Renderer(EXP::RenderTarget *target)
 {
+    target->GetPrimaryWindow()->MakeCurrent();
     this->target = target;
     this->renderer_2d = new Renderer2D(target);
 }

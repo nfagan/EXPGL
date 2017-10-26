@@ -33,6 +33,7 @@ int main(int argc, const char * argv[]) {
     Window *window = context_manager->OpenWindow(0, 400, 400, NULL);
 	Window *window2 = context_manager->OpenWindow(0, 400, 400, window);
     Window *window3 = context_manager->OpenWindow(0, 400, 400, window);
+    Window *window4 = context_manager->OpenWindow(0, 400, 400, NULL);
     
     std::vector<Window*> windows = { window, window2, window3 };
     RenderTarget *target = context_manager->CreateRenderTarget(windows);
@@ -51,6 +52,14 @@ int main(int argc, const char * argv[]) {
     
     target->GetPrimaryWindow()->Focus();
     
+    RenderTarget *target2 = context_manager->CreateRenderTarget(window4);
+    Renderer *renderer2 = new Renderer(target2);
+    EXP::Rectangle *rect2 = resource_manager->CreateRectangle(target2);
+    
+    rect2->SetUnits(Model::MIXED);
+    rect2->SetDimensions(50.0f, 50.0f);
+    rect2->SetPosition(rect_pos);
+    
     double mouse_x, mouse_y;
     
     InputXY* input = new InputXY(target);
@@ -58,7 +67,7 @@ int main(int argc, const char * argv[]) {
     while (true)
     {
         renderer->Draw(rectangle);
-		//renderer->Draw(rect2);
+        renderer2->Draw(rect2);
         if (glfwGetKey(window->GetWindow(), GLFW_KEY_ESCAPE) == GLFW_PRESS)
         {
             context_manager->CloseWindow(window);

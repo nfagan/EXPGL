@@ -21,6 +21,7 @@ EXP::Mesh::~Mesh() {
 void EXP::Mesh::Initialize(EXP::RenderTarget *target)
 {
     vaos = new unsigned[target->Size()];
+    is_initialized = true;
 }
 
 void EXP::Mesh::Bind(unsigned index) const
