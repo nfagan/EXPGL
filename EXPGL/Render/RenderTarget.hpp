@@ -33,9 +33,11 @@ namespace EXP {
         
         EXP::Rect<int> GetFullRect(void) const;
         EXP::Window* GetPrimaryWindow(void) const;
+        EXP::Window* GetWindow(unsigned i) const;
+        unsigned Size(void) const;
         
-        std::vector<EXP::Window*> windows;
     private:
+        std::vector<EXP::Window*> windows;
         EXP::Rect<int> *full_rect;
         TILING tile_type = HORIZONTAL;
         

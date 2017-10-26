@@ -32,9 +32,9 @@ void EXP::Renderer::SetClearColor(glm::vec3 color)
 
 void EXP::Renderer::Display()
 {
-    for (int i = 0; i < target->windows.size(); ++i)
+    for (int i = 0; i < target->Size(); ++i)
     {
-        target->windows[i]->MakeCurrent();
-        glfwSwapBuffers(target->windows[i]->GetWindow());
+        target->GetWindow(i)->MakeCurrent();
+        glfwSwapBuffers(target->GetWindow(i)->GetWindow());
     }
 }

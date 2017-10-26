@@ -14,6 +14,7 @@
 #include "TextureLoader.hpp"
 #include "../Model/Shape2D.hpp"
 #include "../Model/Rectangle.hpp"
+#include "../Render/RenderTarget.hpp"
 
 namespace EXP {
     class ModelLoader
@@ -22,7 +23,7 @@ namespace EXP {
         ModelLoader(TextureLoader *texture_loader);
         ~ModelLoader();
         
-        Rectangle* CreateRectangle();
+        Rectangle* CreateRectangle(EXP::RenderTarget *target);
     private:
         TextureLoader *texture_loader;
         std::vector<Model*> models;

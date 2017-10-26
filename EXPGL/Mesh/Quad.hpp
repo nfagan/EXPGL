@@ -18,6 +18,8 @@ namespace EXP {
     public:
         Quad();
         ~Quad();
+        
+        void Initialize(EXP::RenderTarget *target);
     private:
         float vertex_data[30] = {
             -1.0f, 1.0f, 0.0f, -1.0f, 1.0f,
@@ -27,6 +29,7 @@ namespace EXP {
             1.0f, 1.0f, 0.0f, 1.0f, 1.0f,
             -1.0f, 1.0f, 0.0f, -1.0f, 1.0f
         };
+        void create_vao(unsigned index);
     };
 }
 

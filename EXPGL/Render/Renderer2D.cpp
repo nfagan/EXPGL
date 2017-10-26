@@ -32,9 +32,9 @@ glm::mat4 EXP::Renderer2D::GetProjectionMatrix(Rect<float> window_rect)
 
 void EXP::Renderer2D::Draw(EXP::Shape2D *shape)
 {
-    for (unsigned i = 0; i < target->windows.size(); ++i)
+    for (unsigned i = 0; i < target->Size(); ++i)
     {
-        EXP::Window *current = target->windows[i];
+        EXP::Window *current = target->GetWindow(i);
         current->MakeCurrent();
         glClearColor(clear_color.x, clear_color.y, clear_color.z, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
@@ -43,7 +43,7 @@ void EXP::Renderer2D::Draw(EXP::Shape2D *shape)
         Rect<float> srect = static_cast<Rect<float>>(target->GetFullRect());
         shader->SetMat4("view", GetProjectionMatrix(wrect));
         shader->SetMat4("model", shape->GetTransformationMatrix(wrect, srect));
-        shape->Draw();
+        shape->Draw(i);
         shader->Stop();
         glfwSwapBuffers(current->GetWindow());
     }

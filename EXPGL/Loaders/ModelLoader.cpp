@@ -21,9 +21,10 @@ EXP::ModelLoader::~ModelLoader()
     }
 }
 
-EXP::Rectangle* EXP::ModelLoader::CreateRectangle()
+EXP::Rectangle* EXP::ModelLoader::CreateRectangle(EXP::RenderTarget *target)
 {
     EXP::Rectangle *rectangle = new EXP::Rectangle();
+    rectangle->InitializeMesh(target);
     models.push_back(rectangle);
     return rectangle;
 }

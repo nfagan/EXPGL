@@ -25,9 +25,9 @@ EXP::Model::Model(Mesh *mesh, Texture *texture)
 
 EXP::Model::~Model() {}
 
-void EXP::Model::Draw()
+void EXP::Model::Draw(unsigned index)
 {
-    mesh->Draw();
+    mesh->Draw(index);
 }
 
 void EXP::Model::SetID(unsigned int id)
@@ -48,6 +48,11 @@ void EXP::Model::SetRotation(glm::vec3 rotation)
 void EXP::Model::SetUnits(EXP::Model::UNITS units)
 {
     this->units = units;
+}
+
+void EXP::Model::InitializeMesh(EXP::RenderTarget *target)
+{
+    mesh->Initialize(target);
 }
 
 glm::mat4 EXP::Model::GetTransformationMatrix() const

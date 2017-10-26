@@ -39,7 +39,7 @@ int main(int argc, const char * argv[]) {
     target->SetWindowOffsets(RenderTarget::HORIZONTAL);
     
     Renderer *renderer = new Renderer(target);
-    EXP::Rectangle *rectangle = resource_manager->CreateRectangle();
+    EXP::Rectangle *rectangle = resource_manager->CreateRectangle(target);
     
     renderer->SetClearColor(Colors::GREY_50);
     glm::vec2 rect_pos = Positions2D::CENTER;

@@ -21,7 +21,7 @@ namespace EXP {
         ~ResourceManager();
         
         Texture2D* GetTexture2D(const char* filename);
-        Rectangle* CreateRectangle();
+        Rectangle* CreateRectangle(EXP::RenderTarget *target);
     private:
         TextureLoader *texture_loader;
         ModelLoader *model_loader;

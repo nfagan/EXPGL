@@ -37,9 +37,20 @@ EXP::Rect<int> EXP::RenderTarget::GetFullRect() const
     return *full_rect;
 }
 
+unsigned EXP::RenderTarget::Size() const
+{
+    return windows.size();
+}
+
+EXP::Window* EXP::RenderTarget::GetWindow(unsigned index) const
+{
+    assert(index < Size());
+    return windows[index];
+}
+
 EXP::Window* EXP::RenderTarget::GetPrimaryWindow() const
 {
-    return windows[0];
+    return GetWindow(0);
 }
 
 void EXP::RenderTarget::SetWindowOffsets(TILING tile_type)

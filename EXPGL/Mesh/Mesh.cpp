@@ -11,13 +11,21 @@
 EXP::Mesh::Mesh() {}
 
 EXP::Mesh::~Mesh() {
-    glDeleteVertexArrays(1, &vao);
+    for (unsigned i = 0; i < n_vaos; ++i) {
+        glDeleteVertexArrays(1, &vaos[i]);
+    }
+    delete[] vaos;
     glDeleteBuffers(1, &vbo);
 }
 
-void EXP::Mesh::Bind() const
+void EXP::Mesh::Initialize(EXP::RenderTarget *target)
 {
-    glBindVertexArray(vao);
+    vaos = new unsigned[target->Size()];
+}
+
+void EXP::Mesh::Bind(unsigned index) const
+{
+    glBindVertexArray(vaos[index]);
 }
 
 void EXP::Mesh::Unbind() const
@@ -25,9 +33,14 @@ void EXP::Mesh::Unbind() const
     glBindVertexArray(0);
 }
 
-void EXP::Mesh::Draw() const
+bool EXP::Mesh::IsInitialized() const
 {
-    Bind();
+    return is_initialized;
+}
+
+void EXP::Mesh::Draw(unsigned index) const
+{
+    Bind(index);
     switch (topology) {
         case TRIANGLES:
             glDrawArrays(GL_TRIANGLES, 0, n_fragments);

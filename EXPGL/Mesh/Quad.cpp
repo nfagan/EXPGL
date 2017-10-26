@@ -20,6 +20,23 @@ EXP::Quad::Quad() : EXP::Mesh()
     
     //  CONFIGURE BUFFERS
     glGenBuffers(1, &vbo);
+}
+
+void EXP::Quad::Initialize(EXP::RenderTarget *target)
+{
+    n_vaos = target->Size();
+    vaos = new unsigned[n_vaos];
+    for (unsigned i = 0; i < n_vaos; ++i)
+    {
+        target->GetWindow(i)->MakeCurrent();
+        create_vao(i);
+    }
+    is_initialized = true;
+}
+
+void EXP::Quad::create_vao(unsigned int index)
+{
+    unsigned int vao;
     glGenVertexArrays(1, &vao);
     glBindVertexArray(vao);
     //  store vertices in VBO
@@ -33,6 +50,7 @@ EXP::Quad::Quad() : EXP::Mesh()
     glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, stride, (void*)(3*sizeof(float)));
     glEnableVertexAttribArray(1);
     glBindVertexArray(0);
+    vaos[index] = vao;
 }
 
 EXP::Quad::~Quad() {}

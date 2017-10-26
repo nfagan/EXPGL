@@ -25,7 +25,7 @@ EXP::Texture2D* EXP::ResourceManager::GetTexture2D(const char* filename)
     return texture_loader->GetTexture2D(filename);
 }
 
-EXP::Rectangle* EXP::ResourceManager::CreateRectangle()
+EXP::Rectangle* EXP::ResourceManager::CreateRectangle(EXP::RenderTarget *target)
 {
-    return model_loader->CreateRectangle();
+    return model_loader->CreateRectangle(target);
 }
