@@ -37,14 +37,9 @@ int main(int argc, const char * argv[]) {
     std::vector<Window*> windows = { window, window2, window3 };
     RenderTarget *target = context_manager->CreateRenderTarget(windows);
     target->SetWindowOffsets(RenderTarget::HORIZONTAL);
-
-	//window->SetPosition(30, 30);
     
     Renderer *renderer = new Renderer(target);
     EXP::Rectangle *rectangle = resource_manager->CreateRectangle();
-
-	windows[2]->MakeCurrent();
-	EXP::Rectangle *rect2 = resource_manager->CreateRectangle();
     
     renderer->SetClearColor(Colors::GREY_50);
     glm::vec2 rect_pos = Positions2D::CENTER;
