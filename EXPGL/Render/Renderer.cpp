@@ -11,23 +11,23 @@
 EXP::Renderer::Renderer(EXP::RenderTarget *target)
 {
     this->target = target;
-    this->shape_2d_renderer = new Shape2DRenderer(target);
+    this->renderer_2d = new Renderer2D(target);
 }
 
 EXP::Renderer::~Renderer()
 {
-    delete shape_2d_renderer;
+    delete renderer_2d;
 }
 
 void EXP::Renderer::Draw(EXP::Shape2D *shape)
 {
-    shape_2d_renderer->Draw(shape);
+    renderer_2d->Draw(shape);
 }
 
 void EXP::Renderer::SetClearColor(glm::vec3 color)
 {
     clear_color = color;
-    shape_2d_renderer->SetClearColor(color);
+    renderer_2d->SetClearColor(color);
 }
 
 void EXP::Renderer::Display()

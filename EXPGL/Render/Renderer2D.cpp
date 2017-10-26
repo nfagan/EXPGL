@@ -6,31 +6,31 @@
 //  Copyright © 2017 Nick Fagan. All rights reserved.
 //
 
-#include "Shape2DRenderer.hpp"
+#include "Renderer2D.hpp"
 
-EXP::Shape2DRenderer::Shape2DRenderer(EXP::RenderTarget *target)
+EXP::Renderer2D::Renderer2D(EXP::RenderTarget *target)
 {
     this->target = target;
-    shader = new EXP::Shape2DShader();
+    shader = new EXP::Shader2D();
 }
 
-EXP::Shape2DRenderer::~Shape2DRenderer()
+EXP::Renderer2D::~Renderer2D()
 {
     delete shader;
 }
 
-void EXP::Shape2DRenderer::SetClearColor(glm::vec3 color)
+void EXP::Renderer2D::SetClearColor(glm::vec3 color)
 {
     clear_color = color;
 }
 
-glm::mat4 EXP::Shape2DRenderer::GetProjectionMatrix(Rect<float> window_rect)
+glm::mat4 EXP::Renderer2D::GetProjectionMatrix(Rect<float> window_rect)
 {
     return glm::ortho(window_rect.get_left(), window_rect.get_right(),
                       window_rect.get_bottom(), window_rect.get_top());
 }
 
-void EXP::Shape2DRenderer::Draw(EXP::Shape2D *shape)
+void EXP::Renderer2D::Draw(EXP::Shape2D *shape)
 {
     for (unsigned i = 0; i < target->windows.size(); ++i)
     {

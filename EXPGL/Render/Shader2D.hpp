@@ -13,11 +13,11 @@
 #include "Shader.hpp"
 
 namespace EXP {
-    class Shape2DShader : public Shader
+    class Shader2D : public Shader
     {
     public:
-        Shape2DShader();
-        ~Shape2DShader();
+        Shader2D();
+        ~Shader2D();
     };
 }
 

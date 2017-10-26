@@ -10,7 +10,7 @@
 #define Renderer_hpp
 
 #include <stdio.h>
-#include "Shape2DRenderer.hpp"
+#include "Renderer2D.hpp"
 #include "../Model/Shape2D.hpp"
 #include "../Util/Colors.hpp"
 
@@ -26,7 +26,7 @@ namespace EXP {
         void Display(void);
         void SetClearColor(glm::vec3 color);
     private:
-        EXP::Shape2DRenderer *shape_2d_renderer;
+        EXP::Renderer2D *renderer_2d;
         EXP::RenderTarget *target;
         glm::vec3 clear_color = EXP::Colors::BLACK;
     };

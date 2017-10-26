@@ -10,17 +10,17 @@
 #define Stimulus2DRenderer_hpp
 
 #include <stdio.h>
-#include "Shape2DShader.hpp"
+#include "Shader2D.hpp"
 #include "RenderTarget.hpp"
 #include "../Model/Shape2D.hpp"
 #include "../Util/Colors.hpp"
 
 namespace EXP {
-    class Shape2DRenderer
+    class Renderer2D
     {
     public:
-        Shape2DRenderer(EXP::RenderTarget *target);
-        ~Shape2DRenderer();
+        Renderer2D(EXP::RenderTarget *target);
+        ~Renderer2D();
         
         void Draw(EXP::Shape2D *shape);
         
@@ -28,7 +28,7 @@ namespace EXP {
         glm::mat4 GetProjectionMatrix(Rect<float> window_rect);
     private:
         EXP::RenderTarget *target;
-        EXP::Shape2DShader *shader;
+        EXP::Shader2D *shader;
         glm::vec3 clear_color = EXP::Colors::BLACK;
     };
 }

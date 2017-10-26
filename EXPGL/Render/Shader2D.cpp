@@ -6,10 +6,10 @@
 //  Copyright © 2017 Nick Fagan. All rights reserved.
 //
 
-#include "Shape2DShader.hpp"
+#include "Shader2D.hpp"
 #include "../Util/Paths.hpp"
 
-EXP::Shape2DShader::Shape2DShader() : EXP::Shader()
+EXP::Shader2D::Shader2D() : EXP::Shader()
 {
     std::string base_shader_name = EXP::PATHS::get_stimulus_2d_shader_name();
     
@@ -25,4 +25,4 @@ EXP::Shape2DShader::Shape2DShader() : EXP::Shader()
     assert(vs_result && fs_result && link_result);
 }
 
-EXP::Shape2DShader::~Shape2DShader() {}
+EXP::Shader2D::~Shader2D() {}
