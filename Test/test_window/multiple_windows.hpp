@@ -57,7 +57,13 @@ int test_case(void)
     
     target->GetPrimaryWindow()->MakeCurrent();
     
+#ifdef __APPLE__
     EXP::Texture2D *tex = resource_manager->GetTexture2D("/Users/Nick/Desktop/eg.png");
+#else
+	const char *pathstr = R"(C:\Users\changLab\Downloads\eg.png)";
+	EXP::Texture2D *tex = resource_manager->GetTexture2D(pathstr);
+#endif
+	assert(tex);
     EXP::MaterialTexture2D *mat2 = resource_manager->CreateMaterial<EXP::MaterialTexture2D>(tex);
     rectangle->SetMaterial(mat2);
     

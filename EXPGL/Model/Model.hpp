@@ -12,7 +12,7 @@
 #include <stdio.h>
 #include "../Mesh/Mesh.hpp"
 #include "../Material/Material.hpp"
-#include "Texture.hpp"
+#include "../Texture/Texture.hpp"
 #include "../Render/Shader.hpp"
 
 namespace EXP {

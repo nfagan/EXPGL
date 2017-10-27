@@ -23,7 +23,7 @@ namespace EXP {
         template<typename T, typename... A>
         T* CreateMaterial(A... args)
         {
-            static_assert(std::is_base_of<EXP::Material, T>::value);
+            static_assert(std::is_base_of<EXP::Material, T>::value, "Template type must be derived from Material.");
             T* val = new T(args...);
             items.push_back(val);
             return val;
