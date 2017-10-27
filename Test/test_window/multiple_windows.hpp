@@ -30,11 +30,13 @@ int test_case(void)
         delete context_manager;
         return EXIT_FAILURE;
     }
-    Window *window = context_manager->OpenWindow(0, 400, 400, NULL);
-    Window *window2 = context_manager->OpenWindow(0, 400, 400, window);
-    Window *window3 = context_manager->OpenWindow(0, 400, 400, window);
     
-    std::vector<Window*> windows = { window, window2, window3 };
+    std::vector<Window*> windows;
+    
+//    windows.push_back(context_manager->OpenWindow(0, 400, 400, NULL));
+    windows.push_back(context_manager->OpenWindow(0, NULL));
+//    windows.push_back(context_manager->OpenWindow(0, 400, 400, windows[0]));
+//    windows.push_back(context_manager->OpenWindow(0, 400, 400, windows[0]));
     
     RenderTarget *target = context_manager->CreateRenderTarget(windows);
     target->SetWindowOffsets(RenderTarget::HORIZONTAL);
@@ -48,7 +50,7 @@ int test_case(void)
     float step_amount = 0.005f;
     
     rectangle->SetUnits(Model::MIXED);
-    rectangle->SetDimensions(50.0f, 50.0f);
+    rectangle->SetDimensions(100.0f, 200.0f);
     rectangle->SetPosition(rect_pos);
     
     EXP::MaterialSolid2D *mat = resource_manager->CreateMaterial<EXP::MaterialSolid2D>();
@@ -77,7 +79,7 @@ int test_case(void)
         renderer->Draw(rectangle);
         if (keyboard.KeyDown(GLFW_KEY_ESCAPE))
         {
-            context_manager->CloseWindow(window);
+            context_manager->CloseWindow(windows[0]);
             break;
         }
         if (keyboard.KeyDown(GLFW_KEY_A))
