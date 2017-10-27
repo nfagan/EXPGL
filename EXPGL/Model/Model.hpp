@@ -11,7 +11,9 @@
 
 #include <stdio.h>
 #include "../Mesh/Mesh.hpp"
+#include "../Material/Material.hpp"
 #include "Texture.hpp"
+#include "../Render/Shader.hpp"
 
 namespace EXP {
     class Model
@@ -24,24 +26,22 @@ namespace EXP {
         };
         
         unsigned ID;
-        
-        Model(EXP::Mesh *mesh);
-        Model(EXP::Mesh *mesh, EXP::Texture *texture);
-        
+    
+        Model(EXP::Mesh *mesh, EXP::Material *material);
         virtual ~Model();
         
         void SetID(unsigned id);
+        virtual void SetMaterial(EXP::Material *material);
         virtual void SetPosition(glm::vec3 position);
         virtual void SetRotation(glm::vec3 rotation);
         virtual void SetUnits(UNITS units);
         virtual void InitializeMesh(EXP::RenderTarget *target);
 
         virtual glm::mat4 GetTransformationMatrix() const;
-        virtual void Draw(unsigned index);
+        virtual void Draw(EXP::Shader *shader, unsigned index);
     protected:
-        bool is_textured;
         EXP::Mesh *mesh;
-        EXP::Texture *texture;
+        EXP::Material *material;
         glm::vec3 position;
         glm::vec3 rotation;
         UNITS units = NORMALIZED;

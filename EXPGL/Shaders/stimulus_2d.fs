@@ -2,9 +2,17 @@
 
 out vec4 FragColor;
 
+in vec2 TextureCoordinates;
+
+uniform bool is_textured;
 uniform sampler2D image;
+uniform vec3 albedo;
 
 void main()
 {
-    FragColor = vec4(0.0f, 1.0f, 1.0f, 1.0f);
+    if (is_textured) {
+        FragColor = vec4(texture(image, TextureCoordinates).rgb, 1.0f);
+    } else {
+        FragColor = vec4(albedo, 1.0f);
+    }
 }

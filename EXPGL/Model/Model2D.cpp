@@ -8,9 +8,7 @@
 
 #include "Model2D.hpp"
 
-EXP::Model2D::Model2D(EXP::Mesh *mesh) : EXP::Model(mesh) {}
-
-EXP::Model2D::Model2D(EXP::Mesh *mesh, EXP::Texture2D *texture) : EXP::Model(mesh, texture) {}
+EXP::Model2D::Model2D(EXP::Mesh *mesh, EXP::Material *material) : EXP::Model(mesh, material) {}
 
 EXP::Model2D::~Model2D() {}
 

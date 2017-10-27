@@ -16,8 +16,8 @@ namespace EXP {
     class Shader2D : public Shader
     {
     public:
-        Shader2D();
-        ~Shader2D();
+        Shader2D(void);
+        ~Shader2D(void);
     };
 }
 

@@ -11,7 +11,6 @@
 
 #include <stdio.h>
 #include <vector>
-#include <string>
 #include "../Context/Window.hpp"
 #include "../Util/Rect.hpp"
 
@@ -27,7 +26,7 @@ namespace EXP {
         
         RenderTarget(std::vector<EXP::Window*> windows);
         
-        ~RenderTarget();
+        ~RenderTarget(void);
         
         void SetWindowOffsets(TILING tile_type);
         

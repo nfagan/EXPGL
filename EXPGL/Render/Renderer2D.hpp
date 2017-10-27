@@ -10,9 +10,10 @@
 #define Stimulus2DRenderer_hpp
 
 #include <stdio.h>
+#include <glm/glm.hpp>
 #include "Shader2D.hpp"
 #include "RenderTarget.hpp"
-#include "../Model/Shape2D.hpp"
+#include "../Model/Model2D.hpp"
 #include "../Util/Colors.hpp"
 
 namespace EXP {
@@ -20,9 +21,9 @@ namespace EXP {
     {
     public:
         Renderer2D(EXP::RenderTarget *target);
-        ~Renderer2D();
+        ~Renderer2D(void);
         
-        void Draw(EXP::Shape2D *shape);
+        void Draw(EXP::Model2D *model);
         
         void SetClearColor(glm::vec3 color);
         glm::mat4 GetProjectionMatrix(Rect<float> window_rect);

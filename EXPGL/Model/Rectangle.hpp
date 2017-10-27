@@ -10,12 +10,13 @@
 #define Rectangle_hpp
 
 #include <stdio.h>
-#include "Shape2D.hpp"
+#include "Model2D.hpp"
 #include "../Mesh/Quad.hpp"
 #include "../Util/Rect.hpp"
+#include "../Material/MaterialSolid2D.hpp"
 
 namespace EXP {
-    class Rectangle : public EXP::Shape2D
+    class Rectangle : public EXP::Model2D
     {
     public:
         Rectangle();

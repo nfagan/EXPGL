@@ -20,7 +20,7 @@ EXP::Renderer::~Renderer()
     delete renderer_2d;
 }
 
-void EXP::Renderer::Draw(EXP::Shape2D *shape)
+void EXP::Renderer::Draw(EXP::Model2D *shape)
 {
     renderer_2d->Draw(shape);
 }

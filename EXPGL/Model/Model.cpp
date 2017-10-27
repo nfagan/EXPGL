@@ -8,31 +8,29 @@
 
 #include "Model.hpp"
 
-EXP::Model::Model(Mesh *mesh)
+EXP::Model::Model(EXP::Mesh *mesh, EXP::Material *material)
 {
     this->mesh = mesh;
+    this->material = material;
 	this->position = glm::vec3(0.0f);
-    is_textured = false;
-}
-
-EXP::Model::Model(Mesh *mesh, Texture *texture)
-{
-    this->mesh = mesh;
-    this->texture = texture;
-	this->position = glm::vec3(0.0f);
-    is_textured = true;
 }
 
 EXP::Model::~Model() {}
 
-void EXP::Model::Draw(unsigned index)
+void EXP::Model::Draw(EXP::Shader *shader, unsigned index)
 {
+    material->Configure(shader);
     mesh->Draw(index);
 }
 
 void EXP::Model::SetID(unsigned int id)
 {
     this->ID = id;
+}
+
+void EXP::Model::SetMaterial(EXP::Material *material)
+{
+    this->material = material;
 }
 
 void EXP::Model::SetPosition(glm::vec3 position)

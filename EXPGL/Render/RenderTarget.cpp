@@ -7,6 +7,7 @@
 //
 
 #include "RenderTarget.hpp"
+#include <string>
 
 EXP::RenderTarget::RenderTarget(std::vector<EXP::Window*> windows)
 {
@@ -44,7 +45,6 @@ unsigned EXP::RenderTarget::Size() const
 
 EXP::Window* EXP::RenderTarget::GetWindow(unsigned index) const
 {
-    assert(index < Size());
     return windows[index];
 }
 

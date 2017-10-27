@@ -10,14 +10,17 @@
 #define Texture_hpp
 
 #include <stdio.h>
+#include <glad/glad.h>
 
 namespace EXP {
     class Texture
     {
     public:
         Texture(unsigned id);
-        ~Texture();
-    private:
+        virtual ~Texture();
+        
+        virtual void Activate(unsigned offset);
+    protected:
         unsigned id;
     };
 }

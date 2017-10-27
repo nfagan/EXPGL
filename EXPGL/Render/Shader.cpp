@@ -7,6 +7,11 @@
 //
 
 #include "Shader.hpp"
+#include <fstream>
+#include <sstream>
+#include <iostream>
+#include <assert.h>
+#include <vector>
 
 EXP::Shader::Shader() {};
 
@@ -77,6 +82,12 @@ void EXP::Shader::SetMat4(const char *name, glm::mat4 value) const
 {
     unsigned int loc = glGetUniformLocation(ID, name);
     glUniformMatrix4fv(loc, 1, GL_FALSE, glm::value_ptr(value));
+}
+
+void EXP::Shader::SetVec3(const char *name, glm::vec3 value) const
+{
+    unsigned int loc = glGetUniformLocation(ID, name);
+    glUniform3f(loc, value.x, value.y, value.z);
 }
 
 void EXP::Shader::SetInt(const char *name, int value) const

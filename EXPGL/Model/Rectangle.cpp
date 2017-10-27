@@ -8,7 +8,7 @@
 
 #include "Rectangle.hpp"
 
-EXP::Rectangle::Rectangle() : EXP::Shape2D(new Quad()) {
+EXP::Rectangle::Rectangle() : EXP::Model2D(new Quad(), new MaterialSolid2D()) {
     width = 1.0f;
     height = 1.0f;
 }

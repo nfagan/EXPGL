@@ -7,6 +7,7 @@
 //
 
 #include "GLContextManager.hpp"
+#include <assert.h>
 
 EXP::GLContextManager::GLContextManager()
 {
@@ -111,5 +112,13 @@ EXP::RenderTarget* EXP::GLContextManager::CreateRenderTarget(std::vector<EXP::Wi
     RenderTarget *target = new EXP::RenderTarget(windows);
     render_targets.push_back(target);
     return target;
+}
+
+void EXP::GLContextManager::CloseTarget(EXP::RenderTarget *target)
+{
+    for (unsigned i = 0; i < target->Size(); ++i)
+    {
+        CloseWindow(target->GetWindow(i));
+    }
 }
 

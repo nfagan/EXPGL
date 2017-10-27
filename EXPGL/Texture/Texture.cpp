@@ -12,4 +12,13 @@ EXP::Texture::Texture(unsigned id)
 {
     this->id = id;
 }
-EXP::Texture::~Texture() {}
+
+EXP::Texture::~Texture()
+{
+    glDeleteTextures(1, &id);
+}
+
+void EXP::Texture::Activate(unsigned int offset)
+{
+    glActiveTexture(GL_TEXTURE0 + offset);
+}

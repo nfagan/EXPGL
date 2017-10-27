@@ -10,8 +10,9 @@
 #define Renderer_hpp
 
 #include <stdio.h>
+#include <glm/glm.hpp>
 #include "Renderer2D.hpp"
-#include "../Model/Shape2D.hpp"
+#include "../Model/Model2D.hpp"
 #include "../Util/Colors.hpp"
 
 namespace EXP {
@@ -22,7 +23,7 @@ namespace EXP {
         ~Renderer();
         
         void PrepareContext(void);
-        void Draw(Shape2D *shape);
+        void Draw(Model2D *shape);
         void Display(void);
         void SetClearColor(glm::vec3 color);
     private:

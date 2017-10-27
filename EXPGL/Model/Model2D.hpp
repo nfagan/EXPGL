@@ -1,26 +1,25 @@
 //
-//  Shape2D.hpp
+//  Model2D.hpp
 //  EXPGL
 //
 //  Created by Nick Fagan on 10/22/17.
 //  Copyright © 2017 Nick Fagan. All rights reserved.
 //
 
-#ifndef Shape2D_hpp
-#define Shape2D_hpp
+#ifndef Model2D_hpp
+#define Model2D_hpp
 
 #include <stdio.h>
 #include "Model.hpp"
-#include "Texture2D.hpp"
+#include "../Material/Material.hpp"
 #include "../Util/Rect.hpp"
 
 namespace EXP {
-    class Shape2D : public EXP::Model
+    class Model2D : public EXP::Model
     {
     public:
-        Shape2D(EXP::Mesh *mesh);
-        Shape2D(EXP::Mesh *mesh, EXP::Texture2D *texture);
-        virtual ~Shape2D();
+        Model2D(EXP::Mesh *mesh, EXP::Material *material);
+        virtual ~Model2D();
         virtual glm::mat4 GetTransformationMatrix(Rect<float> window, Rect<float> screen) const;
         
         virtual void SetPosition(glm::vec2 position);
@@ -31,4 +30,4 @@ namespace EXP {
     };
 }
 
-#endif /* Shape2D_hpp */
+#endif /* Model2D_hpp */

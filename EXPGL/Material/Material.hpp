@@ -12,15 +12,14 @@
 #include <stdio.h>
 #include <vector>
 #include "../Render/Shader.hpp"
-#include "Texture.hpp"
 
 namespace EXP {
     class Material
     {
     public:
-        Material();
-        ~Material();
-        virtual void Configure(Shader *shader);
+        Material() {};
+        virtual ~Material() {};
+        virtual void Configure(EXP::Shader *shader) {};
     };
 }
 

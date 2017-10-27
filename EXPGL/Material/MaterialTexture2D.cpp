@@ -7,3 +7,19 @@
 //
 
 #include "MaterialTexture2D.hpp"
+
+EXP::MaterialTexture2D::MaterialTexture2D(EXP::Texture2D *texture)
+{
+    this->texture = texture;
+}
+
+EXP::MaterialTexture2D::~MaterialTexture2D() {};
+
+void EXP::MaterialTexture2D::Configure(EXP::Shader *shader)
+{
+    texture->Activate(0);
+    shader->SetBool("is_textured", true);
+    shader->SetInt("image", 0);
+}
+
+

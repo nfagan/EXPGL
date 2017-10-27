@@ -12,20 +12,32 @@
 #include <stdio.h>
 #include "TextureLoader.hpp"
 #include "ModelLoader.hpp"
+#include "MaterialLoader.hpp"
 
 namespace EXP {
     class ResourceManager
     {
     public:
-        ResourceManager();
-        ~ResourceManager();
+        ResourceManager(void);
+        ~ResourceManager(void);
         
         Texture2D* GetTexture2D(const char* filename);
-        Rectangle* CreateRectangle(EXP::RenderTarget *target);
+        
+        template<typename T>
+        T* CreateModel(EXP::RenderTarget *target)
+        {
+            return model_loader->CreateModel<T>(target);
+        };
+        
+        template<typename T, typename... A>
+        T* CreateMaterial(A... args)
+        {
+            return material_loader->CreateMaterial<T>(args...);
+        };
     private:
         TextureLoader *texture_loader;
         ModelLoader *model_loader;
-        
+        MaterialLoader *material_loader;
     };
 }
 

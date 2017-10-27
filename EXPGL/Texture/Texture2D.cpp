@@ -15,3 +15,9 @@ EXP::Texture2D::Texture2D(unsigned id, int width, int height) : EXP::Texture(id)
 }
 
 EXP::Texture2D::~Texture2D() {}
+
+void EXP::Texture2D::Activate(unsigned offset)
+{
+    glActiveTexture(GL_TEXTURE0 + offset);
+    glBindTexture(GL_TEXTURE_2D, id);
+}

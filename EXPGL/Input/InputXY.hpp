@@ -11,6 +11,7 @@
 
 #include <stdio.h>
 #include "../Render/RenderTarget.hpp"
+#include <glm/glm.hpp>
 
 namespace EXP {
     class InputXY

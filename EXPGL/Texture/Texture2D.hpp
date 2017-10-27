@@ -18,6 +18,8 @@ namespace EXP {
     public:
         Texture2D(unsigned id, int width, int height);
         ~Texture2D();
+        
+        void Activate(unsigned offset);
     private:
         int width;
         int height;

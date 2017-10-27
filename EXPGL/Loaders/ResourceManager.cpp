@@ -12,20 +12,17 @@ EXP::ResourceManager::ResourceManager()
 {
     texture_loader = new TextureLoader();
     model_loader = new ModelLoader(texture_loader);
+    material_loader = new MaterialLoader(texture_loader);
 }
 
 EXP::ResourceManager::~ResourceManager()
 {
     delete texture_loader;
     delete model_loader;
+    delete material_loader;
 }
 
 EXP::Texture2D* EXP::ResourceManager::GetTexture2D(const char* filename)
 {
     return texture_loader->GetTexture2D(filename);
-}
-
-EXP::Rectangle* EXP::ResourceManager::CreateRectangle(EXP::RenderTarget *target)
-{
-    return model_loader->CreateRectangle(target);
 }

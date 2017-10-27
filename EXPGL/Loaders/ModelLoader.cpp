@@ -1,5 +1,5 @@
 //
-//  Shape2DLoader.cpp
+//  Model2DLoader.cpp
 //  EXPGL
 //
 //  Created by Nick Fagan on 10/22/17.
@@ -8,23 +8,4 @@
 
 #include "ModelLoader.hpp"
 
-EXP::ModelLoader::ModelLoader(EXP::TextureLoader *texture_loader)
-{
-    this->texture_loader = texture_loader;
-}
-
-EXP::ModelLoader::~ModelLoader()
-{
-    for (unsigned i = 0; i < models.size(); ++i)
-    {
-        delete models[i];
-    }
-}
-
-EXP::Rectangle* EXP::ModelLoader::CreateRectangle(EXP::RenderTarget *target)
-{
-    EXP::Rectangle *rectangle = new EXP::Rectangle();
-    rectangle->InitializeMesh(target);
-    models.push_back(rectangle);
-    return rectangle;
-}
+EXP::ModelLoader::ModelLoader(EXP::TextureLoader *texture_loader) : Loader<EXP::Model>(texture_loader) {}

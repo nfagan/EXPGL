@@ -12,7 +12,6 @@
 #include "../GL_HEADERS.h"
 #include <stdio.h>
 #include <vector>
-#include <assert.h>
 #include "Window.hpp"
 #include "../Render/RenderTarget.hpp"
 
@@ -29,6 +28,7 @@ namespace EXP {
         Window* OpenWindow(unsigned index, Window *other);
         Window* OpenWindow(unsigned index, unsigned width, unsigned height, Window *other);
         void CloseWindow(Window *window);
+        void CloseTarget(RenderTarget *target);
         
         RenderTarget* CreateRenderTarget(Window *window);
         RenderTarget* CreateRenderTarget(std::vector<EXP::Window*> windows);

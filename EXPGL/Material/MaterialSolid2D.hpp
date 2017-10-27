@@ -11,11 +11,19 @@
 
 #include <stdio.h>
 #include "Material.hpp"
+#include <glm/glm.hpp>
 
 namespace EXP {
     class MaterialSolid2D : public EXP::Material
     {
+    public:
+        MaterialSolid2D();
+        ~MaterialSolid2D();
         
+        void SetAlbedo(glm::vec3 albedo);
+        void Configure(EXP::Shader *shader);
+    protected:
+        glm::vec3 albedo;
     };
 }
 

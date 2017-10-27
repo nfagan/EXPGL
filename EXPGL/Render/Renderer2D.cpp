@@ -30,7 +30,7 @@ glm::mat4 EXP::Renderer2D::GetProjectionMatrix(Rect<float> window_rect)
                       window_rect.get_bottom(), window_rect.get_top());
 }
 
-void EXP::Renderer2D::Draw(EXP::Shape2D *shape)
+void EXP::Renderer2D::Draw(EXP::Model2D *model)
 {
     for (unsigned i = 0; i < target->Size(); ++i)
     {
@@ -42,8 +42,8 @@ void EXP::Renderer2D::Draw(EXP::Shape2D *shape)
         Rect<float> wrect = static_cast<Rect<float>>(*(current->GetRect()));
         Rect<float> srect = static_cast<Rect<float>>(target->GetFullRect());
         shader->SetMat4("view", GetProjectionMatrix(wrect));
-        shader->SetMat4("model", shape->GetTransformationMatrix(wrect, srect));
-        shape->Draw(i);
+        shader->SetMat4("model", model->GetTransformationMatrix(wrect, srect));
+        model->Draw(shader, i);
         shader->Stop();
         glfwSwapBuffers(current->GetWindow());
     }

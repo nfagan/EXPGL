@@ -12,15 +12,15 @@
 #include <stdio.h>
 #include <vector>
 #include <unordered_map>
-#include "../Model/Texture2D.hpp"
+#include "../Texture/Texture2D.hpp"
 #include "../GL_HEADERS.h"
 
 namespace EXP {
     class TextureLoader
     {
     public:
-        TextureLoader();
-        ~TextureLoader();
+        TextureLoader(void);
+        ~TextureLoader(void);
         
         Texture2D* GetTexture2D(const char* filename);
     private:

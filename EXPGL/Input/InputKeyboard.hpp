@@ -10,5 +10,19 @@
 #define InputKeyboard_hpp
 
 #include <stdio.h>
+#include "../Render/RenderTarget.hpp"
+
+namespace EXP {
+    class InputKeyboard
+    {
+    public:
+        InputKeyboard(EXP::RenderTarget *target);
+        ~InputKeyboard();
+        
+        bool KeyDown(int id);
+    private:
+        EXP::RenderTarget *target;
+    };
+}
 
 #endif /* InputKeyboard_hpp */

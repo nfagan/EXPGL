@@ -12,11 +12,6 @@
 #include "../GL_HEADERS.h"
 #include <stdio.h>
 #include <string>
-#include <fstream>
-#include <sstream>
-#include <iostream>
-#include <assert.h>
-#include <vector>
 
 namespace EXP {
     
@@ -30,8 +25,8 @@ namespace EXP {
             GEOMETRY
         };
         
-        Shader();
-        virtual ~Shader();
+        Shader(void);
+        virtual ~Shader(void);
         
         bool Attach(const char *filename, SHADER_TYPES shader_type);
         bool Link(void);
@@ -39,6 +34,7 @@ namespace EXP {
         void Stop(void);
         
         void SetMat4(const char* name, glm::mat4 value) const;
+        void SetVec3(const char *name, glm::vec3 value) const;
         void SetInt(const char *name, int value) const;
         void SetBool(const char *name, bool value) const;
         void SetFloat(const char *name, float value) const;
