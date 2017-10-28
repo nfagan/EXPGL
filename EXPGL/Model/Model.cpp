@@ -13,6 +13,8 @@ EXP::Model::Model(EXP::Mesh *mesh, EXP::Material *material)
     this->mesh = mesh;
     this->material = material;
 	this->position = glm::vec3(0.0f);
+    this->rotation = glm::vec3(0.0f);
+    this->scale = glm::vec3(1.0f);
 }
 
 EXP::Model::~Model() {}
@@ -31,6 +33,16 @@ void EXP::Model::SetID(unsigned int id)
 void EXP::Model::SetMaterial(EXP::Material *material)
 {
     this->material = material;
+}
+
+void EXP::Model::SetScale(glm::vec3 scale)
+{
+    this->scale = scale;
+}
+
+void EXP::Model::SetScale(float scale)
+{
+    this->scale = glm::vec3(scale);
 }
 
 void EXP::Model::SetPosition(glm::vec3 position)

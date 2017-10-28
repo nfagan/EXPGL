@@ -11,7 +11,7 @@
 
 #include <stdio.h>
 #include "../Util/Rect.hpp"
-#include "../GL_HEADERS.h"
+#include <GL_HEADERS.h>
 
 namespace EXP {
     class Window

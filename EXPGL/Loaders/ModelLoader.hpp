@@ -22,10 +22,10 @@ namespace EXP {
         ModelLoader(TextureLoader *texture_loader);
         ~ModelLoader(void) {};
         
-        template<typename T>
-        T* CreateModel(EXP::RenderTarget *target)
+        template<typename T, typename... A>
+        T* CreateModel(EXP::RenderTarget *target, A... args)
         {
-            T* item = new T();
+            T* item = new T(args...);
             item->InitializeMesh(target);
             items.push_back(item);
             return item;

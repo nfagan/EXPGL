@@ -21,8 +21,3 @@ EXP::ResourceManager::~ResourceManager()
     delete model_loader;
     delete material_loader;
 }
-
-EXP::Texture2D* EXP::ResourceManager::GetTexture2D(const char* filename)
-{
-    return texture_loader->GetTexture2D(filename);
-}

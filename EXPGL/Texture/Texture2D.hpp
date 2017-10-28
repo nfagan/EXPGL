@@ -20,6 +20,8 @@ namespace EXP {
         ~Texture2D();
         
         void Activate(unsigned offset);
+        int GetWidth(void) const;
+        int GetHeight(void) const;
     private:
         int width;
         int height;

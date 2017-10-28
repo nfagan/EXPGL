@@ -19,7 +19,8 @@ namespace EXP {
     class Rectangle : public EXP::Model2D
     {
     public:
-        Rectangle();
+        Rectangle(void);
+        Rectangle(EXP::Material *material);
         ~Rectangle();
         
         void SetDimensions(float width, float height);

@@ -10,7 +10,5 @@
 #include "multiple_windows.hpp"
 
 int main(int argc, const char * argv[]) {
-    
     return test_case();
-    
 }

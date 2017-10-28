@@ -8,22 +8,22 @@
 
 #include "TextureLoader.hpp"
 #define STB_IMAGE_IMPLEMENTATION
-#include <stb_image.h>
+#include <stb/stb_image.h>
 
 EXP::TextureLoader::TextureLoader() {}
 
 EXP::TextureLoader::~TextureLoader() {
-    for (auto it = textures_2d.begin(); it != textures_2d.end(); ++it)
+    for (auto it = textures.begin(); it != textures.end(); ++it)
     {
         delete it->second;
     }
 }
 
-EXP::Texture2D* EXP::TextureLoader::GetTexture2D(const char *filename)
+EXP::Texture2D* EXP::TextureLoader::GetTexture(const char *filename)
 {
-    if (textures_2d.find(filename) != textures_2d.end())
+    if (textures.find(filename) != textures.end())
     {
-        return textures_2d[filename];
+        return textures[filename];
     }
     
     unsigned int texture_id;
@@ -68,7 +68,7 @@ EXP::Texture2D* EXP::TextureLoader::GetTexture2D(const char *filename)
     }
     
     EXP::Texture2D *texture = new EXP::Texture2D(texture_id, width, height);
-    textures_2d[filename] = texture;
+    textures[filename] = texture;
     
     return texture;
 }

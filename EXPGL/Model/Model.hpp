@@ -34,6 +34,8 @@ namespace EXP {
         virtual void SetMaterial(EXP::Material *material);
         virtual void SetPosition(glm::vec3 position);
         virtual void SetRotation(glm::vec3 rotation);
+        virtual void SetScale(glm::vec3 scale);
+        virtual void SetScale(float scale);
         virtual void SetUnits(UNITS units);
         virtual void InitializeMesh(EXP::RenderTarget *target);
 
@@ -44,6 +46,7 @@ namespace EXP {
         EXP::Material *material;
         glm::vec3 position;
         glm::vec3 rotation;
+        glm::vec3 scale;
         UNITS units = NORMALIZED;
     };
 }

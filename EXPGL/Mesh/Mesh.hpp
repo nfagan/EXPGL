@@ -10,7 +10,7 @@
 #define Mesh_hpp
 
 #include <stdio.h>
-#include "../GL_HEADERS.h"
+#include <GL_HEADERS.h>
 #include "../Render/RenderTarget.hpp"
 
 namespace EXP {

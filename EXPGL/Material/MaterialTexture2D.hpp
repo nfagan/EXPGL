@@ -21,6 +21,8 @@ namespace EXP {
         ~MaterialTexture2D();
         
         void Configure(EXP::Shader *shader);
+        int GetWidth(void) const;
+        int GetHeight(void) const;
     private:
         EXP::Texture2D *texture;
     };

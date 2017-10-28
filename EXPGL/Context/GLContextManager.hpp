@@ -9,7 +9,7 @@
 #ifndef GLContextManager_hpp
 #define GLContextManager_hpp
 
-#include "../GL_HEADERS.h"
+#include <GL_HEADERS.h>
 #include <stdio.h>
 #include <vector>
 #include "Window.hpp"

@@ -13,6 +13,12 @@ EXP::Rectangle::Rectangle() : EXP::Model2D(new Quad(), new MaterialSolid2D()) {
     height = 1.0f;
 }
 
+EXP::Rectangle::Rectangle(EXP::Material *material) : EXP::Model2D(new Quad(), material)
+{
+    width = 1.0f;
+    height = 1.0f;
+}
+
 EXP::Rectangle::~Rectangle()
 {
     delete mesh;
@@ -31,13 +37,13 @@ void EXP::Rectangle::SetDimensions(float width, float height)
 
 glm::vec3 EXP::Rectangle::get_units_scale(Rect<float> screen) const
 {
-    glm::vec3 scale(width, height, 1.0f);
+    glm::vec3 local_scale(width, height, 1.0f);
     if (units == NORMALIZED)
     {
-        scale.x *= screen.get_width();
-        scale.y *= screen.get_height();
+        local_scale.x *= screen.get_width();
+        local_scale.y *= screen.get_height();
     }
-    return scale;
+    return scale * local_scale;
 }
 
 glm::vec3 EXP::Rectangle::get_units_position(Rect<float> screen) const

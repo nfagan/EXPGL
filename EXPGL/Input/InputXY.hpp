@@ -9,9 +9,12 @@
 #ifndef InputXY_hpp
 #define InputXY_hpp
 
+#define EXPGL__INPUTXY__DO_ATOMIC
+
 #include <stdio.h>
 #include "../Render/RenderTarget.hpp"
 #include <glm/glm.hpp>
+#include <atomic>
 
 namespace EXP {
     class InputXY
@@ -22,9 +25,16 @@ namespace EXP {
         
         virtual glm::vec2 GetCoordinates(void) const;
         virtual void UpdateCoordinates(void);
+        virtual void PrintCoordinates(void) const;
     protected:
         EXP::RenderTarget *target;
-        glm::vec2 coordinates;
+#ifdef EXPGL__INPUTXY__DO_ATOMIC
+        std::atomic<float> x;
+        std::atomic<float> y;
+#else
+        float x;
+        float y;
+#endif
     };
 }
 

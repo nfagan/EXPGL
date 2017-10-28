@@ -21,12 +21,16 @@ namespace EXP {
         ResourceManager(void);
         ~ResourceManager(void);
         
-        Texture2D* GetTexture2D(const char* filename);
-        
         template<typename T>
-        T* CreateModel(EXP::RenderTarget *target)
+        T* GetTexture(const char* filename)
         {
-            return model_loader->CreateModel<T>(target);
+            return texture_loader->GetTexture(filename);
+        };
+        
+        template<typename T, typename... A>
+        T* CreateModel(EXP::RenderTarget *target, A... args)
+        {
+            return model_loader->CreateModel<T>(target, args...);
         };
         
         template<typename T, typename... A>

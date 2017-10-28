@@ -23,14 +23,12 @@ namespace EXP {
         Renderer2D(EXP::RenderTarget *target);
         ~Renderer2D(void);
         
-        void Draw(EXP::Model2D *model);
+        void Draw(EXP::Model2D *model, EXP::Window *window, unsigned index);
         
-        void SetClearColor(glm::vec3 color);
         glm::mat4 GetProjectionMatrix(Rect<float> window_rect);
     private:
         EXP::RenderTarget *target;
         EXP::Shader2D *shader;
-        glm::vec3 clear_color = EXP::Colors::BLACK;
     };
 }
 

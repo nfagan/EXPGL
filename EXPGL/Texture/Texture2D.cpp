@@ -21,3 +21,13 @@ void EXP::Texture2D::Activate(unsigned offset)
     glActiveTexture(GL_TEXTURE0 + offset);
     glBindTexture(GL_TEXTURE_2D, id);
 }
+
+int EXP::Texture2D::GetWidth() const
+{
+    return width;
+}
+
+int EXP::Texture2D::GetHeight() const
+{
+    return height;
+}

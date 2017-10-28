@@ -7,14 +7,7 @@
 //
 
 #include <iostream>
-#include <EXPGL/Context/GLContextManager.hpp>
-#include <EXPGL/Render/Renderer.hpp>
-#include <EXPGL/Loaders/ResourceManager.hpp>
-#include <EXPGL/Util/Rect.hpp>
-#include <EXPGL/Util/Positions2D.hpp>
-#include <EXPGL/Input/InputXY.hpp>
-#include <EXPGL/Input/InputKeyboard.hpp>
-#include <EXPGL/Material/MaterialTexture2D.hpp>
+#include <EXPGL.hpp>
 
 int test_case(void)
 {
@@ -57,16 +50,22 @@ int test_case(void)
     mat->SetAlbedo(Colors::BLUE);
     rectangle->SetMaterial(mat);
     
-    target->GetPrimaryWindow()->MakeCurrent();
+//    target->GetPrimaryWindow()->MakeCurrent();
     
 #ifdef __APPLE__
-    EXP::Texture2D *tex = resource_manager->GetTexture2D("/Users/Nick/Desktop/eg.png");
+    Texture2D *tex = resource_manager->GetTexture<Texture2D>("/Users/Nick/Desktop/eg.png");
 #else
 	const char *pathstr = R"(C:\Users\changLab\Downloads\eg.png)";
-	EXP::Texture2D *tex = resource_manager->GetTexture2D(pathstr);
+	Texture2D *tex = resource_manager->GetTexture<Texture2D>(pathstr);
 #endif
 	assert(tex);
     EXP::MaterialTexture2D *mat2 = resource_manager->CreateMaterial<EXP::MaterialTexture2D>(tex);
+    
+    EXP::Image *image = resource_manager->CreateModel<EXP::Image>(target, mat2);
+    image->SetPosition(rect_pos);
+    image->SetUnits(Model::MIXED);
+    image->SetScale(100.0f);
+    
     rectangle->SetMaterial(mat2);
     
     target->GetPrimaryWindow()->Focus();
@@ -76,7 +75,9 @@ int test_case(void)
     
     while (true)
     {
-        renderer->Draw(rectangle);
+        renderer->Queue(image);
+//        renderer->Queue(rectangle);
+        renderer->Draw();
         if (keyboard.KeyDown(GLFW_KEY_ESCAPE))
         {
             context_manager->CloseWindow(windows[0]);
@@ -103,16 +104,31 @@ int test_case(void)
             rect_pos.x = 0.5f;
             rect_pos.y = 0.5f;
         }
+        if (keyboard.KeyDown(GLFW_KEY_V))
+        {
+            rect_pos.x = 0.333333f;
+            rect_pos.y = 0.5f;
+        }
+        if (keyboard.KeyDown(GLFW_KEY_B))
+        {
+            rect_pos.x = 0.666666f;
+            rect_pos.y = 0.5f;
+        }
         if (keyboard.KeyDown(GLFW_KEY_J))
         {
             rectangle->SetMaterial(mat2);
+            image->SetScale(100.0f);
         }
         else if (keyboard.KeyDown(GLFW_KEY_K))
         {
             rectangle->SetMaterial(mat);
+            image->SetScale(200.0f);
         }
         
-        rectangle->SetPosition(rect_pos);
+        image->SetPosition(rect_pos);
+        
+        mouse.UpdateCoordinates();
+        mouse.PrintCoordinates();
         
         glfwPollEvents();
     }

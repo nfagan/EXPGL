@@ -22,4 +22,14 @@ void EXP::MaterialTexture2D::Configure(EXP::Shader *shader)
     shader->SetInt("image", 0);
 }
 
+int EXP::MaterialTexture2D::GetWidth() const
+{
+    return texture->GetWidth();
+}
+
+int EXP::MaterialTexture2D::GetHeight() const
+{
+    return texture->GetHeight();
+}
+
 
