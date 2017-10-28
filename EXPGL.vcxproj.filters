@@ -54,9 +54,6 @@
     <ClCompile Include="expgl\render\Shader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Vendor\glad\src\glad.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="EXPGL\Render\Renderer2D.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -84,11 +81,14 @@
     <ClCompile Include="EXPGL\Material\MaterialTexture2D.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="EXPGL\glad\glad.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EXPGL\Model\Image.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="expgl\GL_HEADERS.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="expgl\context\GLContextManager.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -174,6 +174,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="EXPGL\Material\MaterialTexture2D.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GL_HEADERS.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\EXPGL.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EXPGL\Model\Image.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

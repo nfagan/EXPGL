@@ -209,16 +209,16 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Link>
-      <AdditionalLibraryDirectories>$(ProjectDir)Vendor\glfw\lib-vc2015;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(ProjectDir)lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>glfw3.lib;glfw3dll.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <ClCompile>
-      <AdditionalIncludeDirectories>$(ProjectDir)Vendor\glfw\include;$(ProjectDir)Vendor\stb;$(ProjectDir)Vendor\glm;$(ProjectDir)Vendor\glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)include;$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Test|x64'">
     <Link>
-      <AdditionalLibraryDirectories>$(ProjectDir)Vendor\glfw\src\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(ProjectDir)lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <ClCompile>
       <AdditionalIncludeDirectories>$(ProjectDir)Vendor\glfw\include;$(ProjectDir)Vendor\stb;$(ProjectDir)Vendor\glm;$(ProjectDir)Vendor\glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
@@ -226,16 +226,17 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Test64|x64'">
     <Link>
-      <AdditionalLibraryDirectories>$(ProjectDir)Vendor\glfw\lib-vc2015;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(ProjectDir)lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>glfw3.lib;glfw3dll.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <ClCompile>
-      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)Vendor\glfw\include;$(ProjectDir)Vendor\stb;$(ProjectDir)Vendor\glm;$(ProjectDir)Vendor\glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="expgl\context\GLContextManager.cpp" />
     <ClCompile Include="expgl\context\Window.cpp" />
+    <ClCompile Include="EXPGL\glad\glad.c" />
     <ClCompile Include="EXPGL\Input\InputKeyboard.cpp" />
     <ClCompile Include="expgl\input\InputXY.cpp" />
     <ClCompile Include="expgl\loaders\ModelLoader.cpp" />
@@ -245,6 +246,7 @@
     <ClCompile Include="EXPGL\Material\MaterialTexture2D.cpp" />
     <ClCompile Include="expgl\mesh\Mesh.cpp" />
     <ClCompile Include="expgl\mesh\Quad.cpp" />
+    <ClCompile Include="EXPGL\Model\Image.cpp" />
     <ClCompile Include="expgl\model\Model.cpp" />
     <ClCompile Include="EXPGL\Model\Model2D.cpp" />
     <ClCompile Include="expgl\model\Rectangle.cpp" />
@@ -262,12 +264,10 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Test64|x64'">false</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="Vendor\glad\src\glad.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="expgl\context\GLContextManager.hpp" />
     <ClInclude Include="expgl\context\Window.hpp" />
-    <ClInclude Include="expgl\GL_HEADERS.h" />
     <ClInclude Include="EXPGL\Input\InputKeyboard.hpp" />
     <ClInclude Include="expgl\input\InputXY.hpp" />
     <ClInclude Include="EXPGL\Loaders\Loader.hpp" />
@@ -279,6 +279,7 @@
     <ClInclude Include="EXPGL\Material\MaterialTexture2D.hpp" />
     <ClInclude Include="expgl\mesh\Mesh.hpp" />
     <ClInclude Include="expgl\mesh\Quad.hpp" />
+    <ClInclude Include="EXPGL\Model\Image.hpp" />
     <ClInclude Include="expgl\model\Model.hpp" />
     <ClInclude Include="EXPGL\Model\Model2D.hpp" />
     <ClInclude Include="expgl\model\Rectangle.hpp" />
@@ -293,6 +294,8 @@
     <ClInclude Include="expgl\util\Paths.hpp" />
     <ClInclude Include="expgl\util\Positions2D.hpp" />
     <ClInclude Include="expgl\util\Rect.hpp" />
+    <ClInclude Include="include\EXPGL.hpp" />
+    <ClInclude Include="include\GL_HEADERS.h" />
     <ClInclude Include="Test\test_window\multiple_contexts.hpp" />
     <ClInclude Include="Test\test_window\multiple_windows.hpp" />
   </ItemGroup>
