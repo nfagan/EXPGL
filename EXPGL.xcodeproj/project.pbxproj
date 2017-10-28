@@ -72,6 +72,7 @@
 		01C7FA991FA2BDA700C3B1F9 /* multiple_windows.hpp in Sources */ = {isa = PBXBuildFile; fileRef = 01C7FA981FA2BDA700C3B1F9 /* multiple_windows.hpp */; };
 		01C9DB7B1FA4EEAB009928B1 /* GLFrameTimer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01C9DB791FA4EEAB009928B1 /* GLFrameTimer.cpp */; };
 		01C9DB7C1FA4EEAB009928B1 /* GLFrameTimer.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 01C9DB7A1FA4EEAB009928B1 /* GLFrameTimer.hpp */; };
+		01CF144F1FA50A0500512E1A /* stimulus_2d.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01CF144E1FA50A0500512E1A /* stimulus_2d.cpp */; };
 		01EA79221FA189D90051087A /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01EA78D61FA186C30051087A /* main.cpp */; };
 		01EA79271FA18E990051087A /* libEXPGL.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 01B7644B1F9AE41D003245EA /* libEXPGL.dylib */; };
 /* End PBXBuildFile section */
@@ -791,6 +792,7 @@
 		01C7FA981FA2BDA700C3B1F9 /* multiple_windows.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = multiple_windows.hpp; sourceTree = "<group>"; };
 		01C9DB791FA4EEAB009928B1 /* GLFrameTimer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GLFrameTimer.cpp; sourceTree = "<group>"; };
 		01C9DB7A1FA4EEAB009928B1 /* GLFrameTimer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = GLFrameTimer.hpp; sourceTree = "<group>"; };
+		01CF144E1FA50A0500512E1A /* stimulus_2d.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = stimulus_2d.cpp; sourceTree = "<group>"; };
 		01EA78D61FA186C30051087A /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		01EA791A1FA189190051087A /* window_test */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = window_test; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -936,6 +938,7 @@
 			children = (
 				015945D21FA3C94500970BD8 /* stimulus_2d.fs */,
 				015945D31FA3C94500970BD8 /* stimulus_2d.vs */,
+				01CF144E1FA50A0500512E1A /* stimulus_2d.cpp */,
 			);
 			path = Shaders;
 			sourceTree = "<group>";
@@ -2034,6 +2037,7 @@
 				015945ED1FA3C94500970BD8 /* TextureLoader.cpp in Sources */,
 				015946061FA3C94600970BD8 /* Shader2D.cpp in Sources */,
 				015945E01FA3C94500970BD8 /* Window.cpp in Sources */,
+				01CF144F1FA50A0500512E1A /* stimulus_2d.cpp in Sources */,
 				015945FC1FA3C94600970BD8 /* Rectangle.cpp in Sources */,
 				015948B91FA3E45F00970BD8 /* Model3D.cpp in Sources */,
 				015945E91FA3C94500970BD8 /* ModelLoader.cpp in Sources */,

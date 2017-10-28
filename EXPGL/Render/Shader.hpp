@@ -28,7 +28,8 @@ namespace EXP {
         Shader(void);
         virtual ~Shader(void);
         
-        bool Attach(const char *filename, SHADER_TYPES shader_type);
+        bool AttachFromFile(const char *filename, SHADER_TYPES shader_type);
+        bool AttachFromSource(const char *src, SHADER_TYPES shader_type);
         bool Link(void);
         void Start(void);
         void Stop(void);
@@ -43,6 +44,8 @@ namespace EXP {
         
         unsigned shader_ids[3];
         unsigned n_shader_ids = 0;
+        
+        std::string get_code_from_file(const char *filename);
         
         int check_link_errors(unsigned id);
         int check_compile_errors(unsigned id, std::string type);

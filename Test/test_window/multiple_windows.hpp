@@ -27,7 +27,7 @@ int test_case(void)
     std::vector<Window*> windows;
     
 //    windows.push_back(context_manager->OpenWindow(0, 400, 400, NULL));
-    windows.push_back(context_manager->OpenWindow(0, NULL));
+    windows.push_back(context_manager->OpenWindow(0, 400, 400, NULL));
 //    windows.push_back(context_manager->OpenWindow(0, 400, 400, windows[0]));
 //    windows.push_back(context_manager->OpenWindow(0, 400, 400, windows[0]));
     

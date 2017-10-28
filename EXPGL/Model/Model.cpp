@@ -12,7 +12,7 @@ EXP::Model::Model(EXP::Mesh *mesh, EXP::Material *material)
 {
     this->mesh = mesh;
     this->material = material;
-	this->position = glm::vec3(0.0f);
+    this->position = glm::vec3(0.0f);
     this->rotation = glm::vec3(0.0f);
     this->scale = glm::vec3(1.0f);
 }

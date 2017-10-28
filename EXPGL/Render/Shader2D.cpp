@@ -7,19 +7,20 @@
 //
 
 #include "Shader2D.hpp"
-#include "../Util/Paths.hpp"
+
+#include "../Shaders/stimulus_2d.cpp"
 
 EXP::Shader2D::Shader2D() : EXP::Shader()
 {
-    std::string base_shader_name = EXP::PATHS::get_stimulus_2d_shader_name();
-    
-    std::string shader_dir = EXP::PATHS::get_shader_dir();
-    std::string vs_path = base_shader_name + ".vs";
-    std::string fs_path = base_shader_name + ".fs";
+//    std::string vs_code = EXP::Shaders::stimulus_2d_shader::vertex;
+//    std::string fs_code = EXP::Shaders::stimulus_2d_shader::fragment;
+    const char *vs_code = EXP::Shaders::stimulus_2d_shader::vertex;
+    const char *fs_code = EXP::Shaders::stimulus_2d_shader::fragment;
     
     bool vs_result, fs_result, link_result;
-    vs_result = this->Attach(vs_path.c_str(), VERTEX);
-    fs_result = this->Attach(fs_path.c_str(), FRAGMENT);
+    
+    vs_result = this->AttachFromSource(vs_code, VERTEX);
+    fs_result = this->AttachFromSource(fs_code, FRAGMENT);
     link_result = this->Link();
     
     assert(vs_result && fs_result && link_result);

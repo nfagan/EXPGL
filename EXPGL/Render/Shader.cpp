@@ -30,7 +30,7 @@ void EXP::Shader::Stop()
     glUseProgram(0);
 }
 
-bool EXP::Shader::Attach(const char *filename, EXP::Shader::SHADER_TYPES shader_type)
+std::string EXP::Shader::get_code_from_file(const char *filename)
 {
     std::string code;
     std::ifstream shader_file;
@@ -45,10 +45,24 @@ bool EXP::Shader::Attach(const char *filename, EXP::Shader::SHADER_TYPES shader_
         code = shader_stream.str();
     } catch (std::ifstream::failure e) {
         std::cout << "ERROR::SHADER::FILE_NOT_SUCCESFULLY_READ" << std::endl;
-        return false;
+        return "";
     }
     
-    const char* shader_code = code.c_str();
+    return code;
+}
+
+bool EXP::Shader::AttachFromFile(const char *filename, EXP::Shader::SHADER_TYPES shader_type)
+{
+    std::string code = get_code_from_file(filename);
+    if (code == "")
+    {
+        return false;
+    }
+    return AttachFromSource(code.c_str(), shader_type);
+}
+
+bool EXP::Shader::AttachFromSource(const char *shader_code, EXP::Shader::SHADER_TYPES shader_type)
+{
     unsigned shader_id;
     std::string shader_type_name;
     
