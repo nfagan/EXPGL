@@ -31,7 +31,7 @@ void EXP::Renderer2D::Draw(EXP::Model2D *model, EXP::Window *window, unsigned in
     Rect<float> wrect = static_cast<Rect<float>>(*(window->GetRect()));
     Rect<float> srect = static_cast<Rect<float>>(target->GetFullRect());
     shader->SetMat4("view", GetProjectionMatrix(wrect));
-    shader->SetMat4("model", model->GetTransformationMatrix(wrect, srect));
+    shader->SetMat4("model", model->GetTransformationMatrix(srect));
     model->Draw(shader, index);
     shader->Stop();
 }

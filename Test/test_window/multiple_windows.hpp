@@ -28,6 +28,7 @@ int test_case(void)
     
 //    windows.push_back(context_manager->OpenWindow(0, 400, 400, NULL));
     windows.push_back(context_manager->OpenWindow(0, 400, 400, NULL));
+    windows.push_back(context_manager->OpenWindow(0, 400, 400, windows[0]));
 //    windows.push_back(context_manager->OpenWindow(0, 400, 400, windows[0]));
 //    windows.push_back(context_manager->OpenWindow(0, 400, 400, windows[0]));
     

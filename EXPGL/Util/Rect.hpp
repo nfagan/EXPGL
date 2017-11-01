@@ -86,6 +86,9 @@ namespace EXP {
             value.update_height();
             return value;
         }
+        T& operator[] (int x) {
+            return rect[x];
+        }
         Rect(T left, T top, T right, T bottom)
         {
             rect[0] = left;
@@ -115,7 +118,6 @@ namespace EXP {
             rect[3] = bottom;
             update_height();
         }
-        
         void shift_x(T x)
         {
             rect[0] += x;
@@ -131,6 +133,7 @@ namespace EXP {
             shift_x(x);
             shift_y(y);
         }
+        
         T get_left(void) const { return rect[0]; }
         T get_top(void) const { return rect[1]; }
         T get_right(void) const { return rect[2]; }
@@ -164,6 +167,15 @@ namespace EXP {
         void update_width(void)
         {
             width = rect[2] - rect[0];
+        }
+        void expand(T x, T y)
+        {
+            rect[0] -= x;
+            rect[2] += x;
+            rect[1] -= y;
+            rect[3] += y;
+            update_width();
+            update_height();
         }
         
         std::string get_string(void)

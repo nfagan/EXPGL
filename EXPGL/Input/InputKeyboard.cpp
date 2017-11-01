@@ -15,7 +15,9 @@ EXP::InputKeyboard::InputKeyboard(EXP::RenderTarget *target)
 
 EXP::InputKeyboard::~InputKeyboard() {};
 
-bool EXP::InputKeyboard::KeyDown(int id)
+void EXP::InputKeyboard::Update() {};
+
+bool EXP::InputKeyboard::KeyDown(int id) const
 {
     return glfwGetKey(target->GetPrimaryWindow()->GetWindow(), id) == GLFW_PRESS;
 }

@@ -13,13 +13,15 @@
 #include "../Render/RenderTarget.hpp"
 
 namespace EXP {
+    
     class InputKeyboard
     {
     public:
         InputKeyboard(EXP::RenderTarget *target);
         ~InputKeyboard();
         
-        bool KeyDown(int id);
+        void Update(void);
+        bool KeyDown(int id) const;
     private:
         EXP::RenderTarget *target;
     };

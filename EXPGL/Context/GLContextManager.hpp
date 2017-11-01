@@ -29,6 +29,7 @@ namespace EXP {
         Window* OpenWindow(unsigned index, unsigned width, unsigned height, Window *other);
         void CloseWindow(Window *window);
         void CloseTarget(RenderTarget *target);
+        void PollEvents(void);
         
         RenderTarget* CreateRenderTarget(Window *window);
         RenderTarget* CreateRenderTarget(std::vector<EXP::Window*> windows);

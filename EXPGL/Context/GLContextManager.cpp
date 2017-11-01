@@ -122,3 +122,8 @@ void EXP::GLContextManager::CloseTarget(EXP::RenderTarget *target)
     }
 }
 
+void EXP::GLContextManager::PollEvents()
+{
+    glfwPollEvents();
+}
+

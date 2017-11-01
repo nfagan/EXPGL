@@ -25,13 +25,16 @@ namespace EXP {
         
         void SetDimensions(float width, float height);
         
-        glm::mat4 GetTransformationMatrix(Rect<float> window, Rect<float> screen) const;
+        glm::mat4 GetTransformationMatrix(Rect<float> screen) const;
+        EXP::Rect<float> GetPixelVertices(EXP::Rect<int> screen) const;
+        EXP::Rect<float> GetPixelVertices(EXP::Rect<float> screen) const;
     private:
         float width;
         float height;
         glm::vec3 get_units_scale(Rect<float> screen) const;
         glm::vec3 get_units_position(Rect<float> screen) const;
-        glm::mat4 get_transformation_matrix(Rect<float> window, Rect<float> screen) const;
+        glm::mat4 get_transformation_matrix(Rect<float> screen) const;
+        EXP::Rect<float> get_pixel_vertices(EXP::Rect<float> screen) const;
     };
 }
 

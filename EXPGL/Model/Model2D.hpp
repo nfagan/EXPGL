@@ -20,7 +20,7 @@ namespace EXP {
     public:
         Model2D(EXP::Mesh *mesh, EXP::Material *material);
         virtual ~Model2D();
-        virtual glm::mat4 GetTransformationMatrix(Rect<float> window, Rect<float> screen) const;
+        virtual glm::mat4 GetTransformationMatrix(Rect<float> screen) const;
         
         virtual void SetPosition(glm::vec2 position);
         virtual void SetRotation(glm::vec2 position);

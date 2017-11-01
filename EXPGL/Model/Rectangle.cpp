@@ -57,12 +57,36 @@ glm::vec3 EXP::Rectangle::get_units_position(Rect<float> screen) const
     return pos;
 }
 
-glm::mat4 EXP::Rectangle::GetTransformationMatrix(Rect<float> window, Rect<float> screen) const
+EXP::Rect<float> EXP::Rectangle::GetPixelVertices(EXP::Rect<float> screen) const
 {
-    return get_transformation_matrix(window, screen);
+    return get_pixel_vertices(screen);
 }
 
-glm::mat4 EXP::Rectangle::get_transformation_matrix(Rect<float> window, Rect<float> screen) const
+EXP::Rect<float> EXP::Rectangle::GetPixelVertices(EXP::Rect<int> screen) const
+{
+    EXP::Rect<float> screen_ = static_cast<EXP::Rect<float>>(screen);
+    return get_pixel_vertices(screen_);
+}
+
+glm::mat4 EXP::Rectangle::GetTransformationMatrix(Rect<float> screen) const
+{
+    return get_transformation_matrix(screen);
+}
+
+EXP::Rect<float> EXP::Rectangle::get_pixel_vertices(EXP::Rect<float> screen) const
+{
+    glm::vec3 pos = get_units_position(screen);
+    glm::vec3 scl = get_units_scale(screen);
+    
+    float left = pos.x - scl.x;
+    float right = pos.x + scl.x;
+    float top = pos.y - scl.y;
+    float bottom = pos.y + scl.y;
+    
+    return EXP::Rect<float>(left, top, right, bottom);
+}
+
+glm::mat4 EXP::Rectangle::get_transformation_matrix(Rect<float> screen) const
 {
     glm::mat4 transform(1.0f);
     transform = glm::translate(transform, get_units_position(screen));

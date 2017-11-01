@@ -34,7 +34,7 @@ glm::vec2 EXP::Model2D::GetPosition(void)
     return glm::vec2(position.x, position.y);
 }
 
-glm::mat4 EXP::Model2D::GetTransformationMatrix(Rect<float> window, Rect<float> screen) const
+glm::mat4 EXP::Model2D::GetTransformationMatrix(Rect<float> screen) const
 {
     return Model::GetTransformationMatrix();
 }

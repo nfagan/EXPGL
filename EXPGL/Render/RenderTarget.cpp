@@ -11,9 +11,11 @@
 
 EXP::RenderTarget::RenderTarget(std::vector<EXP::Window*> windows)
 {
+    assert(windows.size() > 0);
     this->windows = windows;
     this->full_rect = new EXP::Rect<int>(0, 0, 0, 0);
     set_window_titles();
+    glfwPollEvents();
 }
 
 EXP::RenderTarget::~RenderTarget()
