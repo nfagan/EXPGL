@@ -27,6 +27,7 @@ namespace EXP {
         {
             T* item = new T(args...);
             item->InitializeMesh(target);
+            item->set_id(items.size());
             items.push_back(item);
             return item;
         }

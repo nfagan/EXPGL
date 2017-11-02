@@ -25,9 +25,14 @@ void EXP::Model::Draw(EXP::Shader *shader, unsigned index)
     mesh->Draw(index);
 }
 
-void EXP::Model::SetID(unsigned int id)
+void EXP::Model::set_id(unsigned int id)
 {
-    this->ID = id;
+    this->id = id;
+}
+
+unsigned EXP::Model::GetId() const
+{
+    return id;
 }
 
 void EXP::Model::SetMaterial(EXP::Material *material)
