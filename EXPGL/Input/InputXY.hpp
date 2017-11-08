@@ -9,8 +9,6 @@
 #ifndef InputXY_hpp
 #define InputXY_hpp
 
-#define EXPGL__INPUTXY__DO_ATOMIC
-
 #include <stdio.h>
 #include "../Render/RenderTarget.hpp"
 #include <glm/glm.hpp>
@@ -28,13 +26,8 @@ namespace EXP {
         virtual void PrintCoordinates(void) const;
     protected:
         EXP::RenderTarget *target;
-#ifdef EXPGL__INPUTXY__DO_ATOMIC
         std::atomic<float> x;
         std::atomic<float> y;
-#else
-        float x;
-        float y;
-#endif
     };
 }
 

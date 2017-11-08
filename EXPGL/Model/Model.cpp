@@ -7,37 +7,59 @@
 //
 
 #include "Model.hpp"
+#include <iostream>
 
-EXP::Model::Model(EXP::Mesh *mesh, EXP::Material *material)
+EXP::Model::Model(EXP::Mesh *mesh, EXP::Material *material) : EXP::GLResourcePrimitive()
 {
-    this->mesh = mesh;
-    this->material = material;
-    this->position = glm::vec3(0.0f);
-    this->rotation = glm::vec3(0.0f);
-    this->scale = glm::vec3(1.0f);
+    SetMesh(mesh);
+    SetMaterial(material);
+    SetPosition(glm::vec3(0.0f));
+    SetRotation(glm::vec3(0.0f));
+    SetScale(glm::vec3(1.0f));
+    SetShader(nullptr);
 }
 
 EXP::Model::~Model() {}
 
-void EXP::Model::Draw(EXP::Shader *shader, unsigned index)
+bool EXP::Model::Is2D() const
 {
-    material->Configure(shader);
-    mesh->Draw(index);
+    return is_2d;
 }
 
-void EXP::Model::set_id(unsigned int id)
+void EXP::Model::Draw(unsigned index)
 {
-    this->id = id;
+    if (!shader)
+    {
+        std::cout << "WARNING: Attempted to draw before assigning a shader!" << std::endl;
+        return;
+    }
+    material.load()->Configure(shader);
+    mesh.load()->Draw(index);
 }
 
-unsigned EXP::Model::GetId() const
+void EXP::Model::Initialize(EXP::RenderTarget* target)
 {
-    return id;
+    initialize_mesh(target);
+}
+
+void EXP::Model::MakeLike(EXP::Model *model)
+{
+    SetShader(model->GetShader());
+    SetMaterial(model->GetMaterial());
+    SetPosition(model->GetPosition());
+    SetRotation(model->GetRotation());
+    SetScale(model->GetScale());
+    SetUnits(model->GetUnits());
+}
+
+void EXP::Model::SetShader(EXP::Shader *shader)
+{
+    this->shader.store(shader);
 }
 
 void EXP::Model::SetMaterial(EXP::Material *material)
 {
-    this->material = material;
+    this->material.store(material);
 }
 
 void EXP::Model::SetScale(glm::vec3 scale)
@@ -65,12 +87,47 @@ void EXP::Model::SetUnits(EXP::Model::UNITS units)
     this->units = units;
 }
 
-void EXP::Model::InitializeMesh(EXP::RenderTarget *target)
+void EXP::Model::SetMesh(EXP::Mesh *mesh)
 {
-    mesh->Initialize(target);
+    this->mesh.store(mesh);
 }
 
-glm::mat4 EXP::Model::GetTransformationMatrix() const
+void EXP::Model::initialize_mesh(EXP::RenderTarget *target)
+{
+    mesh.load()->Initialize(target);
+}
+
+EXP::Model::UNITS EXP::Model::GetUnits() const
+{
+    return units;
+}
+
+glm::vec3 EXP::Model::GetPosition() const
+{
+    return position;
+}
+
+glm::vec3 EXP::Model::GetScale() const
+{
+    return scale;
+}
+
+glm::vec3 EXP::Model::GetRotation() const
+{
+    return rotation;
+}
+
+EXP::Shader* EXP::Model::GetShader() const
+{
+    return shader.load();
+}
+
+EXP::Material* EXP::Model::GetMaterial() const
+{
+    return material.load();
+}
+
+glm::mat4 EXP::Model::GetTransformationMatrix(EXP::Rect<float> screen) const
 {
     glm::mat4 transform = glm::mat4(1.0f);
     transform = glm::translate(transform, position);

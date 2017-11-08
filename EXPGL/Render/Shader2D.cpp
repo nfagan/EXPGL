@@ -12,8 +12,6 @@
 
 EXP::Shader2D::Shader2D() : EXP::Shader()
 {
-//    std::string vs_code = EXP::Shaders::stimulus_2d_shader::vertex;
-//    std::string fs_code = EXP::Shaders::stimulus_2d_shader::fragment;
     const char *vs_code = EXP::Shaders::stimulus_2d_shader::vertex;
     const char *fs_code = EXP::Shaders::stimulus_2d_shader::fragment;
     

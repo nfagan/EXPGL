@@ -39,6 +39,7 @@ namespace EXP {
         void SetInt(const char *name, int value) const;
         void SetBool(const char *name, bool value) const;
         void SetFloat(const char *name, float value) const;
+        
     private:
         unsigned ID;
         

@@ -8,7 +8,7 @@
 
 #include "Texture.hpp"
 
-EXP::Texture::Texture(unsigned id)
+EXP::Texture::Texture(unsigned id) : EXP::GLResourcePrimitive()
 {
     this->id = id;
 }

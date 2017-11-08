@@ -24,7 +24,7 @@ namespace EXP {
         int GetWidth(void) const;
         int GetHeight(void) const;
     private:
-        EXP::Texture2D *texture;
+        std::atomic<EXP::Texture2D*> texture;
     };
 }
 

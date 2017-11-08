@@ -8,7 +8,10 @@
 
 #include "Model2D.hpp"
 
-EXP::Model2D::Model2D(EXP::Mesh *mesh, EXP::Material *material) : EXP::Model(mesh, material) {}
+EXP::Model2D::Model2D(EXP::Mesh *mesh, EXP::Material *material) : EXP::Model(mesh, material)
+{
+    is_2d = true;
+}
 
 EXP::Model2D::~Model2D() {}
 
@@ -36,5 +39,5 @@ glm::vec2 EXP::Model2D::GetPosition(void)
 
 glm::mat4 EXP::Model2D::GetTransformationMatrix(Rect<float> screen) const
 {
-    return Model::GetTransformationMatrix();
+    return Model::GetTransformationMatrix(screen);
 }

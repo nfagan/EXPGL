@@ -10,13 +10,15 @@
 #define Model_hpp
 
 #include <stdio.h>
+#include <atomic>
 #include "../Mesh/Mesh.hpp"
 #include "../Material/Material.hpp"
 #include "../Texture/Texture.hpp"
 #include "../Render/Shader.hpp"
+#include "../Resource/GLResourcePrimitive.hpp"
 
 namespace EXP {
-    class Model
+    class Model : public GLResourcePrimitive
     {
         
         friend class ModelLoader;
@@ -30,27 +32,40 @@ namespace EXP {
         Model(EXP::Mesh *mesh, EXP::Material *material);
         virtual ~Model();
         
+        virtual void SetShader(EXP::Shader *shader);
         virtual void SetMaterial(EXP::Material *material);
+        virtual void SetMesh(EXP::Mesh *mesh);
         virtual void SetPosition(glm::vec3 position);
         virtual void SetRotation(glm::vec3 rotation);
         virtual void SetScale(glm::vec3 scale);
         virtual void SetScale(float scale);
         virtual void SetUnits(UNITS units);
-        virtual void InitializeMesh(EXP::RenderTarget *target);
+        
+        virtual void Initialize(EXP::RenderTarget *target);
+        virtual void MakeLike(EXP::Model *model);
 
-        virtual glm::mat4 GetTransformationMatrix() const;
-        virtual unsigned GetId() const;
-        virtual void Draw(EXP::Shader *shader, unsigned index);
+        virtual bool Is2D(void) const;
+        
+        virtual glm::vec3 GetPosition(void) const;
+        virtual glm::vec3 GetScale(void) const;
+        virtual glm::vec3 GetRotation(void) const;
+        virtual UNITS GetUnits(void) const;
+        virtual EXP::Shader* GetShader(void) const;
+        virtual EXP::Material* GetMaterial(void) const;
+        
+        virtual glm::mat4 GetTransformationMatrix(Rect<float> screen) const;
+        virtual void Draw(unsigned index);
     protected:
-        unsigned id;
-        EXP::Mesh *mesh;
-        EXP::Material *material;
+        bool is_2d = false;
+        std::atomic<EXP::Shader*> shader;
+        std::atomic<EXP::Mesh*> mesh;
+        std::atomic<EXP::Material*> material;
         glm::vec3 position;
         glm::vec3 rotation;
         glm::vec3 scale;
         UNITS units = NORMALIZED;
         
-        void set_id(unsigned id);
+        void initialize_mesh(EXP::RenderTarget *target);
     };
 }
 

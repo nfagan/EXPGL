@@ -14,5 +14,5 @@ EXP::Model3D::~Model3D() {}
 
 glm::mat4 EXP::Model3D::GetTransformationMatrix(Rect<float> window, Rect<float> screen) const
 {
-    return Model::GetTransformationMatrix();
+    return Model::GetTransformationMatrix(screen);
 }

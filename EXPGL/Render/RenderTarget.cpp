@@ -16,6 +16,7 @@ EXP::RenderTarget::RenderTarget(std::vector<EXP::Window*> windows)
     this->full_rect = new EXP::Rect<int>(0, 0, 0, 0);
     set_window_titles();
     glfwPollEvents();
+    windows[0]->Focus();
 }
 
 EXP::RenderTarget::~RenderTarget()

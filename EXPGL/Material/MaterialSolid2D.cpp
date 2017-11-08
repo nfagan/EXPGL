@@ -11,12 +11,12 @@
 
 EXP::MaterialSolid2D::MaterialSolid2D() : EXP::Material()
 {
-    this->albedo = EXP::Colors::RED;
+    albedo.store(EXP::Colors::RED);
 }
 
 void EXP::MaterialSolid2D::SetAlbedo(glm::vec3 albedo)
 {
-    this->albedo = albedo;
+    this->albedo.store(albedo);
 }
 
 EXP::MaterialSolid2D::~MaterialSolid2D() {}
@@ -24,5 +24,5 @@ EXP::MaterialSolid2D::~MaterialSolid2D() {}
 void EXP::MaterialSolid2D::Configure(EXP::Shader *shader)
 {
     shader->SetBool("is_textured", false);
-    shader->SetVec3("albedo", albedo);
+    shader->SetVec3("albedo", albedo.load());
 }

@@ -11,9 +11,10 @@
 
 #include <stdio.h>
 #include <glad/glad.h>
+#include "../Resource/GLResourcePrimitive.hpp"
 
 namespace EXP {
-    class Texture
+    class Texture : public GLResourcePrimitive
     {
     public:
         Texture(unsigned id);

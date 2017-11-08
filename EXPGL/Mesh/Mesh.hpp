@@ -12,9 +12,10 @@
 #include <stdio.h>
 #include <GL_HEADERS.h>
 #include "../Render/RenderTarget.hpp"
+#include "../Resource/GLResourcePrimitive.hpp"
 
 namespace EXP {
-    class Mesh
+    class Mesh : public GLResourcePrimitive
     {
     public:        
         enum TOPOLOGY {

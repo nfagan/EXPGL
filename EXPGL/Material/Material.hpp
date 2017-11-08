@@ -11,15 +11,20 @@
 
 #include <stdio.h>
 #include <vector>
+#include <atomic>
 #include "../Render/Shader.hpp"
+#include "../Resource/GLResourcePrimitive.hpp"
 
 namespace EXP {
-    class Material
+    
+    class Material : public GLResourcePrimitive
     {
+        friend class MaterialLoader;
+        
     public:
-        Material() {};
-        virtual ~Material() {};
-        virtual void Configure(EXP::Shader *shader) {};
+        Material();
+        virtual ~Material();
+        virtual void Configure(EXP::Shader *shader);
     };
 }
 

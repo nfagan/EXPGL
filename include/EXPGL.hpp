@@ -15,9 +15,7 @@
 #include <EXPGL/Input/InputXY.hpp>
 #include <EXPGL/Input/InputKeyboard.hpp>
 
-#include <EXPGL/Loaders/Loader.hpp>
-#include <EXPGL/Loaders/MaterialLoader.hpp>
-#include <EXPGL/Loaders/ResourceManager.hpp>
+#include <EXPGL/Loaders/GLResourceManager.hpp>
 #include <EXPGL/Loaders/TextureLoader.hpp>
 
 #include <EXPGL/Material/Material.hpp>
@@ -32,8 +30,8 @@
 #include <EXPGL/Model/Rectangle.hpp>
 #include <EXPGL/Model/Image.hpp>
 
+#include <EXPGL/Render/RenderLoop.hpp>
 #include <EXPGL/Render/Renderer.hpp>
-#include <EXPGL/Render/Renderer2D.hpp>
 #include <EXPGL/Render/RenderTarget.hpp>
 #include <EXPGL/Render/Shader.hpp>
 #include <EXPGL/Render/Shader2D.hpp>

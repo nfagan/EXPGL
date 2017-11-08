@@ -8,7 +8,7 @@
 
 #include "Mesh.hpp"
 
-EXP::Mesh::Mesh() {}
+EXP::Mesh::Mesh() : EXP::GLResourcePrimitive() {}
 
 EXP::Mesh::~Mesh() {
     for (unsigned i = 0; i < n_vaos; ++i) {

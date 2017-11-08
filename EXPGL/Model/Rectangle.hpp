@@ -25,10 +25,16 @@ namespace EXP {
         
         void SetDimensions(float width, float height);
         
+        float GetWidth(void) const;
+        float GetHeight(void) const;
+        
+        virtual void MakeLike(EXP::Rectangle *rectangle);
+        
         glm::mat4 GetTransformationMatrix(Rect<float> screen) const;
         EXP::Rect<float> GetPixelVertices(EXP::Rect<int> screen) const;
         EXP::Rect<float> GetPixelVertices(EXP::Rect<float> screen) const;
     private:
+        bool owns_material;
         float width;
         float height;
         glm::vec3 get_units_scale(Rect<float> screen) const;

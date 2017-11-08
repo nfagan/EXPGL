@@ -14,7 +14,7 @@ int test_case(void)
     using namespace EXP;
     
     GLContextManager *context_manager = new GLContextManager();
-    ResourceManager *resource_manager = new ResourceManager();
+    GLResourceManager *resource_manager = new GLResourceManager();
     
     if (!context_manager->DidInitialize())
     {

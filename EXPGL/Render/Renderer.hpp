@@ -11,7 +11,6 @@
 
 #include <stdio.h>
 #include <glm/glm.hpp>
-#include "Renderer2D.hpp"
 #include "../Model/Model2D.hpp"
 #include "../Model/Model3D.hpp"
 #include "../Util/Colors.hpp"
@@ -23,21 +22,20 @@ namespace EXP {
         Renderer(EXP::RenderTarget *target);
         ~Renderer();
         
-        void SetClearColor(glm::vec3 color);
-        
-        void Queue(EXP::Model2D *model);
-        void Queue(EXP::Model3D *model);
-        
+        void Queue(EXP::Model *model);
         void Draw(void);
+        
+        glm::mat4 GetProjectionMatrix2D(const EXP::Rect<float> &window_rect) const;
+        glm::mat4 GetProjectionMatrix3D(const EXP::Rect<float> &window_rect) const;
+        
+        void SetClearColor(glm::vec3 color);
     private:
-        std::vector<EXP::Model2D*> models_2d;
-        std::vector<EXP::Model3D*> models_3d;
-        EXP::Renderer2D *renderer_2d;
+        std::vector<EXP::Model*> models;
         EXP::RenderTarget *target;
         glm::vec3 clear_color = EXP::Colors::BLACK;
         
         void prepare_context(EXP::Window *window);
-        void draw(EXP::Model2D *model, EXP::Window *window, unsigned index);
+        void draw(EXP::Model *model, EXP::Window *window, unsigned index);
         void swap_buffers(EXP::Window *window);
     };
 }

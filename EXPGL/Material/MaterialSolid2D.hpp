@@ -23,7 +23,7 @@ namespace EXP {
         void SetAlbedo(glm::vec3 albedo);
         void Configure(EXP::Shader *shader);
     protected:
-        glm::vec3 albedo;
+        std::atomic<glm::vec3> albedo;
     };
 }
 

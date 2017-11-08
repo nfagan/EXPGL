@@ -7,18 +7,15 @@
 //
 
 #include "Renderer.hpp"
+#include <iostream>
 
 EXP::Renderer::Renderer(EXP::RenderTarget *target)
 {
     target->GetPrimaryWindow()->MakeCurrent();
     this->target = target;
-    this->renderer_2d = new Renderer2D(target);
 }
 
-EXP::Renderer::~Renderer()
-{
-    delete renderer_2d;
-}
+EXP::Renderer::~Renderer() {}
 
 void EXP::Renderer::Draw(void)
 {
@@ -26,34 +23,38 @@ void EXP::Renderer::Draw(void)
     {
         EXP::Window *window = target->GetWindow(i);
         prepare_context(window);
-        for (unsigned j = 0; j < models_2d.size(); ++j)
+        for (unsigned j = 0; j < models.size(); ++j)
         {
-            draw(models_2d[j], window, i);
+            draw(models[j], window, i);
         }
-        for (unsigned j = 0; j < models_3d.size(); ++j)
-        {
-            //  3D not yet implemented
-            assert(false);
-        }
-        swap_buffers(window);
+//        swap_buffers(window);
     }
-    models_2d.clear();
-    models_3d.clear();
+    for (unsigned i = 0; i < target->Size(); ++i)
+    {
+        swap_buffers(target->GetWindow(i));
+    }
+    models.clear();
 }
 
-void EXP::Renderer::Queue(EXP::Model2D *model)
+void EXP::Renderer::Queue(EXP::Model *model)
 {
-    models_2d.push_back(model);
-}
-
-void EXP::Renderer::Queue(EXP::Model3D *model)
-{
-    models_3d.push_back(model);
+    models.push_back(model);
 }
 
 void EXP::Renderer::SetClearColor(glm::vec3 color)
 {
     clear_color = color;
+}
+
+glm::mat4 EXP::Renderer::GetProjectionMatrix2D(const Rect<float> &window_rect) const
+{
+    return glm::ortho(window_rect.get_left(), window_rect.get_right(),
+                      window_rect.get_bottom(), window_rect.get_top());
+}
+
+glm::mat4 EXP::Renderer::GetProjectionMatrix3D(const EXP::Rect<float> &window_rect) const
+{
+    return GetProjectionMatrix2D(window_rect);
 }
 
 void EXP::Renderer::prepare_context(EXP::Window *window)
@@ -63,9 +64,33 @@ void EXP::Renderer::prepare_context(EXP::Window *window)
     glClear(GL_COLOR_BUFFER_BIT);
 }
 
-void EXP::Renderer::draw(EXP::Model2D *model, EXP::Window *window, unsigned index)
+void EXP::Renderer::draw(EXP::Model *model, EXP::Window *window, unsigned index)
 {
-    renderer_2d->Draw(model, window, index);
+    EXP::Shader* shader = model->GetShader();
+    
+    if (!shader)
+    {
+        std::cout << "Warning: No shader attached; model will not be drawn." << std::endl;
+        return;
+    }
+    
+    shader->Start();
+    Rect<float> wrect = static_cast<Rect<float>>(*(window->GetRect()));
+    Rect<float> srect = static_cast<Rect<float>>(target->GetFullRect());
+    
+    if (model->Is2D())
+    {
+        shader->SetMat4("view", GetProjectionMatrix2D(wrect));
+    }
+    else
+    {
+        //  3D not yet implemented
+        assert(false);
+    }
+    
+    shader->SetMat4("model", model->GetTransformationMatrix(srect));
+    model->Draw(index);
+    shader->Stop();
 }
 
 void EXP::Renderer::swap_buffers(EXP::Window *window)

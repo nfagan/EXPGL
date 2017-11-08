@@ -11,17 +11,39 @@
 EXP::Rectangle::Rectangle() : EXP::Model2D(new Quad(), new MaterialSolid2D()) {
     width = 1.0f;
     height = 1.0f;
+    owns_material = true;
 }
 
 EXP::Rectangle::Rectangle(EXP::Material *material) : EXP::Model2D(new Quad(), material)
 {
     width = 1.0f;
     height = 1.0f;
+    owns_material = false;
 }
 
 EXP::Rectangle::~Rectangle()
 {
     delete mesh;
+    if (owns_material)
+    {
+        delete material;
+    }
+}
+
+void EXP::Rectangle::MakeLike(EXP::Rectangle *rectangle)
+{
+    EXP::Model::MakeLike(rectangle);
+    SetDimensions(rectangle->GetWidth(), rectangle->GetHeight());
+}
+
+float EXP::Rectangle::GetWidth() const
+{
+    return width;
+}
+
+float EXP::Rectangle::GetHeight() const
+{
+    return height;
 }
 
 void EXP::Rectangle::SetDimensions(float width, float height)
