@@ -43,7 +43,7 @@ namespace EXP {
             id.SetName(name);
             item->set_identifier(id);
             items.push_back(item);
-            types.push_back(typeid(T));
+            types.push_back(std::type_index(typeid(T)));
             indices[name] = n_items;
             n_items++;
             return item;
@@ -74,7 +74,7 @@ namespace EXP {
             auto it = indices.find(name.c_str());
             EXPGL_ASSERT(it != indices.end(), "No items with the name `" << name << "` were present.");
             GLResourcePrimitive *item = items[it->second];
-            EXPGL_ASSERT(typeid(T).hash_code() == types[it->second].hash_code(),
+            EXPGL_ASSERT(std::type_index(typeid(T)) == types[it->second],
                          "The type of the retreived item must match its original type.");
             return static_cast<T*>(item);
         }
