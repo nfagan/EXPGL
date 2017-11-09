@@ -7,7 +7,7 @@
 //
 
 #include "RenderLoop.hpp"
-#include "Model.hpp"
+#include "../Model/Model.hpp"
 
 EXP::RenderLoop::RenderLoop(EXP::Renderer *renderer)
 {

@@ -15,55 +15,89 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="expgl\context\GLContextManager.cpp">
+    <None Include="EXPGL\Shaders\stimulus_2d.fs" />
+    <None Include="EXPGL\Shaders\stimulus_2d.vs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="EXPGL\Context\GLContextManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="expgl\context\Window.cpp">
+    <ClCompile Include="EXPGL\Context\Window.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="expgl\input\InputXY.cpp">
+    <ClCompile Include="EXPGL\glad\glad.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="expgl\loaders\ModelLoader.cpp">
+    <ClCompile Include="EXPGL\Input\InputKeyboard.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="expgl\loaders\ResourceManager.cpp">
+    <ClCompile Include="EXPGL\Input\InputXY.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="expgl\loaders\TextureLoader.cpp">
+    <ClCompile Include="EXPGL\Loaders\GLResourceLoader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="expgl\mesh\Mesh.cpp">
+    <ClCompile Include="EXPGL\Loaders\GLResourceManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="expgl\mesh\Quad.cpp">
+    <ClCompile Include="EXPGL\Loaders\TextureLoader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="expgl\model\Model.cpp">
+    <ClCompile Include="EXPGL\Material\Material.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="expgl\model\Rectangle.cpp">
+    <ClCompile Include="EXPGL\Material\MaterialSolid2D.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="expgl\render\Renderer.cpp">
+    <ClCompile Include="EXPGL\Material\MaterialTexture2D.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="expgl\render\RenderTarget.cpp">
+    <ClCompile Include="EXPGL\Mesh\Mesh.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="expgl\render\Shader.cpp">
+    <ClCompile Include="EXPGL\Mesh\Quad.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="EXPGL\Render\Renderer2D.cpp">
+    <ClCompile Include="EXPGL\Model\Image.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EXPGL\Model\Model.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EXPGL\Model\Model2D.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EXPGL\Model\Model3D.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EXPGL\Model\Rectangle.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EXPGL\Render\Renderer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EXPGL\Render\RenderLoop.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EXPGL\Render\RenderTarget.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EXPGL\Render\Shader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="EXPGL\Render\Shader2D.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Test\test_window\main.cpp">
+    <ClCompile Include="EXPGL\Resource\GLResourceIdentifier.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="EXPGL\Model\Model2D.cpp">
+    <ClCompile Include="EXPGL\Resource\GLResourcePrimitive.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EXPGL\Shaders\bare_2d.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EXPGL\Shaders\stimulus_2d.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="EXPGL\Texture\Texture.cpp">
@@ -72,87 +106,81 @@
     <ClCompile Include="EXPGL\Texture\Texture2D.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="EXPGL\Material\MaterialSolid2D.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="EXPGL\Input\InputKeyboard.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="EXPGL\Material\MaterialTexture2D.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="EXPGL\glad\glad.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="EXPGL\Model\Image.cpp">
+    <ClCompile Include="EXPGL\Util\GLFrameTimer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="expgl\context\GLContextManager.hpp">
+    <ClInclude Include="EXPGL\Context\GLContextManager.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="expgl\context\Window.hpp">
+    <ClInclude Include="EXPGL\Context\Window.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="expgl\input\InputXY.hpp">
+    <ClInclude Include="EXPGL\Input\InputKeyboard.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="expgl\loaders\ModelLoader.hpp">
+    <ClInclude Include="EXPGL\Input\InputXY.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="expgl\loaders\ResourceManager.hpp">
+    <ClInclude Include="EXPGL\Loaders\GLResourceLoader.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="expgl\loaders\TextureLoader.hpp">
+    <ClInclude Include="EXPGL\Loaders\GLResourceManager.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="expgl\mesh\Mesh.hpp">
+    <ClInclude Include="EXPGL\Loaders\TextureLoader.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="expgl\mesh\Quad.hpp">
+    <ClInclude Include="EXPGL\Material\Material.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="expgl\model\Model.hpp">
+    <ClInclude Include="EXPGL\Material\MaterialSolid2D.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="expgl\model\Rectangle.hpp">
+    <ClInclude Include="EXPGL\Material\MaterialTexture2D.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="expgl\render\Renderer.hpp">
+    <ClInclude Include="EXPGL\Mesh\Mesh.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="expgl\render\RenderTarget.hpp">
+    <ClInclude Include="EXPGL\Mesh\Quad.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="expgl\render\Shader.hpp">
+    <ClInclude Include="EXPGL\Model\Image.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="expgl\util\Colors.hpp">
+    <ClInclude Include="EXPGL\Model\Model.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="expgl\util\Paths.hpp">
+    <ClInclude Include="EXPGL\Model\Model2D.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="expgl\util\Positions2D.hpp">
+    <ClInclude Include="EXPGL\Model\Model3D.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="expgl\util\Rect.hpp">
+    <ClInclude Include="EXPGL\Model\Rectangle.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="EXPGL\Render\Renderer2D.hpp">
+    <ClInclude Include="EXPGL\Render\Renderer.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EXPGL\Render\RenderLoop.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EXPGL\Render\RenderTarget.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EXPGL\Render\Shader.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="EXPGL\Render\Shader2D.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Test\test_window\multiple_contexts.hpp">
+    <ClInclude Include="EXPGL\Resource\GLResourceIdentifier.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Test\test_window\multiple_windows.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="EXPGL\Model\Model2D.hpp">
+    <ClInclude Include="EXPGL\Resource\GLResourcePrimitive.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="EXPGL\Texture\Texture.hpp">
@@ -161,33 +189,23 @@
     <ClInclude Include="EXPGL\Texture\Texture2D.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="EXPGL\Loaders\MaterialLoader.hpp">
+    <ClInclude Include="EXPGL\Util\Colors.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="EXPGL\Loaders\Loader.hpp">
+    <ClInclude Include="EXPGL\Util\EXPGL_ASSERT.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="EXPGL\Material\MaterialSolid2D.hpp">
+    <ClInclude Include="EXPGL\Util\GLFrameTimer.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="EXPGL\Input\InputKeyboard.hpp">
+    <ClInclude Include="EXPGL\Util\Paths.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="EXPGL\Material\MaterialTexture2D.hpp">
+    <ClInclude Include="EXPGL\Util\Positions2D.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\GL_HEADERS.h">
+    <ClInclude Include="EXPGL\Util\Rect.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\EXPGL.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="EXPGL\Model\Image.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="EXPGL\Shaders\stimulus_2d.fs" />
-    <None Include="EXPGL\Shaders\stimulus_2d.vs" />
   </ItemGroup>
 </Project>

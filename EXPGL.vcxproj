@@ -62,7 +62,7 @@
     <PlatformToolset>v141</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
   </PropertyGroup>
@@ -131,6 +131,9 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Test64|x64'">
     <LibraryPath>$(ProjectDir)Vendor\glfw\lib-vc2015;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>$(SolutionDir)build\$(Platform)\$(Configuration)\</OutDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -210,10 +213,10 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Link>
       <AdditionalLibraryDirectories>$(ProjectDir)lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>glfw3.lib;glfw3dll.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glfw3.lib;glfw3dll.lib;EXPUtil.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <ClCompile>
-      <AdditionalIncludeDirectories>$(ProjectDir)include;$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)include;$(ProjectDir);C:\Users\changLab\Repositories\cpp\EXPUtil\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Test|x64'">
@@ -234,74 +237,74 @@
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="expgl\context\GLContextManager.cpp" />
-    <ClCompile Include="expgl\context\Window.cpp" />
-    <ClCompile Include="EXPGL\glad\glad.c" />
-    <ClCompile Include="EXPGL\Input\InputKeyboard.cpp" />
-    <ClCompile Include="expgl\input\InputXY.cpp" />
-    <ClCompile Include="expgl\loaders\ModelLoader.cpp" />
-    <ClCompile Include="expgl\loaders\ResourceManager.cpp" />
-    <ClCompile Include="expgl\loaders\TextureLoader.cpp" />
-    <ClCompile Include="EXPGL\Material\MaterialSolid2D.cpp" />
-    <ClCompile Include="EXPGL\Material\MaterialTexture2D.cpp" />
-    <ClCompile Include="expgl\mesh\Mesh.cpp" />
-    <ClCompile Include="expgl\mesh\Quad.cpp" />
-    <ClCompile Include="EXPGL\Model\Image.cpp" />
-    <ClCompile Include="expgl\model\Model.cpp" />
-    <ClCompile Include="EXPGL\Model\Model2D.cpp" />
-    <ClCompile Include="expgl\model\Rectangle.cpp" />
-    <ClCompile Include="expgl\render\Renderer.cpp" />
-    <ClCompile Include="EXPGL\Render\Renderer2D.cpp" />
-    <ClCompile Include="expgl\render\RenderTarget.cpp" />
-    <ClCompile Include="expgl\render\Shader.cpp" />
-    <ClCompile Include="EXPGL\Render\Shader2D.cpp" />
-    <ClCompile Include="EXPGL\Texture\Texture.cpp" />
-    <ClCompile Include="EXPGL\Texture\Texture2D.cpp" />
-    <ClCompile Include="Test\test_window\main.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Test|Win32'">false</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Test64|Win32'">false</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Test64|x64'">false</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="expgl\context\GLContextManager.hpp" />
-    <ClInclude Include="expgl\context\Window.hpp" />
-    <ClInclude Include="EXPGL\Input\InputKeyboard.hpp" />
-    <ClInclude Include="expgl\input\InputXY.hpp" />
-    <ClInclude Include="EXPGL\Loaders\Loader.hpp" />
-    <ClInclude Include="EXPGL\Loaders\MaterialLoader.hpp" />
-    <ClInclude Include="expgl\loaders\ModelLoader.hpp" />
-    <ClInclude Include="expgl\loaders\ResourceManager.hpp" />
-    <ClInclude Include="expgl\loaders\TextureLoader.hpp" />
-    <ClInclude Include="EXPGL\Material\MaterialSolid2D.hpp" />
-    <ClInclude Include="EXPGL\Material\MaterialTexture2D.hpp" />
-    <ClInclude Include="expgl\mesh\Mesh.hpp" />
-    <ClInclude Include="expgl\mesh\Quad.hpp" />
-    <ClInclude Include="EXPGL\Model\Image.hpp" />
-    <ClInclude Include="expgl\model\Model.hpp" />
-    <ClInclude Include="EXPGL\Model\Model2D.hpp" />
-    <ClInclude Include="expgl\model\Rectangle.hpp" />
-    <ClInclude Include="expgl\render\Renderer.hpp" />
-    <ClInclude Include="EXPGL\Render\Renderer2D.hpp" />
-    <ClInclude Include="expgl\render\RenderTarget.hpp" />
-    <ClInclude Include="expgl\render\Shader.hpp" />
-    <ClInclude Include="EXPGL\Render\Shader2D.hpp" />
-    <ClInclude Include="EXPGL\Texture\Texture.hpp" />
-    <ClInclude Include="EXPGL\Texture\Texture2D.hpp" />
-    <ClInclude Include="expgl\util\Colors.hpp" />
-    <ClInclude Include="expgl\util\Paths.hpp" />
-    <ClInclude Include="expgl\util\Positions2D.hpp" />
-    <ClInclude Include="expgl\util\Rect.hpp" />
-    <ClInclude Include="include\EXPGL.hpp" />
-    <ClInclude Include="include\GL_HEADERS.h" />
-    <ClInclude Include="Test\test_window\multiple_contexts.hpp" />
-    <ClInclude Include="Test\test_window\multiple_windows.hpp" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="EXPGL\Shaders\stimulus_2d.fs" />
     <None Include="EXPGL\Shaders\stimulus_2d.vs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="EXPGL\Context\GLContextManager.cpp" />
+    <ClCompile Include="EXPGL\Context\Window.cpp" />
+    <ClCompile Include="EXPGL\glad\glad.c" />
+    <ClCompile Include="EXPGL\Input\InputKeyboard.cpp" />
+    <ClCompile Include="EXPGL\Input\InputXY.cpp" />
+    <ClCompile Include="EXPGL\Loaders\GLResourceLoader.cpp" />
+    <ClCompile Include="EXPGL\Loaders\GLResourceManager.cpp" />
+    <ClCompile Include="EXPGL\Loaders\TextureLoader.cpp" />
+    <ClCompile Include="EXPGL\Material\Material.cpp" />
+    <ClCompile Include="EXPGL\Material\MaterialSolid2D.cpp" />
+    <ClCompile Include="EXPGL\Material\MaterialTexture2D.cpp" />
+    <ClCompile Include="EXPGL\Mesh\Mesh.cpp" />
+    <ClCompile Include="EXPGL\Mesh\Quad.cpp" />
+    <ClCompile Include="EXPGL\Model\Image.cpp" />
+    <ClCompile Include="EXPGL\Model\Model.cpp" />
+    <ClCompile Include="EXPGL\Model\Model2D.cpp" />
+    <ClCompile Include="EXPGL\Model\Model3D.cpp" />
+    <ClCompile Include="EXPGL\Model\Rectangle.cpp" />
+    <ClCompile Include="EXPGL\Render\Renderer.cpp" />
+    <ClCompile Include="EXPGL\Render\RenderLoop.cpp" />
+    <ClCompile Include="EXPGL\Render\RenderTarget.cpp" />
+    <ClCompile Include="EXPGL\Render\Shader.cpp" />
+    <ClCompile Include="EXPGL\Render\Shader2D.cpp" />
+    <ClCompile Include="EXPGL\Resource\GLResourceIdentifier.cpp" />
+    <ClCompile Include="EXPGL\Resource\GLResourcePrimitive.cpp" />
+    <ClCompile Include="EXPGL\Shaders\bare_2d.cpp" />
+    <ClCompile Include="EXPGL\Shaders\stimulus_2d.cpp" />
+    <ClCompile Include="EXPGL\Texture\Texture.cpp" />
+    <ClCompile Include="EXPGL\Texture\Texture2D.cpp" />
+    <ClCompile Include="EXPGL\Util\GLFrameTimer.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="EXPGL\Context\GLContextManager.hpp" />
+    <ClInclude Include="EXPGL\Context\Window.hpp" />
+    <ClInclude Include="EXPGL\Input\InputKeyboard.hpp" />
+    <ClInclude Include="EXPGL\Input\InputXY.hpp" />
+    <ClInclude Include="EXPGL\Loaders\GLResourceLoader.hpp" />
+    <ClInclude Include="EXPGL\Loaders\GLResourceManager.hpp" />
+    <ClInclude Include="EXPGL\Loaders\TextureLoader.hpp" />
+    <ClInclude Include="EXPGL\Material\Material.hpp" />
+    <ClInclude Include="EXPGL\Material\MaterialSolid2D.hpp" />
+    <ClInclude Include="EXPGL\Material\MaterialTexture2D.hpp" />
+    <ClInclude Include="EXPGL\Mesh\Mesh.hpp" />
+    <ClInclude Include="EXPGL\Mesh\Quad.hpp" />
+    <ClInclude Include="EXPGL\Model\Image.hpp" />
+    <ClInclude Include="EXPGL\Model\Model.hpp" />
+    <ClInclude Include="EXPGL\Model\Model2D.hpp" />
+    <ClInclude Include="EXPGL\Model\Model3D.hpp" />
+    <ClInclude Include="EXPGL\Model\Rectangle.hpp" />
+    <ClInclude Include="EXPGL\Render\Renderer.hpp" />
+    <ClInclude Include="EXPGL\Render\RenderLoop.hpp" />
+    <ClInclude Include="EXPGL\Render\RenderTarget.hpp" />
+    <ClInclude Include="EXPGL\Render\Shader.hpp" />
+    <ClInclude Include="EXPGL\Render\Shader2D.hpp" />
+    <ClInclude Include="EXPGL\Resource\GLResourceIdentifier.hpp" />
+    <ClInclude Include="EXPGL\Resource\GLResourcePrimitive.hpp" />
+    <ClInclude Include="EXPGL\Texture\Texture.hpp" />
+    <ClInclude Include="EXPGL\Texture\Texture2D.hpp" />
+    <ClInclude Include="EXPGL\Util\Colors.hpp" />
+    <ClInclude Include="EXPGL\Util\EXPGL_ASSERT.hpp" />
+    <ClInclude Include="EXPGL\Util\GLFrameTimer.hpp" />
+    <ClInclude Include="EXPGL\Util\Paths.hpp" />
+    <ClInclude Include="EXPGL\Util\Positions2D.hpp" />
+    <ClInclude Include="EXPGL\Util\Rect.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

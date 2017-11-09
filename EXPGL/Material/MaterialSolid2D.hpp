@@ -12,6 +12,7 @@
 #include <stdio.h>
 #include "Material.hpp"
 #include <glm/glm.hpp>
+#include <EXPUtil/thread/spinlock.hpp>
 
 namespace EXP {
     class MaterialSolid2D : public EXP::Material
@@ -22,8 +23,11 @@ namespace EXP {
         
         void SetAlbedo(glm::vec3 albedo);
         void Configure(EXP::Shader *shader);
+
+		glm::vec3 GetAlbedo(void);
     protected:
-        std::atomic<glm::vec3> albedo;
+		spinlock albedo_lock;
+		glm::vec3 albedo;
     };
 }
 
