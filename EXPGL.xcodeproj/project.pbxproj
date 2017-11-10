@@ -16,8 +16,6 @@
 		015764731FAF8CB200000957 /* GLResourceIdentifier.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 015764711FAF8CB200000957 /* GLResourceIdentifier.hpp */; };
 		015764771FAF96DC00000957 /* GLResourcePrimitive.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 015764751FAF96DC00000957 /* GLResourcePrimitive.cpp */; };
 		015764781FAF96DC00000957 /* GLResourcePrimitive.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 015764761FAF96DC00000957 /* GLResourcePrimitive.hpp */; };
-		0157647B1FAF9C8F00000957 /* GLResourceLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 015764791FAF9C8E00000957 /* GLResourceLoader.cpp */; };
-		0157647C1FAF9C8F00000957 /* GLResourceLoader.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 0157647A1FAF9C8E00000957 /* GLResourceLoader.hpp */; };
 		015945DE1FA3C94500970BD8 /* GLContextManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 015945A11FA3C94500970BD8 /* GLContextManager.cpp */; };
 		015945DF1FA3C94500970BD8 /* GLContextManager.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 015945A21FA3C94500970BD8 /* GLContextManager.hpp */; };
 		015945E01FA3C94500970BD8 /* Window.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 015945A31FA3C94500970BD8 /* Window.cpp */; };
@@ -105,8 +103,6 @@
 		015764711FAF8CB200000957 /* GLResourceIdentifier.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = GLResourceIdentifier.hpp; sourceTree = "<group>"; };
 		015764751FAF96DC00000957 /* GLResourcePrimitive.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GLResourcePrimitive.cpp; sourceTree = "<group>"; };
 		015764761FAF96DC00000957 /* GLResourcePrimitive.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = GLResourcePrimitive.hpp; sourceTree = "<group>"; };
-		015764791FAF9C8E00000957 /* GLResourceLoader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GLResourceLoader.cpp; sourceTree = "<group>"; };
-		0157647A1FAF9C8E00000957 /* GLResourceLoader.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = GLResourceLoader.hpp; sourceTree = "<group>"; };
 		015945A11FA3C94500970BD8 /* GLContextManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GLContextManager.cpp; sourceTree = "<group>"; };
 		015945A21FA3C94500970BD8 /* GLContextManager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = GLContextManager.hpp; sourceTree = "<group>"; };
 		015945A31FA3C94500970BD8 /* Window.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Window.cpp; sourceTree = "<group>"; };
@@ -893,8 +889,6 @@
 				015945B11FA3C94500970BD8 /* GLResourceManager.hpp */,
 				015945B21FA3C94500970BD8 /* TextureLoader.cpp */,
 				015945B31FA3C94500970BD8 /* TextureLoader.hpp */,
-				015764791FAF9C8E00000957 /* GLResourceLoader.cpp */,
-				0157647A1FAF9C8E00000957 /* GLResourceLoader.hpp */,
 			);
 			path = Loaders;
 			sourceTree = "<group>";
@@ -1943,7 +1937,6 @@
 				015945E11FA3C94500970BD8 /* Window.hpp in Headers */,
 				015764731FAF8CB200000957 /* GLResourceIdentifier.hpp in Headers */,
 				015946051FA3C94600970BD8 /* Shader.hpp in Headers */,
-				0157647C1FAF9C8F00000957 /* GLResourceLoader.hpp in Headers */,
 				015946091FA3C94600970BD8 /* Texture.hpp in Headers */,
 				015945EF1FA3C94500970BD8 /* Material.hpp in Headers */,
 				0159460C1FA3C94600970BD8 /* Colors.hpp in Headers */,
@@ -2074,7 +2067,6 @@
 				015946081FA3C94600970BD8 /* Texture.cpp in Sources */,
 				01EA09D61FABF46B003B32FB /* bare_2d.cpp in Sources */,
 				01C7FA991FA2BDA700C3B1F9 /* multiple_windows.hpp in Sources */,
-				0157647B1FAF9C8F00000957 /* GLResourceLoader.cpp in Sources */,
 				015945E31FA3C94500970BD8 /* InputKeyboard.cpp in Sources */,
 				012E30FF1FAE24E300C75429 /* RenderLoop.cpp in Sources */,
 				015946151FA3C9B400970BD8 /* glad.c in Sources */,
