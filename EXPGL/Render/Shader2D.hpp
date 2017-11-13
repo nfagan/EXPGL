@@ -17,7 +17,7 @@ namespace EXP {
     {
     public:
         Shader2D(void);
-        ~Shader2D(void);
+        ~Shader2D(void) = default;
     };
 }
 

@@ -57,6 +57,9 @@ namespace EXP {
         virtual EXP::Material* GetMaterial(void) const;
         
         virtual glm::mat4 GetTransformationMatrix(Rect<float> screen) const;
+        glm::vec3 get_units_position(const Rect<float> &screen) const;
+        glm::vec3 get_units_scale(const Rect<float> &screen) const;
+        
         virtual void Draw(unsigned index);
     protected:
         bool is_2d;
@@ -69,8 +72,6 @@ namespace EXP {
         UNITS units = NORMALIZED;
         
         void initialize_mesh(EXP::RenderTarget *target);
-        glm::vec3 get_units_position(const Rect<float> &screen) const;
-        glm::vec3 get_units_scale(const Rect<float> &screen) const;
         glm::mat4 get_transformation_matrix(const Rect<float> &screen) const;
     };
 }

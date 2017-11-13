@@ -8,12 +8,12 @@
 
 #include "Shader2D.hpp"
 
-#include "../Shaders/stimulus_2d.cpp"
+#include "../Shaders/generic.cpp"
 
 EXP::Shader2D::Shader2D() : EXP::Shader()
 {
-    const char *vs_code = EXP::Shaders::stimulus_2d_shader::vertex;
-    const char *fs_code = EXP::Shaders::stimulus_2d_shader::fragment;
+    const char *vs_code = EXP::Shaders::generic::vertex;
+    const char *fs_code = EXP::Shaders::generic::fragment;
     
     bool vs_result, fs_result, link_result;
     
@@ -23,5 +23,3 @@ EXP::Shader2D::Shader2D() : EXP::Shader()
     
     assert(vs_result && fs_result && link_result);
 }
-
-EXP::Shader2D::~Shader2D() {}

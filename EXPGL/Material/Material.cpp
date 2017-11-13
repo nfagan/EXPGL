@@ -9,12 +9,24 @@
 #include <stdio.h>
 #include "Material.hpp"
 
-EXP::Material::Material() : EXP::GLResourcePrimitive() {};
+EXP::Material::Material() : EXP::GLResourcePrimitive()
+{
+    SetAlbedo(glm::vec3(1.0f));
+};
 
 void EXP::Material::Configure(EXP::Shader *shader)
 {
-    for (unsigned i = 0; i < attributes.size(); ++i)
-    {
-        attributes[i].Configure(shader);
-    }
+    MaterialAttribute albedo_local(albedo.Get());
+    albedo_local.Configure(shader);
+}
+
+void EXP::Material::SetAlbedo(EXP::MaterialAttribute albedo)
+{
+    albedo.set_name("albedo");
+    this->albedo.Set(albedo);
+}
+
+const EXP::MaterialAttribute& EXP::Material::GetAlbedo() const
+{
+    return albedo.Get();
 }

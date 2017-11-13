@@ -13,8 +13,6 @@
 #include <assert.h>
 #include <vector>
 
-EXP::Shader::Shader() {};
-
 EXP::Shader::~Shader()
 {
     glDeleteProgram(ID);

@@ -9,7 +9,8 @@
 #ifndef ResourceManager_hpp
 #define ResourceManager_hpp
 
-#include <stdio.h>
+#include "../Mesh/Quad.hpp"
+#include "../Model/Model.hpp"
 #include "TextureLoader.hpp"
 #include "../Util/EXPGL_ASSERT.hpp"
 #include "../Resource/GLResourcePrimitive.hpp"
@@ -49,7 +50,15 @@ namespace EXP {
             return item;
         }
         
-        void SetName(GLResourcePrimitive* resource, std::string name)
+        Model* CreateRectangle(EXP::RenderTarget *target)
+        {
+            Mesh *mesh = Create<Quad>(target);
+            Material *mat = Create<Material>(target);
+            Model *model = Create<Model>(target, mesh, mat);
+            return model;
+        }
+        
+        void SetName(GLResourcePrimitive *resource, std::string name)
         {
             for (unsigned i = 0; i < items.size(); ++i)
             {
@@ -87,14 +96,16 @@ namespace EXP {
             {
                 if (items[i]->GetIdentifier().GetTag() == tag)
                 {
-                    res.push_back(static_cast<T*>(items[i]));
+                    T* item = dynamic_cast<T*>(items[i]);
+                    EXPGL_ASSERT(item, "The type of the retreived item must match its original type.");
+                    res.push_back(item);
                 }
             }
             return res;
         }
         
         template<typename T>
-        T* GetTexture(const char* filename)
+        T* GetTexture(const char *filename)
         {
             return texture_loader->GetTexture(filename);
         };

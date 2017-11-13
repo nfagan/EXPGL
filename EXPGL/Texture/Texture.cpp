@@ -19,6 +19,7 @@ EXP::Texture::Texture(unsigned id) : EXP::GLResourcePrimitive()
 EXP::Texture::Texture(unsigned id, int width, int height) : EXP::GLResourcePrimitive()
 {
     this->id = id;
+    this->index = 0;
     this->width = width;
     this->height = height;
 }

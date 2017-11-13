@@ -18,15 +18,13 @@
 #include <EXPGL/Loaders/GLResourceManager.hpp>
 #include <EXPGL/Loaders/TextureLoader.hpp>
 
+#include <EXPGL/Material/MaterialAttribute.hpp>
 #include <EXPGL/Material/Material.hpp>
-#include <EXPGL/Material/MaterialSolid2D.hpp>
-#include <EXPGL/Material/MaterialTexture2D.hpp>
 
 #include <EXPGL/Mesh/Mesh.hpp>
 #include <EXPGL/Mesh/Quad.hpp>
 
 #include <EXPGL/Model/Model.hpp>
-#include <EXPGL/Model/Rectangle.hpp>
 
 #include <EXPGL/Render/RenderLoop.hpp>
 #include <EXPGL/Render/Renderer.hpp>

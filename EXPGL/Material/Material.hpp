@@ -15,6 +15,7 @@
 #include "../Render/Shader.hpp"
 #include "../Resource/GLResourcePrimitive.hpp"
 #include "MaterialAttribute.hpp"
+#include <EXPUtil/thread/proplock.hpp>
 
 namespace EXP {
     
@@ -26,8 +27,11 @@ namespace EXP {
         Material();
         virtual ~Material() = default;
         virtual void Configure(EXP::Shader *shader);
+        
+        virtual void SetAlbedo(MaterialAttribute albedo);
+        virtual const MaterialAttribute& GetAlbedo(void) const;
     protected:
-        std::vector<MaterialAttribute> attributes;
+        proplock<MaterialAttribute> albedo;
     };
 }
 

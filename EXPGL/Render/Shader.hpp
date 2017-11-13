@@ -25,7 +25,7 @@ namespace EXP {
             GEOMETRY
         };
         
-        Shader(void);
+        Shader(void) = default;
         virtual ~Shader(void);
         
         bool AttachFromFile(const char *filename, SHADER_TYPES shader_type);

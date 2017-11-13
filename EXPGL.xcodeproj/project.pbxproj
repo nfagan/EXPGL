@@ -30,18 +30,12 @@
 		015945ED1FA3C94500970BD8 /* TextureLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 015945B21FA3C94500970BD8 /* TextureLoader.cpp */; };
 		015945EE1FA3C94500970BD8 /* TextureLoader.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 015945B31FA3C94500970BD8 /* TextureLoader.hpp */; };
 		015945EF1FA3C94500970BD8 /* Material.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 015945B51FA3C94500970BD8 /* Material.hpp */; };
-		015945F01FA3C94600970BD8 /* MaterialSolid2D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 015945B61FA3C94500970BD8 /* MaterialSolid2D.cpp */; };
-		015945F11FA3C94600970BD8 /* MaterialSolid2D.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 015945B71FA3C94500970BD8 /* MaterialSolid2D.hpp */; };
-		015945F21FA3C94600970BD8 /* MaterialTexture2D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 015945B81FA3C94500970BD8 /* MaterialTexture2D.cpp */; };
-		015945F31FA3C94600970BD8 /* MaterialTexture2D.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 015945B91FA3C94500970BD8 /* MaterialTexture2D.hpp */; };
 		015945F41FA3C94600970BD8 /* Mesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 015945BB1FA3C94500970BD8 /* Mesh.cpp */; };
 		015945F51FA3C94600970BD8 /* Mesh.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 015945BC1FA3C94500970BD8 /* Mesh.hpp */; };
 		015945F61FA3C94600970BD8 /* Quad.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 015945BD1FA3C94500970BD8 /* Quad.cpp */; };
 		015945F71FA3C94600970BD8 /* Quad.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 015945BE1FA3C94500970BD8 /* Quad.hpp */; };
 		015945F81FA3C94600970BD8 /* Model.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 015945C01FA3C94500970BD8 /* Model.cpp */; };
 		015945F91FA3C94600970BD8 /* Model.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 015945C11FA3C94500970BD8 /* Model.hpp */; };
-		015945FC1FA3C94600970BD8 /* Rectangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 015945C41FA3C94500970BD8 /* Rectangle.cpp */; };
-		015945FD1FA3C94600970BD8 /* Rectangle.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 015945C51FA3C94500970BD8 /* Rectangle.hpp */; };
 		015945FE1FA3C94600970BD8 /* Renderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 015945C71FA3C94500970BD8 /* Renderer.cpp */; };
 		015945FF1FA3C94600970BD8 /* Renderer.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 015945C81FA3C94500970BD8 /* Renderer.hpp */; };
 		015946021FA3C94600970BD8 /* RenderTarget.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 015945CB1FA3C94500970BD8 /* RenderTarget.cpp */; };
@@ -69,7 +63,6 @@
 		01C7FA991FA2BDA700C3B1F9 /* multiple_windows.hpp in Sources */ = {isa = PBXBuildFile; fileRef = 01C7FA981FA2BDA700C3B1F9 /* multiple_windows.hpp */; };
 		01C9DB7B1FA4EEAB009928B1 /* GLFrameTimer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01C9DB791FA4EEAB009928B1 /* GLFrameTimer.cpp */; };
 		01C9DB7C1FA4EEAB009928B1 /* GLFrameTimer.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 01C9DB7A1FA4EEAB009928B1 /* GLFrameTimer.hpp */; };
-		01CF144F1FA50A0500512E1A /* stimulus_2d.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01CF144E1FA50A0500512E1A /* stimulus_2d.cpp */; };
 		01EA79221FA189D90051087A /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01EA78D61FA186C30051087A /* main.cpp */; };
 		01EA79271FA18E990051087A /* libEXPGL.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 01B7644B1F9AE41D003245EA /* libEXPGL.dylib */; };
 /* End PBXBuildFile section */
@@ -110,18 +103,12 @@
 		015945B21FA3C94500970BD8 /* TextureLoader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TextureLoader.cpp; sourceTree = "<group>"; };
 		015945B31FA3C94500970BD8 /* TextureLoader.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = TextureLoader.hpp; sourceTree = "<group>"; };
 		015945B51FA3C94500970BD8 /* Material.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Material.hpp; sourceTree = "<group>"; };
-		015945B61FA3C94500970BD8 /* MaterialSolid2D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MaterialSolid2D.cpp; sourceTree = "<group>"; };
-		015945B71FA3C94500970BD8 /* MaterialSolid2D.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MaterialSolid2D.hpp; sourceTree = "<group>"; };
-		015945B81FA3C94500970BD8 /* MaterialTexture2D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MaterialTexture2D.cpp; sourceTree = "<group>"; };
-		015945B91FA3C94500970BD8 /* MaterialTexture2D.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MaterialTexture2D.hpp; sourceTree = "<group>"; };
 		015945BB1FA3C94500970BD8 /* Mesh.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Mesh.cpp; sourceTree = "<group>"; };
 		015945BC1FA3C94500970BD8 /* Mesh.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Mesh.hpp; sourceTree = "<group>"; };
 		015945BD1FA3C94500970BD8 /* Quad.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Quad.cpp; sourceTree = "<group>"; };
 		015945BE1FA3C94500970BD8 /* Quad.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Quad.hpp; sourceTree = "<group>"; };
 		015945C01FA3C94500970BD8 /* Model.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Model.cpp; sourceTree = "<group>"; };
 		015945C11FA3C94500970BD8 /* Model.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Model.hpp; sourceTree = "<group>"; };
-		015945C41FA3C94500970BD8 /* Rectangle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Rectangle.cpp; sourceTree = "<group>"; };
-		015945C51FA3C94500970BD8 /* Rectangle.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Rectangle.hpp; sourceTree = "<group>"; };
 		015945C71FA3C94500970BD8 /* Renderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Renderer.cpp; sourceTree = "<group>"; };
 		015945C81FA3C94500970BD8 /* Renderer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Renderer.hpp; sourceTree = "<group>"; };
 		015945CB1FA3C94500970BD8 /* RenderTarget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RenderTarget.cpp; sourceTree = "<group>"; };
@@ -784,7 +771,6 @@
 		01C7FA981FA2BDA700C3B1F9 /* multiple_windows.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = multiple_windows.hpp; sourceTree = "<group>"; };
 		01C9DB791FA4EEAB009928B1 /* GLFrameTimer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GLFrameTimer.cpp; sourceTree = "<group>"; };
 		01C9DB7A1FA4EEAB009928B1 /* GLFrameTimer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = GLFrameTimer.hpp; sourceTree = "<group>"; };
-		01CF144E1FA50A0500512E1A /* stimulus_2d.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = stimulus_2d.cpp; sourceTree = "<group>"; };
 		01EA78D61FA186C30051087A /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		01EA791A1FA189190051087A /* window_test */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = window_test; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -882,10 +868,6 @@
 			children = (
 				015945B51FA3C94500970BD8 /* Material.hpp */,
 				0157646A1FAF77FE00000957 /* Material.cpp */,
-				015945B61FA3C94500970BD8 /* MaterialSolid2D.cpp */,
-				015945B71FA3C94500970BD8 /* MaterialSolid2D.hpp */,
-				015945B81FA3C94500970BD8 /* MaterialTexture2D.cpp */,
-				015945B91FA3C94500970BD8 /* MaterialTexture2D.hpp */,
 				0173BF131FB8A4E200ABD17E /* MaterialAttribute.hpp */,
 			);
 			path = Material;
@@ -907,8 +889,6 @@
 			children = (
 				015945C01FA3C94500970BD8 /* Model.cpp */,
 				015945C11FA3C94500970BD8 /* Model.hpp */,
-				015945C41FA3C94500970BD8 /* Rectangle.cpp */,
-				015945C51FA3C94500970BD8 /* Rectangle.hpp */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -933,7 +913,6 @@
 		015945D11FA3C94500970BD8 /* Shaders */ = {
 			isa = PBXGroup;
 			children = (
-				01CF144E1FA50A0500512E1A /* stimulus_2d.cpp */,
 				0173BF161FB8ADC400ABD17E /* generic.cpp */,
 			);
 			path = Shaders;
@@ -1894,12 +1873,10 @@
 				0157646F1FAF7F3100000957 /* EXPGL_ASSERT.hpp in Headers */,
 				0159460F1FA3C94600970BD8 /* Rect.hpp in Headers */,
 				0159460E1FA3C94600970BD8 /* Positions2D.hpp in Headers */,
-				015945F11FA3C94600970BD8 /* MaterialSolid2D.hpp in Headers */,
 				015945E21FA3C94500970BD8 /* GL_HEADERS.h in Headers */,
 				015946071FA3C94600970BD8 /* Shader2D.hpp in Headers */,
 				015945F51FA3C94600970BD8 /* Mesh.hpp in Headers */,
 				015948B21FA3CAE100970BD8 /* EXPGL.hpp in Headers */,
-				015945F31FA3C94600970BD8 /* MaterialTexture2D.hpp in Headers */,
 				015946031FA3C94600970BD8 /* RenderTarget.hpp in Headers */,
 				0173BF151FB8A4E200ABD17E /* MaterialAttribute.hpp in Headers */,
 				015764781FAF96DC00000957 /* GLResourcePrimitive.hpp in Headers */,
@@ -1913,7 +1890,6 @@
 				015946091FA3C94600970BD8 /* Texture.hpp in Headers */,
 				015945EF1FA3C94500970BD8 /* Material.hpp in Headers */,
 				0159460C1FA3C94600970BD8 /* Colors.hpp in Headers */,
-				015945FD1FA3C94600970BD8 /* Rectangle.hpp in Headers */,
 				01C9DB7C1FA4EEAB009928B1 /* GLFrameTimer.hpp in Headers */,
 				015945EE1FA3C94500970BD8 /* TextureLoader.hpp in Headers */,
 				012E31001FAE24E300C75429 /* RenderLoop.hpp in Headers */,
@@ -2019,7 +1995,6 @@
 			files = (
 				015945F61FA3C94600970BD8 /* Quad.cpp in Sources */,
 				015945F81FA3C94600970BD8 /* Model.cpp in Sources */,
-				015945F21FA3C94600970BD8 /* MaterialTexture2D.cpp in Sources */,
 				015945EB1FA3C94500970BD8 /* GLResourceManager.cpp in Sources */,
 				015764721FAF8CB200000957 /* GLResourceIdentifier.cpp in Sources */,
 				015946021FA3C94600970BD8 /* RenderTarget.cpp in Sources */,
@@ -2027,13 +2002,10 @@
 				015945FE1FA3C94600970BD8 /* Renderer.cpp in Sources */,
 				0157646B1FAF77FE00000957 /* Material.cpp in Sources */,
 				015945DE1FA3C94500970BD8 /* GLContextManager.cpp in Sources */,
-				015945F01FA3C94600970BD8 /* MaterialSolid2D.cpp in Sources */,
 				015945ED1FA3C94500970BD8 /* TextureLoader.cpp in Sources */,
 				015946061FA3C94600970BD8 /* Shader2D.cpp in Sources */,
 				015945E01FA3C94500970BD8 /* Window.cpp in Sources */,
 				0173BF171FB8ADC400ABD17E /* generic.cpp in Sources */,
-				01CF144F1FA50A0500512E1A /* stimulus_2d.cpp in Sources */,
-				015945FC1FA3C94600970BD8 /* Rectangle.cpp in Sources */,
 				015946081FA3C94600970BD8 /* Texture.cpp in Sources */,
 				01C7FA991FA2BDA700C3B1F9 /* multiple_windows.hpp in Sources */,
 				015945E31FA3C94500970BD8 /* InputKeyboard.cpp in Sources */,
@@ -2175,7 +2147,7 @@
 				HEADER_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/include",
 					"$(PROJECT_DIR)",
-					/Volumes/external/code/changlab/tasks/exp/EXPUtil/include,
+					/Users/Nick/repositories/EXPUtil/include,
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2200,7 +2172,7 @@
 				HEADER_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/include",
 					"$(PROJECT_DIR)",
-					/Volumes/external/code/changlab/tasks/exp/EXPUtil/include,
+					/Users/Nick/repositories/EXPUtil/include,
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
