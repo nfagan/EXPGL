@@ -11,6 +11,10 @@
 
 EXP::Material::Material() : EXP::GLResourcePrimitive() {};
 
-EXP::Material::~Material() {};
-
-void EXP::Material::Configure(EXP::Shader *shader) {};
+void EXP::Material::Configure(EXP::Shader *shader)
+{
+    for (unsigned i = 0; i < attributes.size(); ++i)
+    {
+        attributes[i].Configure(shader);
+    }
+}

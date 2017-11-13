@@ -25,7 +25,7 @@ namespace EXP {
     {
     public:
         RenderLoop(EXP::Renderer *renderer);
-        ~RenderLoop();
+        ~RenderLoop() = default;
         
         void Loop(void);
         void CancelLoop(void);

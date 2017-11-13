@@ -19,7 +19,7 @@ namespace EXP {
     {
     public:
         InputXY(EXP::RenderTarget *target);
-        virtual ~InputXY();
+        virtual ~InputXY() = default;
         
         virtual glm::vec2 GetCoordinates(void) const;
         virtual void UpdateCoordinates(void);

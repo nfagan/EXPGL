@@ -11,6 +11,7 @@
 
 EXP::Model::Model(EXP::Mesh *mesh, EXP::Material *material) : EXP::GLResourcePrimitive()
 {
+    is_2d = true;
     SetMesh(mesh);
     SetMaterial(material);
     SetPosition(glm::vec3(0.0f));
@@ -18,8 +19,6 @@ EXP::Model::Model(EXP::Mesh *mesh, EXP::Material *material) : EXP::GLResourcePri
     SetScale(glm::vec3(1.0f));
     SetShader(nullptr);
 }
-
-EXP::Model::~Model() {}
 
 bool EXP::Model::Is2D() const
 {
@@ -67,9 +66,14 @@ void EXP::Model::SetScale(glm::vec3 scale)
     this->scale = scale;
 }
 
+void EXP::Model::SetScale(glm::vec2 scale)
+{
+    SetScale(glm::vec3(scale, 1.0f));
+}
+
 void EXP::Model::SetScale(float scale)
 {
-    this->scale = glm::vec3(scale);
+    SetScale(glm::vec3(scale));
 }
 
 void EXP::Model::SetPosition(glm::vec3 position)
@@ -77,9 +81,19 @@ void EXP::Model::SetPosition(glm::vec3 position)
     this->position = position;
 }
 
+void EXP::Model::SetPosition(glm::vec2 position)
+{
+    SetPosition(glm::vec3(position, 1.0f));
+}
+
 void EXP::Model::SetRotation(glm::vec3 rotation)
 {
     this->rotation = rotation;
+}
+
+void EXP::Model::SetRotation(glm::vec2 rotation)
+{
+    SetRotation(glm::vec3(rotation, 1.0f));
 }
 
 void EXP::Model::SetUnits(EXP::Model::UNITS units)
@@ -129,10 +143,37 @@ EXP::Material* EXP::Model::GetMaterial() const
 
 glm::mat4 EXP::Model::GetTransformationMatrix(EXP::Rect<float> screen) const
 {
-    glm::mat4 transform = glm::mat4(1.0f);
-    transform = glm::translate(transform, position);
-    transform = glm::rotate(transform, glm::radians(rotation.x), glm::vec3(1.0f, 0.0f, 0.0f));
-    transform = glm::rotate(transform, glm::radians(rotation.y), glm::vec3(0.0f, 1.0f, 0.0f));
-    transform = glm::rotate(transform, glm::radians(rotation.z), glm::vec3(0.0f, 0.0f, 1.0f));
-    return transform;
+    return get_transformation_matrix(screen);
+}
+
+glm::mat4 EXP::Model::get_transformation_matrix(const Rect<float> &screen) const
+{
+    glm::mat4 transform(1.0f);
+    transform = glm::translate(transform, get_units_position(screen));
+    transform = glm::rotate(transform, rotation.x, glm::vec3(1.0f, 0.0f, 0.0f));
+    transform = glm::rotate(transform, rotation.y, glm::vec3(0.0f, 1.0f, 0.0f));
+    transform = glm::rotate(transform, rotation.z, glm::vec3(0.0f, 0.0f, 1.0f));
+    return glm::scale(transform, get_units_scale(screen));
+}
+
+glm::vec3 EXP::Model::get_units_scale(const Rect<float> &screen) const
+{
+    glm::vec3 local_scale = GetScale();
+    if (units == NORMALIZED)
+    {
+        local_scale.x *= screen.get_width();
+        local_scale.y *= screen.get_height();
+    }
+    return local_scale;
+}
+
+glm::vec3 EXP::Model::get_units_position(const Rect<float> &screen) const
+{
+    glm::vec3 pos = GetPosition();
+    if (units == NORMALIZED || units == MIXED)
+    {
+        pos.x = (pos.x * screen.get_width()) + screen.get_left();
+        pos.y = (pos.y * screen.get_height()) + screen.get_top();
+    }
+    return pos;
 }

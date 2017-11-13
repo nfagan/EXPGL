@@ -13,8 +13,6 @@ EXP::InputKeyboard::InputKeyboard(EXP::RenderTarget *target)
     this->target = target;
 }
 
-EXP::InputKeyboard::~InputKeyboard() {};
-
 void EXP::InputKeyboard::Update() {};
 
 bool EXP::InputKeyboard::KeyDown(int id) const

@@ -14,6 +14,7 @@
 #include <atomic>
 #include "../Render/Shader.hpp"
 #include "../Resource/GLResourcePrimitive.hpp"
+#include "MaterialAttribute.hpp"
 
 namespace EXP {
     
@@ -23,8 +24,10 @@ namespace EXP {
         
     public:
         Material();
-        virtual ~Material();
+        virtual ~Material() = default;
         virtual void Configure(EXP::Shader *shader);
+    protected:
+        std::vector<MaterialAttribute> attributes;
     };
 }
 

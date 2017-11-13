@@ -8,14 +8,13 @@
 
 #include "Renderer.hpp"
 #include <iostream>
+#include "../Util/EXPGL_ASSERT.hpp"
 
 EXP::Renderer::Renderer(EXP::RenderTarget *target)
 {
     target->GetPrimaryWindow()->MakeCurrent();
     this->target = target;
 }
-
-EXP::Renderer::~Renderer() {}
 
 void EXP::Renderer::Draw(void)
 {
@@ -27,7 +26,6 @@ void EXP::Renderer::Draw(void)
         {
             draw(models[j], window, i);
         }
-//        swap_buffers(window);
     }
     for (unsigned i = 0; i < target->Size(); ++i)
     {
@@ -85,7 +83,7 @@ void EXP::Renderer::draw(EXP::Model *model, EXP::Window *window, unsigned index)
     else
     {
         //  3D not yet implemented
-        assert(false);
+        EXPGL_ASSERT(false, "Rendering of 3D models not yet implemented.");
     }
     
     shader->SetMat4("model", model->GetTransformationMatrix(srect));

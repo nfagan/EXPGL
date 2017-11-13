@@ -19,7 +19,7 @@ namespace EXP {
     {
     public:
         MaterialSolid2D();
-        ~MaterialSolid2D();
+        ~MaterialSolid2D() = default;
         
         void SetAlbedo(glm::vec3 albedo);
         void Configure(EXP::Shader *shader);

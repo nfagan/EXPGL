@@ -11,8 +11,7 @@
 
 #include <stdio.h>
 #include <glm/glm.hpp>
-#include "../Model/Model2D.hpp"
-#include "../Model/Model3D.hpp"
+#include "../Model/Model.hpp"
 #include "../Util/Colors.hpp"
 
 namespace EXP {
@@ -20,7 +19,7 @@ namespace EXP {
     {
     public:
         Renderer(EXP::RenderTarget *target);
-        ~Renderer();
+        ~Renderer() = default;
         
         void Queue(EXP::Model *model);
         void Draw(void);

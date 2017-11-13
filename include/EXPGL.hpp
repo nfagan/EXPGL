@@ -26,9 +26,7 @@
 #include <EXPGL/Mesh/Quad.hpp>
 
 #include <EXPGL/Model/Model.hpp>
-#include <EXPGL/Model/Model2D.hpp>
 #include <EXPGL/Model/Rectangle.hpp>
-#include <EXPGL/Model/Image.hpp>
 
 #include <EXPGL/Render/RenderLoop.hpp>
 #include <EXPGL/Render/Renderer.hpp>
@@ -37,7 +35,6 @@
 #include <EXPGL/Render/Shader2D.hpp>
 
 #include <EXPGL/Texture/Texture.hpp>
-#include <EXPGL/Texture/Texture2D.hpp>
 
 #include <EXPGL/Util/Paths.hpp>
 #include <EXPGL/Util/Colors.hpp>

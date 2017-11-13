@@ -15,8 +15,6 @@ EXP::InputXY::InputXY(EXP::RenderTarget *target)
     y.store(0.0f);
 }
 
-EXP::InputXY::~InputXY() {}
-
 glm::vec2 EXP::InputXY::GetCoordinates() const
 {
     return glm::vec2(x.load(), y.load());

@@ -52,5 +52,3 @@ void EXP::Quad::create_vao(unsigned int index)
     glBindVertexArray(0);
     vaos[index] = vao;
 }
-
-EXP::Quad::~Quad() {}

@@ -9,19 +9,18 @@
 #include "MaterialTexture2D.hpp"
 #include "../Util/EXPGL_ASSERT.hpp"
 
-EXP::MaterialTexture2D::MaterialTexture2D(EXP::Texture2D *texture)
+EXP::MaterialTexture2D::MaterialTexture2D(EXP::Texture *texture)
 {
     EXPGL_ASSERT(texture, "Attempted to assign a nullptr texture.");
     this->texture.store(texture);
 }
 
-EXP::MaterialTexture2D::~MaterialTexture2D() {};
-
 void EXP::MaterialTexture2D::Configure(EXP::Shader *shader)
 {
-    texture.load()->Activate(0);
+    Texture *tex = texture.load();
+    tex->Activate();
     shader->SetBool("is_textured", true);
-    shader->SetInt("image", 0);
+    shader->SetInt("TEX_2D_0", tex->GetIndex());
 }
 
 int EXP::MaterialTexture2D::GetWidth() const

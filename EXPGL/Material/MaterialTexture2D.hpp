@@ -11,20 +11,20 @@
 
 #include <stdio.h>
 #include "Material.hpp"
-#include "../Texture/Texture2D.hpp"
+#include "../Texture/Texture.hpp"
 
 namespace EXP {
     class MaterialTexture2D : public EXP::Material
     {
     public:
-        MaterialTexture2D(EXP::Texture2D *texture);
-        ~MaterialTexture2D();
+        MaterialTexture2D(EXP::Texture *texture);
+        ~MaterialTexture2D() = default;
         
         void Configure(EXP::Shader *shader);
         int GetWidth(void) const;
         int GetHeight(void) const;
     private:
-        std::atomic<EXP::Texture2D*> texture;
+        std::atomic<EXP::Texture*> texture;
     };
 }
 

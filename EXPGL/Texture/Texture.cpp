@@ -11,6 +11,16 @@
 EXP::Texture::Texture(unsigned id) : EXP::GLResourcePrimitive()
 {
     this->id = id;
+    this->index = 0;
+    this->width = 0;
+    this->height = 0;
+}
+
+EXP::Texture::Texture(unsigned id, int width, int height) : EXP::GLResourcePrimitive()
+{
+    this->id = id;
+    this->width = width;
+    this->height = height;
 }
 
 EXP::Texture::~Texture()
@@ -18,7 +28,28 @@ EXP::Texture::~Texture()
     glDeleteTextures(1, &id);
 }
 
-void EXP::Texture::Activate(unsigned int offset)
+void EXP::Texture::SetIndex(unsigned int index)
 {
-    glActiveTexture(GL_TEXTURE0 + offset);
+    this->index = index;
+}
+
+void EXP::Texture::Activate()
+{
+    glActiveTexture(GL_TEXTURE0 + index);
+    glBindTexture(GL_TEXTURE_2D, id);
+}
+
+int EXP::Texture::GetWidth() const
+{
+    return width;
+}
+
+int EXP::Texture::GetHeight() const
+{
+    return height;
+}
+
+int EXP::Texture::GetIndex() const
+{
+    return index;
 }

@@ -17,7 +17,7 @@ namespace EXP {
     {
     public:
         GLResourceIdentifier();
-        ~GLResourceIdentifier();
+        ~GLResourceIdentifier() = default;
         
         void SetName(std::string name);
         void SetTag(std::string tag);

@@ -18,7 +18,7 @@ namespace EXP {
     {
     public:
         InputKeyboard(EXP::RenderTarget *target);
-        ~InputKeyboard();
+        ~InputKeyboard() = default;
         
         void Update(void);
         bool KeyDown(int id) const;

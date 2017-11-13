@@ -80,6 +80,11 @@ void EXP::RenderTarget::SetWindowOffsets(TILING tile_type)
             
             windows[i]->SetPosition(current->get_left(), 0);
         }
+        else
+        {
+            //  vertical layouts to come
+            assert(false);
+        }
     }
 }
 

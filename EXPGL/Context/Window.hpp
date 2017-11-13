@@ -38,9 +38,9 @@ namespace EXP {
         
         void ShiftRect(int x, int y);
     private:
-        EXP::Rect<int> *rect;
-        GLFWwindow *window;
-        GLFWmonitor *monitor;
+        EXP::Rect<int> *rect = nullptr;
+        GLFWwindow *window = nullptr;
+        GLFWmonitor *monitor = nullptr;
         unsigned monitor_index;
         unsigned id;
         

@@ -14,8 +14,6 @@ EXP::MaterialSolid2D::MaterialSolid2D() : EXP::Material()
 	albedo = EXP::Colors::RED;
 }
 
-EXP::MaterialSolid2D::~MaterialSolid2D() {}
-
 void EXP::MaterialSolid2D::SetAlbedo(glm::vec3 albedo)
 {
 	albedo_lock.lock();

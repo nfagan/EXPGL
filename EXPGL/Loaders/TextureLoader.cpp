@@ -19,7 +19,7 @@ EXP::TextureLoader::~TextureLoader() {
     }
 }
 
-EXP::Texture2D* EXP::TextureLoader::GetTexture(const char *filename)
+EXP::Texture* EXP::TextureLoader::GetTexture(const char *filename)
 {
     if (textures.find(filename) != textures.end())
     {
@@ -67,7 +67,7 @@ EXP::Texture2D* EXP::TextureLoader::GetTexture(const char *filename)
         return NULL;
     }
     
-    EXP::Texture2D *texture = new EXP::Texture2D(texture_id, width, height);
+    EXP::Texture *texture = new EXP::Texture(texture_id, width, height);
     textures[filename] = texture;
     
     return texture;

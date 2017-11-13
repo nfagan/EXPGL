@@ -17,12 +17,22 @@ namespace EXP {
     class Texture : public GLResourcePrimitive
     {
     public:
+        Texture() = default;
         Texture(unsigned id);
+        Texture(unsigned id, int width, int height);
         virtual ~Texture();
         
-        virtual void Activate(unsigned offset);
+        virtual void Activate(void);
+        virtual void SetIndex(unsigned index);
+        
+        int GetWidth(void) const;
+        int GetHeight(void) const;
+        int GetIndex(void) const;
     protected:
+        unsigned index;
         unsigned id;
+        int width;
+        int height;
     };
 }
 

@@ -14,8 +14,6 @@ EXP::GLResourceIdentifier::GLResourceIdentifier() {
     SetTag("");
 };
 
-EXP::GLResourceIdentifier::~GLResourceIdentifier() {};
-
 void EXP::GLResourceIdentifier::SetId(unsigned id)
 {
     this->id = id;

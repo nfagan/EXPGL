@@ -21,7 +21,7 @@ namespace EXP {
         friend class GLResourceManager;
     public:
         GLResourcePrimitive();
-        ~GLResourcePrimitive();
+        ~GLResourcePrimitive() = default;
         
         virtual GLResourceIdentifier GetIdentifier(void) const;
         

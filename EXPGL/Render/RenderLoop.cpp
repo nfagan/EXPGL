@@ -16,8 +16,6 @@ EXP::RenderLoop::RenderLoop(EXP::Renderer *renderer)
     this->called_once_draw_ready.store(true);
 }
 
-EXP::RenderLoop::~RenderLoop() {};
-
 void EXP::RenderLoop::Loop()
 {
     while (should_loop.load())

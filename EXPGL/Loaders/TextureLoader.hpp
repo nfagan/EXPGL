@@ -12,7 +12,7 @@
 #include <stdio.h>
 #include <vector>
 #include <unordered_map>
-#include "../Texture/Texture2D.hpp"
+#include "../Texture/Texture.hpp"
 #include <GL_HEADERS.h>
 
 namespace EXP {
@@ -22,9 +22,9 @@ namespace EXP {
         TextureLoader(void);
         ~TextureLoader(void);
         
-        Texture2D* GetTexture(const char* filename);
+        Texture* GetTexture(const char* filename);
     private:
-        std::unordered_map<const char*, Texture2D*> textures;
+        std::unordered_map<const char*, Texture*> textures;
     };
 }
 

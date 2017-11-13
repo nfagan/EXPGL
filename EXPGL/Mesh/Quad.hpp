@@ -17,7 +17,7 @@ namespace EXP {
     {
     public:
         Quad();
-        ~Quad();
+        ~Quad() = default;
         
         void Initialize(EXP::RenderTarget *target);
     private:
