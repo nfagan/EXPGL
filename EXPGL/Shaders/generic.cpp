@@ -15,16 +15,16 @@ namespace EXP {
                 out vec4 FragColor;
                 in vec2 TextureCoordinates;
             
-                uniform bool albedo__use_texture;
-                uniform sampler2D albedo__value_sampler2d;
-                uniform vec3 albedo__value_vec3;
+                uniform bool albedo_use_texture;
+                uniform sampler2D albedo_value_sampler2d;
+                uniform vec3 albedo_value_vec3;
             
                 void main()
                 {
-                    if (albedo__use_texture) {
-                        FragColor = vec4(texture(albedo__value_sampler2d, TextureCoordinates).rgb, 1.0f);
+                    if (albedo_use_texture) {
+                        FragColor = vec4(texture(albedo_value_sampler2d, TextureCoordinates).rgb, 1.0f);
                     } else {
-                        FragColor = vec4(albedo__value_vec3, 1.0f);
+                        FragColor = vec4(albedo_value_vec3, 1.0f);
                     }
                 })";
             

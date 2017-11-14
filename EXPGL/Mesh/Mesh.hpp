@@ -13,6 +13,7 @@
 #include <GL_HEADERS.h>
 #include "../Render/RenderTarget.hpp"
 #include "../Resource/GLResourcePrimitive.hpp"
+#include <vector>
 
 namespace EXP {
     class Mesh : public GLResourcePrimitive
@@ -25,7 +26,7 @@ namespace EXP {
         
         Mesh();
         virtual ~Mesh();
-        
+
         virtual void Initialize(EXP::RenderTarget *target);
         virtual bool IsInitialized(void) const;
         virtual void Draw(unsigned index) const;

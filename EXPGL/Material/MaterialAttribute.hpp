@@ -78,15 +78,16 @@ namespace EXP {
             switch (attribute.tag)
             {
                 case Attribute::VEC3:
-                    shader->SetBool((name + "__use_texture").c_str(), false);
-                    shader->SetVec3((name + "__value_vec3").c_str(), attribute.data.vec3_value);
+                    shader->SetBool((name + "_use_texture").c_str(), false);
+                    shader->SetVec3((name + "_value_vec3").c_str(), attribute.data.vec3_value);
                     break;
                 case Attribute::TEXTURE:
-                    shader->SetBool((name + "__use_texture").c_str(), true);
-                    shader->SetInt((name + "__value_sampler2d").c_str(), attribute.data.tex_value->GetIndex());
+                    shader->SetBool((name + "_use_texture").c_str(), true);
+                    shader->SetInt((name + "_value_sampler2d").c_str(), attribute.data.tex_value->GetIndex());
                     break;
                 case Attribute::FLOAT:
-                    shader->SetFloat((name + "__value_float").c_str(), attribute.data.float_value);
+					shader->SetBool((name + "_use_texture").c_str(), false);
+                    shader->SetFloat((name + "_value_float").c_str(), attribute.data.float_value);
                     break;
                 default:
                     assert(false);
