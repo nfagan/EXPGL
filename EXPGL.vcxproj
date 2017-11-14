@@ -250,7 +250,6 @@
     <ClCompile Include="EXPGL\Loaders\TextureLoader.cpp" />
     <ClCompile Include="EXPGL\Material\Material.cpp" />
     <ClCompile Include="EXPGL\Mesh\Mesh.cpp" />
-    <ClCompile Include="EXPGL\Mesh\Quad.cpp" />
     <ClCompile Include="EXPGL\Model\Model.cpp" />
     <ClCompile Include="EXPGL\Render\Renderer.cpp" />
     <ClCompile Include="EXPGL\Render\RenderLoop.cpp" />
@@ -272,7 +271,8 @@
     <ClInclude Include="EXPGL\Material\Material.hpp" />
     <ClInclude Include="EXPGL\Material\MaterialAttribute.hpp" />
     <ClInclude Include="EXPGL\Mesh\Mesh.hpp" />
-    <ClInclude Include="EXPGL\Mesh\Quad.hpp" />
+    <ClInclude Include="EXPGL\Mesh\MeshLibrary.hpp" />
+    <ClInclude Include="EXPGL\Mesh\Vertex.hpp" />
     <ClInclude Include="EXPGL\Model\Model.hpp" />
     <ClInclude Include="EXPGL\Render\Renderer.hpp" />
     <ClInclude Include="EXPGL\Render\RenderLoop.hpp" />

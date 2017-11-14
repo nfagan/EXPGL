@@ -16,7 +16,7 @@
 
 namespace EXP {
     namespace MeshLibrary {
-        void make_quad(Mesh *mesh)
+        static const void make_quad(Mesh *mesh)
         {
             using std::array;
             

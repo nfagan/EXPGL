@@ -46,9 +46,6 @@
     <ClCompile Include="EXPGL\Mesh\Mesh.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="EXPGL\Mesh\Quad.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="EXPGL\Model\Model.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -105,9 +102,6 @@
     <ClInclude Include="EXPGL\Mesh\Mesh.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="EXPGL\Mesh\Quad.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="EXPGL\Model\Model.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -151,6 +145,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="EXPGL\Material\MaterialAttribute.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EXPGL\Mesh\MeshLibrary.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EXPGL\Mesh\Vertex.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
