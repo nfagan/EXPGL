@@ -22,7 +22,8 @@
 #include <EXPGL/Material/Material.hpp>
 
 #include <EXPGL/Mesh/Mesh.hpp>
-#include <EXPGL/Mesh/Quad.hpp>
+#include <EXPGL/Mesh/Vertex.hpp>
+#include <EXPGL/Mesh/MeshLibrary.hpp>
 
 #include <EXPGL/Model/Model.hpp>
 

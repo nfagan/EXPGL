@@ -14,6 +14,7 @@
 #include "../Render/RenderTarget.hpp"
 #include "../Resource/GLResourcePrimitive.hpp"
 #include <vector>
+#include "Vertex.hpp"
 
 namespace EXP {
     class Mesh : public GLResourcePrimitive
@@ -27,20 +28,31 @@ namespace EXP {
         Mesh();
         virtual ~Mesh();
 
+        virtual void SetTopology(TOPOLOGY topology);
+        virtual void SetIndices(std::vector<unsigned int> indices);
+        virtual void AddVertex(Vertex vertex);
         virtual void Initialize(EXP::RenderTarget *target);
+        virtual void Finalize(EXP::RenderTarget *target);
         virtual bool IsInitialized(void) const;
+        virtual bool IsFinalized(void) const;
         virtual void Draw(unsigned index) const;
         virtual void Bind(unsigned index) const;
         virtual void Unbind() const;
     protected:
+        std::vector<Vertex> vertices;
+        std::vector<unsigned int> indices;
+        
         unsigned *vaos;
         unsigned vbo;
+        unsigned ebo;
         int n_vaos;
         int n_fragments;
-        int n_vertex_elements;
-        int n_elements_per_vertex;
         TOPOLOGY topology = TRIANGLES;
         bool is_initialized = false;
+        bool is_finalized = false;
+        
+        std::vector<float> get_interleaved_data() const;
+        void create_vao(unsigned int index);
     };
 }
 

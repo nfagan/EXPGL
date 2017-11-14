@@ -32,8 +32,6 @@
 		015945EF1FA3C94500970BD8 /* Material.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 015945B51FA3C94500970BD8 /* Material.hpp */; };
 		015945F41FA3C94600970BD8 /* Mesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 015945BB1FA3C94500970BD8 /* Mesh.cpp */; };
 		015945F51FA3C94600970BD8 /* Mesh.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 015945BC1FA3C94500970BD8 /* Mesh.hpp */; };
-		015945F61FA3C94600970BD8 /* Quad.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 015945BD1FA3C94500970BD8 /* Quad.cpp */; };
-		015945F71FA3C94600970BD8 /* Quad.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 015945BE1FA3C94500970BD8 /* Quad.hpp */; };
 		015945F81FA3C94600970BD8 /* Model.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 015945C01FA3C94500970BD8 /* Model.cpp */; };
 		015945F91FA3C94600970BD8 /* Model.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 015945C11FA3C94500970BD8 /* Model.hpp */; };
 		015945FE1FA3C94600970BD8 /* Renderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 015945C71FA3C94500970BD8 /* Renderer.cpp */; };
@@ -53,6 +51,8 @@
 		015948B21FA3CAE100970BD8 /* EXPGL.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 015948B01FA3CAE000970BD8 /* EXPGL.hpp */; };
 		0173BF151FB8A4E200ABD17E /* MaterialAttribute.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 0173BF131FB8A4E200ABD17E /* MaterialAttribute.hpp */; };
 		0173BF171FB8ADC400ABD17E /* generic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0173BF161FB8ADC400ABD17E /* generic.cpp */; };
+		019A96371FBB78AB00C7290D /* Vertex.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 019A96351FBB78AB00C7290D /* Vertex.hpp */; };
+		019A963B1FBB84A200C7290D /* MeshLibrary.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 019A96391FBB84A200C7290D /* MeshLibrary.hpp */; };
 		01B7645B1F9AE5A0003245EA /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01B7645A1F9AE5A0003245EA /* Cocoa.framework */; };
 		01B7645D1F9AE5A6003245EA /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01B7645C1F9AE5A6003245EA /* IOKit.framework */; };
 		01B7645F1F9AE5AB003245EA /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01B7645E1F9AE5AB003245EA /* CoreVideo.framework */; };
@@ -102,8 +102,6 @@
 		015945B51FA3C94500970BD8 /* Material.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Material.hpp; sourceTree = "<group>"; };
 		015945BB1FA3C94500970BD8 /* Mesh.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Mesh.cpp; sourceTree = "<group>"; };
 		015945BC1FA3C94500970BD8 /* Mesh.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Mesh.hpp; sourceTree = "<group>"; };
-		015945BD1FA3C94500970BD8 /* Quad.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Quad.cpp; sourceTree = "<group>"; };
-		015945BE1FA3C94500970BD8 /* Quad.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Quad.hpp; sourceTree = "<group>"; };
 		015945C01FA3C94500970BD8 /* Model.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Model.cpp; sourceTree = "<group>"; };
 		015945C11FA3C94500970BD8 /* Model.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Model.hpp; sourceTree = "<group>"; };
 		015945C71FA3C94500970BD8 /* Renderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Renderer.cpp; sourceTree = "<group>"; };
@@ -757,6 +755,8 @@
 		015948B01FA3CAE000970BD8 /* EXPGL.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = EXPGL.hpp; sourceTree = "<group>"; };
 		0173BF131FB8A4E200ABD17E /* MaterialAttribute.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MaterialAttribute.hpp; sourceTree = "<group>"; };
 		0173BF161FB8ADC400ABD17E /* generic.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = generic.cpp; sourceTree = "<group>"; };
+		019A96351FBB78AB00C7290D /* Vertex.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Vertex.hpp; sourceTree = "<group>"; };
+		019A96391FBB84A200C7290D /* MeshLibrary.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MeshLibrary.hpp; sourceTree = "<group>"; };
 		01B7644B1F9AE41D003245EA /* libEXPGL.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libEXPGL.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		01B7645A1F9AE5A0003245EA /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		01B7645C1F9AE5A6003245EA /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
@@ -872,8 +872,8 @@
 			children = (
 				015945BB1FA3C94500970BD8 /* Mesh.cpp */,
 				015945BC1FA3C94500970BD8 /* Mesh.hpp */,
-				015945BD1FA3C94500970BD8 /* Quad.cpp */,
-				015945BE1FA3C94500970BD8 /* Quad.hpp */,
+				019A96351FBB78AB00C7290D /* Vertex.hpp */,
+				019A96391FBB84A200C7290D /* MeshLibrary.hpp */,
 			);
 			path = Mesh;
 			sourceTree = "<group>";
@@ -1868,12 +1868,13 @@
 				015946071FA3C94600970BD8 /* Shader2D.hpp in Headers */,
 				015945F51FA3C94600970BD8 /* Mesh.hpp in Headers */,
 				015948B21FA3CAE100970BD8 /* EXPGL.hpp in Headers */,
+				019A963B1FBB84A200C7290D /* MeshLibrary.hpp in Headers */,
 				015946031FA3C94600970BD8 /* RenderTarget.hpp in Headers */,
 				0173BF151FB8A4E200ABD17E /* MaterialAttribute.hpp in Headers */,
+				019A96371FBB78AB00C7290D /* Vertex.hpp in Headers */,
 				015764781FAF96DC00000957 /* GLResourcePrimitive.hpp in Headers */,
 				01C7FA971FA2BCEE00C3B1F9 /* multiple_contexts.hpp in Headers */,
 				015945E41FA3C94500970BD8 /* InputKeyboard.hpp in Headers */,
-				015945F71FA3C94600970BD8 /* Quad.hpp in Headers */,
 				015945DF1FA3C94500970BD8 /* GLContextManager.hpp in Headers */,
 				015945E11FA3C94500970BD8 /* Window.hpp in Headers */,
 				015764731FAF8CB200000957 /* GLResourceIdentifier.hpp in Headers */,
@@ -1982,7 +1983,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				015945F61FA3C94600970BD8 /* Quad.cpp in Sources */,
 				015945F81FA3C94600970BD8 /* Model.cpp in Sources */,
 				015945EB1FA3C94500970BD8 /* GLResourceManager.cpp in Sources */,
 				015764721FAF8CB200000957 /* GLResourceIdentifier.cpp in Sources */,

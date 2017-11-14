@@ -71,7 +71,6 @@ namespace EXP {
         glm::vec3 scale;
         UNITS units = NORMALIZED;
         
-        void initialize_mesh(EXP::RenderTarget *target);
         glm::mat4 get_transformation_matrix(const Rect<float> &screen) const;
     };
 }

@@ -7,8 +7,12 @@
 //
 
 #include "Mesh.hpp"
+#include <EXPUtil/assert/EXP_ASSERT.h>
 
-EXP::Mesh::Mesh() : EXP::GLResourcePrimitive() {}
+EXP::Mesh::Mesh() : EXP::GLResourcePrimitive()
+{
+    //
+}
 
 EXP::Mesh::~Mesh() {
     for (unsigned i = 0; i < n_vaos; ++i) {
@@ -18,10 +22,56 @@ EXP::Mesh::~Mesh() {
     glDeleteBuffers(1, &vbo);
 }
 
+void EXP::Mesh::SetTopology(EXP::Mesh::TOPOLOGY topology)
+{
+    this->topology = topology;
+}
+
+void EXP::Mesh::SetIndices(std::vector<unsigned int> indices)
+{
+    this->indices = indices;
+}
+
+void EXP::Mesh::AddVertex(EXP::Vertex vertex)
+{
+    if (vertices.size() > 0)
+    {
+        EXP_ASSERT(vertex.sizes_match(vertices[0]), "Vertices must have consistent numbers of elements.");
+    }
+    vertices.push_back(vertex);
+}
+
 void EXP::Mesh::Initialize(EXP::RenderTarget *target)
 {
-    vaos = new unsigned[target->Size()];
+    EXP_ASSERT(!IsInitialized(), "Mesh was already initialized.");
+    glGenBuffers(1, &vbo);
+    glGenBuffers(1, &ebo);
+    n_vaos = target->Size();
+    vaos = new unsigned[n_vaos];
     is_initialized = true;
+}
+
+void EXP::Mesh::Finalize(EXP::RenderTarget *target)
+{
+    EXP_ASSERT(IsInitialized(), "Mesh was not yet initialized.");
+    EXP_ASSERT(!IsFinalized(), "Mesh was already finalized.");
+    for (unsigned i = 0; i < n_vaos; ++i)
+    {
+        target->GetWindow(i)->MakeCurrent();
+        create_vao(i);
+    }
+    n_fragments = vertices.size();
+    is_finalized = true;
+}
+
+bool EXP::Mesh::IsInitialized() const
+{
+    return is_initialized;
+}
+
+bool EXP::Mesh::IsFinalized() const
+{
+    return is_finalized;
 }
 
 void EXP::Mesh::Bind(unsigned index) const
@@ -34,17 +84,29 @@ void EXP::Mesh::Unbind() const
     glBindVertexArray(0);
 }
 
-bool EXP::Mesh::IsInitialized() const
-{
-    return is_initialized;
-}
-
 void EXP::Mesh::Draw(unsigned index) const
 {
     Bind(index);
     switch (topology) {
         case TRIANGLES:
-            glDrawArrays(GL_TRIANGLES, 0, n_fragments);
+            if (indices.size() > 0)
+            {
+                glDrawElements(GL_TRIANGLES, indices.size(), GL_UNSIGNED_INT, 0);
+            }
+            else
+            {
+                glDrawArrays(GL_TRIANGLES, 0, n_fragments);
+            }
+            break;
+        case TRIANGLE_STRIP:
+            if (indices.size() > 0)
+            {
+                glDrawElements(GL_TRIANGLE_STRIP, indices.size(), GL_UNSIGNED_INT, 0);
+            }
+            else
+            {
+                glDrawArrays(GL_TRIANGLE_STRIP, 0, n_fragments);
+            }
             break;
         default:
             //  Not yet implemented
@@ -52,4 +114,71 @@ void EXP::Mesh::Draw(unsigned index) const
             break;
     }
     Unbind();
+}
+
+void EXP::Mesh::create_vao(unsigned int index)
+{
+    if (vertices.size() == 0)
+    {
+        return;
+    }
+    
+    std::vector<float> vertex_data = get_interleaved_data();
+    
+    unsigned int vao;
+    glGenVertexArrays(1, &vao);
+    glBindVertexArray(vao);
+    
+    unsigned n_vertex_elements = vertex_data.size();
+    GLsizei stride = sizeof(float) * vertices[0].size();
+    unsigned offset = 0;
+    
+    //  store vertices in VBO
+    glBindBuffer(GL_ARRAY_BUFFER, vbo);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(float) * n_vertex_elements, &vertex_data[0], GL_STATIC_DRAW);
+    
+    if (indices.size() > 0)
+    {
+        glBindBuffer(1, ebo);
+        glBufferData(GL_ELEMENT_ARRAY_BUFFER, indices.size() * sizeof(unsigned int), &indices[0], GL_STATIC_DRAW);
+    }
+    
+    //  position
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, stride, (void*)offset);
+    glEnableVertexAttribArray(0);
+    offset += 3;
+    
+    //  tex coords
+    if (vertices[0].size_uv() > 0)
+    {
+        glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, stride, (void*)(offset*sizeof(float)));
+        glEnableVertexAttribArray(1);
+        offset += 2;
+    }
+    
+    //  normals
+    if (vertices[0].size_normal() > 0)
+    {
+        glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, stride, (void*)(offset*sizeof(float)));
+        glEnableVertexAttribArray(2);
+        offset += 3;
+    }
+    glBindBuffer(GL_ARRAY_BUFFER, 0);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+    glBindVertexArray(0);
+    vaos[index] = vao;
+}
+
+std::vector<float> EXP::Mesh::get_interleaved_data() const
+{
+    std::vector<float> vertex_data;
+    for (unsigned i = 0; i < vertices.size(); ++i)
+    {
+        std::vector<float> data = vertices[i].get_interleaved_data();
+        for (unsigned j = 0; j < data.size(); ++j)
+        {
+            vertex_data.push_back(data[j]);
+        }
+    }
+    return vertex_data;
 }

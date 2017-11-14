@@ -9,7 +9,7 @@
 #ifndef ResourceManager_hpp
 #define ResourceManager_hpp
 
-#include "../Mesh/Quad.hpp"
+#include "../Mesh/MeshLibrary.hpp"
 #include "../Model/Model.hpp"
 #include "TextureLoader.hpp"
 #include "../Util/EXPGL_ASSERT.hpp"
@@ -52,7 +52,9 @@ namespace EXP {
         
         Model* CreateRectangle(EXP::RenderTarget *target)
         {
-            Mesh *mesh = Create<Quad>(target);
+            Mesh *mesh = Create<Mesh>(target);
+            MeshLibrary::make_quad(mesh);
+            mesh->Finalize(target);
             Material *mat = Create<Material>(target);
             Model *model = Create<Model>(target, mesh, mat);
             return model;

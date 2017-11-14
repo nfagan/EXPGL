@@ -38,7 +38,7 @@ void EXP::Model::Draw(unsigned index)
 
 void EXP::Model::Initialize(EXP::RenderTarget* target)
 {
-    initialize_mesh(target);
+    //
 }
 
 void EXP::Model::MakeLike(EXP::Model *model)
@@ -104,11 +104,6 @@ void EXP::Model::SetUnits(EXP::Model::UNITS units)
 void EXP::Model::SetMesh(EXP::Mesh *mesh)
 {
     this->mesh.store(mesh);
-}
-
-void EXP::Model::initialize_mesh(EXP::RenderTarget *target)
-{
-    mesh.load()->Initialize(target);
 }
 
 EXP::Model::UNITS EXP::Model::GetUnits() const
