@@ -34,10 +34,8 @@
 
 #include <EXPGL/Texture/Texture.hpp>
 
-#include <EXPGL/Util/Paths.hpp>
 #include <EXPGL/Util/Colors.hpp>
 #include <EXPGL/Util/Positions2D.hpp>
 #include <EXPGL/Util/Rect.hpp>
-#include <EXPGL/Util/GLFrameTimer.hpp>
 
 #endif /* EXPGL_hpp */

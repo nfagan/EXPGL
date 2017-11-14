@@ -47,7 +47,6 @@
 		015946081FA3C94600970BD8 /* Texture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 015945D51FA3C94500970BD8 /* Texture.cpp */; };
 		015946091FA3C94600970BD8 /* Texture.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 015945D61FA3C94500970BD8 /* Texture.hpp */; };
 		0159460C1FA3C94600970BD8 /* Colors.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 015945DA1FA3C94500970BD8 /* Colors.hpp */; };
-		0159460D1FA3C94600970BD8 /* Paths.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 015945DB1FA3C94500970BD8 /* Paths.hpp */; };
 		0159460E1FA3C94600970BD8 /* Positions2D.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 015945DC1FA3C94500970BD8 /* Positions2D.hpp */; };
 		0159460F1FA3C94600970BD8 /* Rect.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 015945DD1FA3C94500970BD8 /* Rect.hpp */; };
 		015946151FA3C9B400970BD8 /* glad.c in Sources */ = {isa = PBXBuildFile; fileRef = 015946111FA3C9B400970BD8 /* glad.c */; };
@@ -61,8 +60,6 @@
 		01B764631F9AE5D2003245EA /* libglfw3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 01B764621F9AE5D2003245EA /* libglfw3.a */; };
 		01C7FA971FA2BCEE00C3B1F9 /* multiple_contexts.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 01C7FA951FA2BCEE00C3B1F9 /* multiple_contexts.hpp */; };
 		01C7FA991FA2BDA700C3B1F9 /* multiple_windows.hpp in Sources */ = {isa = PBXBuildFile; fileRef = 01C7FA981FA2BDA700C3B1F9 /* multiple_windows.hpp */; };
-		01C9DB7B1FA4EEAB009928B1 /* GLFrameTimer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01C9DB791FA4EEAB009928B1 /* GLFrameTimer.cpp */; };
-		01C9DB7C1FA4EEAB009928B1 /* GLFrameTimer.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 01C9DB7A1FA4EEAB009928B1 /* GLFrameTimer.hpp */; };
 		01EA79221FA189D90051087A /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01EA78D61FA186C30051087A /* main.cpp */; };
 		01EA79271FA18E990051087A /* libEXPGL.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 01B7644B1F9AE41D003245EA /* libEXPGL.dylib */; };
 /* End PBXBuildFile section */
@@ -120,7 +117,6 @@
 		015945D51FA3C94500970BD8 /* Texture.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Texture.cpp; sourceTree = "<group>"; };
 		015945D61FA3C94500970BD8 /* Texture.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Texture.hpp; sourceTree = "<group>"; };
 		015945DA1FA3C94500970BD8 /* Colors.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Colors.hpp; sourceTree = "<group>"; };
-		015945DB1FA3C94500970BD8 /* Paths.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Paths.hpp; sourceTree = "<group>"; };
 		015945DC1FA3C94500970BD8 /* Positions2D.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Positions2D.hpp; sourceTree = "<group>"; };
 		015945DD1FA3C94500970BD8 /* Rect.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Rect.hpp; sourceTree = "<group>"; };
 		015946111FA3C9B400970BD8 /* glad.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = glad.c; path = EXPGL/glad/glad.c; sourceTree = SOURCE_ROOT; };
@@ -769,8 +765,6 @@
 		01B764621F9AE5D2003245EA /* libglfw3.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libglfw3.a; path = lib/libglfw3.a; sourceTree = "<group>"; };
 		01C7FA951FA2BCEE00C3B1F9 /* multiple_contexts.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = multiple_contexts.hpp; sourceTree = "<group>"; };
 		01C7FA981FA2BDA700C3B1F9 /* multiple_windows.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = multiple_windows.hpp; sourceTree = "<group>"; };
-		01C9DB791FA4EEAB009928B1 /* GLFrameTimer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GLFrameTimer.cpp; sourceTree = "<group>"; };
-		01C9DB7A1FA4EEAB009928B1 /* GLFrameTimer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = GLFrameTimer.hpp; sourceTree = "<group>"; };
 		01EA78D61FA186C30051087A /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		01EA791A1FA189190051087A /* window_test */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = window_test; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -931,11 +925,8 @@
 			isa = PBXGroup;
 			children = (
 				015945DA1FA3C94500970BD8 /* Colors.hpp */,
-				015945DB1FA3C94500970BD8 /* Paths.hpp */,
 				015945DC1FA3C94500970BD8 /* Positions2D.hpp */,
 				015945DD1FA3C94500970BD8 /* Rect.hpp */,
-				01C9DB791FA4EEAB009928B1 /* GLFrameTimer.cpp */,
-				01C9DB7A1FA4EEAB009928B1 /* GLFrameTimer.hpp */,
 				0157646E1FAF7F3100000957 /* EXPGL_ASSERT.hpp */,
 			);
 			path = Util;
@@ -1890,10 +1881,8 @@
 				015946091FA3C94600970BD8 /* Texture.hpp in Headers */,
 				015945EF1FA3C94500970BD8 /* Material.hpp in Headers */,
 				0159460C1FA3C94600970BD8 /* Colors.hpp in Headers */,
-				01C9DB7C1FA4EEAB009928B1 /* GLFrameTimer.hpp in Headers */,
 				015945EE1FA3C94500970BD8 /* TextureLoader.hpp in Headers */,
 				012E31001FAE24E300C75429 /* RenderLoop.hpp in Headers */,
-				0159460D1FA3C94600970BD8 /* Paths.hpp in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2011,7 +2000,6 @@
 				015945E31FA3C94500970BD8 /* InputKeyboard.cpp in Sources */,
 				012E30FF1FAE24E300C75429 /* RenderLoop.cpp in Sources */,
 				015946151FA3C9B400970BD8 /* glad.c in Sources */,
-				01C9DB7B1FA4EEAB009928B1 /* GLFrameTimer.cpp in Sources */,
 				015945E51FA3C94500970BD8 /* InputXY.cpp in Sources */,
 				015946041FA3C94600970BD8 /* Shader.cpp in Sources */,
 				015945F41FA3C94600970BD8 /* Mesh.cpp in Sources */,
