@@ -16,7 +16,7 @@ EXP::Material::Material() : EXP::GLResourcePrimitive()
 
 void EXP::Material::Configure(EXP::Shader *shader)
 {
-    MaterialAttribute albedo_local(albedo.Get());
+    MaterialAttribute albedo_local(GetAlbedo());
     albedo_local.Configure(shader);
 }
 
