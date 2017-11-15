@@ -25,7 +25,7 @@ namespace EXP {
         
         virtual GLResourceIdentifier GetIdentifier(void) const;
         
-        virtual void Initialize(RenderTarget* target);
+        virtual void Initialize(RenderTarget *target);
         
         virtual void SetTag(std::string tag);
     protected:

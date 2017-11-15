@@ -25,12 +25,6 @@ namespace EXP {
         GLResourceManager(void);
         ~GLResourceManager(void);
         
-        enum GETTER_TYPES
-        {
-            BY_NAME,
-            BY_VALUE
-        };
-        
         template<typename T, typename... A>
         T* Create(EXP::RenderTarget *target, A... args)
         {
@@ -54,6 +48,16 @@ namespace EXP {
         {
             Mesh *mesh = Create<Mesh>(target);
             MeshLibrary::make_quad(mesh);
+            mesh->Finalize(target);
+            Material *mat = Create<Material>(target);
+            Model *model = Create<Model>(target, mesh, mat);
+            return model;
+        }
+        
+        Model* CreateSphere(RenderTarget *target, int vertex_count = 128)
+        {
+            Mesh *mesh = Create<Mesh>(target);
+            MeshLibrary::make_sphere(mesh, vertex_count);
             mesh->Finalize(target);
             Material *mat = Create<Material>(target);
             Model *model = Create<Model>(target, mesh, mat);

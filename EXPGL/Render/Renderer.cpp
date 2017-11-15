@@ -78,6 +78,7 @@ void EXP::Renderer::draw(EXP::Model *model, EXP::Window *window, unsigned index)
     
     if (model->Is2D())
     {
+        shader->SetMat4("projection", glm::mat4(1.0f));
         shader->SetMat4("view", GetProjectionMatrix2D(wrect));
     }
     else

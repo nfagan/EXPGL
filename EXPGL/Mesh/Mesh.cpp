@@ -137,12 +137,6 @@ void EXP::Mesh::create_vao(unsigned int index)
     glBindBuffer(GL_ARRAY_BUFFER, vbo);
     glBufferData(GL_ARRAY_BUFFER, sizeof(float) * n_vertex_elements, &vertex_data[0], GL_STATIC_DRAW);
     
-    if (indices.size() > 0)
-    {
-        glBindBuffer(1, ebo);
-        glBufferData(GL_ELEMENT_ARRAY_BUFFER, indices.size() * sizeof(unsigned int), &indices[0], GL_STATIC_DRAW);
-    }
-    
     //  position
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, stride, (void*)offset);
     glEnableVertexAttribArray(0);
@@ -163,9 +157,17 @@ void EXP::Mesh::create_vao(unsigned int index)
         glEnableVertexAttribArray(2);
         offset += 3;
     }
+    
+    //  indices
+    if (indices.size() > 0)
+    {
+        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ebo);
+        glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(unsigned int) * indices.size(), &indices[0], GL_STATIC_DRAW);
+    }
+    
+    glBindVertexArray(0);
     glBindBuffer(GL_ARRAY_BUFFER, 0);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
-    glBindVertexArray(0);
     vaos[index] = vao;
 }
 

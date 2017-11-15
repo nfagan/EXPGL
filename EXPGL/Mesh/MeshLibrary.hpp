@@ -16,6 +16,7 @@
 
 namespace EXP {
     namespace MeshLibrary {
+        
         static const void make_quad(Mesh *mesh)
         {
             using std::array;
@@ -48,6 +49,60 @@ namespace EXP {
                 mesh->AddVertex(vertex);
                 mesh->SetTopology(Mesh::TRIANGLES);
             }
+        }
+        static const void make_sphere(Mesh *mesh, int vertex_count)
+        {
+            using std::array;
+            
+            static const float PI = 3.14159265359;
+            
+            for (unsigned int i=0; i<vertex_count; i++) {
+                for (unsigned int j=0; j<vertex_count; j++) {
+                    
+                    float x_segment = float(j)/float(vertex_count-1);
+                    float y_segment = float(i)/float(vertex_count-1);
+                    
+                    float x_pos = std::cos(x_segment * 2.0f * PI) * std::sin(y_segment * PI);
+                    float y_pos = std::cos(y_segment * PI);
+                    float z_pos = std::sin(x_segment * 2.0f * PI) * std::sin(y_segment * PI);
+                    
+                    Vertex vertex;
+                    
+                    vertex.set_position(array<float, 3>{x_pos, y_pos, 0.0f});
+                    vertex.set_uv(array<float, 2>{x_segment, y_segment});
+                    vertex.set_normal(array<float, 3>{x_pos, y_pos, z_pos});
+                    
+                    mesh->AddVertex(vertex);
+                }
+            }
+            
+            unsigned int n_indices = (vertex_count-1) * (vertex_count*2+2) - 2;
+            unsigned int first_index = 0;
+            unsigned int next_index = first_index + vertex_count;
+            std::vector<unsigned int> indices;
+            unsigned int index_stp = 0;
+            bool should_proceed = true;
+            
+            while (should_proceed)
+            {
+                indices.push_back(first_index);
+                indices.push_back(next_index);
+                index_stp += 2;
+                
+                should_proceed = next_index != ((vertex_count * vertex_count) - 1);
+                
+                if (index_stp > 0 && (next_index+1) % vertex_count == 0 && should_proceed) {
+                    indices.push_back(next_index);
+                    indices.push_back(first_index+1);
+                    index_stp += 2;
+                }
+                
+                first_index++;
+                next_index++;
+            }
+            
+            mesh->SetTopology(Mesh::TRIANGLE_STRIP);
+            mesh->SetIndices(indices);
         }
     }
 }
