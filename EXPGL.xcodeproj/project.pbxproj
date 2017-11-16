@@ -53,10 +53,10 @@
 		0173BF171FB8ADC400ABD17E /* generic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0173BF161FB8ADC400ABD17E /* generic.cpp */; };
 		019A96371FBB78AB00C7290D /* Vertex.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 019A96351FBB78AB00C7290D /* Vertex.hpp */; };
 		019A963B1FBB84A200C7290D /* MeshLibrary.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 019A96391FBB84A200C7290D /* MeshLibrary.hpp */; };
-		01B7645B1F9AE5A0003245EA /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01B7645A1F9AE5A0003245EA /* Cocoa.framework */; };
-		01B7645D1F9AE5A6003245EA /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01B7645C1F9AE5A6003245EA /* IOKit.framework */; };
-		01B7645F1F9AE5AB003245EA /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01B7645E1F9AE5AB003245EA /* CoreVideo.framework */; };
-		01B764611F9AE5B3003245EA /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01B764601F9AE5B3003245EA /* OpenGL.framework */; };
+		01B3C2011FBE0C6C00C506D0 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01B764601F9AE5B3003245EA /* OpenGL.framework */; };
+		01B3C2021FBE0C7900C506D0 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01B7645C1F9AE5A6003245EA /* IOKit.framework */; };
+		01B3C2031FBE0C8200C506D0 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01B7645E1F9AE5AB003245EA /* CoreVideo.framework */; };
+		01B3C2041FBE0CA000C506D0 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01B7645A1F9AE5A0003245EA /* Cocoa.framework */; };
 		01B764631F9AE5D2003245EA /* libglfw3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 01B764621F9AE5D2003245EA /* libglfw3.a */; };
 		01C7FA971FA2BCEE00C3B1F9 /* multiple_contexts.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 01C7FA951FA2BCEE00C3B1F9 /* multiple_contexts.hpp */; };
 		01C7FA991FA2BDA700C3B1F9 /* multiple_windows.hpp in Sources */ = {isa = PBXBuildFile; fileRef = 01C7FA981FA2BDA700C3B1F9 /* multiple_windows.hpp */; };
@@ -775,10 +775,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				01141EFC1FB148680073B878 /* libEXPUtil.a in Frameworks */,
-				01B764611F9AE5B3003245EA /* OpenGL.framework in Frameworks */,
-				01B7645F1F9AE5AB003245EA /* CoreVideo.framework in Frameworks */,
-				01B7645D1F9AE5A6003245EA /* IOKit.framework in Frameworks */,
-				01B7645B1F9AE5A0003245EA /* Cocoa.framework in Frameworks */,
+				01B3C2041FBE0CA000C506D0 /* Cocoa.framework in Frameworks */,
+				01B3C2011FBE0C6C00C506D0 /* OpenGL.framework in Frameworks */,
+				01B3C2031FBE0C8200C506D0 /* CoreVideo.framework in Frameworks */,
+				01B3C2021FBE0C7900C506D0 /* IOKit.framework in Frameworks */,
 				01B764631F9AE5D2003245EA /* libglfw3.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
