@@ -3,3 +3,5 @@ DerivedData/
 Build/
 x64/
 .vs/
+lib/libglfw3.a
+lib/libEXPGL.a
