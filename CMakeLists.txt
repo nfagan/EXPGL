@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 2.8)
 project(EXPGL)
-set(CMAKE_BUILD_TYPE Debug)
 
+set(CMAKE_BUILD_TYPE Debug)
 set(CMAKE_CXX_STANDARD 14)
 
 set(CMAKE_BINARY_DIR ${CMAKE_SOURCE_DIR}/build)
@@ -14,8 +14,9 @@ find_package(EXPUtil REQUIRED)
 
 include_directories(${CMAKE_SOURCE_DIR}/include/)
 include_directories(${EXPUtil_INCLUDE_DIR})
-link_directories("/usr/local/lib")
-link_directories(${EXP_UTIL_LIBRARY_DIR})
+
+link_directories(${CMAKE_SOURCE_DIR}/lib)
+link_directories(${EXPUtil_LIBRARY_DIR})
 
 file(GLOB_RECURSE SOURCES "src/EXPGL/*.c" "src/EXPGL/*.cpp" "include/EXPGL/*.hpp" "include/EXPGL/*.h" "src/glad/glad.c")
 
@@ -31,6 +32,6 @@ if (APPLE)
 		"-framework Cocoa")
 endif()
 
-target_link_libraries(EXPGL glfw ${EXPGL_LIBRARIES} ${EXPUtil_LIBRARIES})
+target_link_libraries(EXPGL glfw3 ${EXPGL_LIBRARIES} ${EXPUtil_LIBRARIES})
 
 install(TARGETS EXPGL DESTINATION ${CMAKE_SOURCE_DIR}/lib)
