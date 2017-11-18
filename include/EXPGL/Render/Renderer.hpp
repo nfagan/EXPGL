@@ -32,6 +32,7 @@ namespace EXP {
         EXP::RenderTarget *target;
         glm::vec3 clear_color = EXP::Colors::BLACK;
         
+        void initialize(EXP::RenderTarget *target);
         void prepare_context(EXP::Window *window);
         void draw(EXP::Model *model, EXP::Window *window, unsigned index);
         void swap_buffers(EXP::Window *window);

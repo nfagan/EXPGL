@@ -13,8 +13,7 @@
 
 EXP::Renderer::Renderer(EXP::RenderTarget *target)
 {
-    target->GetPrimaryWindow()->MakeCurrent();
-    this->target = target;
+    initialize(target);
 }
 
 void EXP::Renderer::Draw(void)
@@ -65,7 +64,7 @@ void EXP::Renderer::prepare_context(EXP::Window *window)
 
 void EXP::Renderer::draw(EXP::Model *model, EXP::Window *window, unsigned index)
 {
-    EXP::Shader* shader = model->GetShader();
+    EXP::Shader *shader = model->GetShader();
     
     if (!shader)
     {
@@ -96,4 +95,10 @@ void EXP::Renderer::draw(EXP::Model *model, EXP::Window *window, unsigned index)
 void EXP::Renderer::swap_buffers(EXP::Window *window)
 {
     glfwSwapBuffers(window->GetWindow());
+}
+
+void EXP::Renderer::initialize(EXP::RenderTarget *target)
+{
+    target->GetPrimaryWindow()->MakeCurrent();
+    this->target = target;
 }

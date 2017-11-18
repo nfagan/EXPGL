@@ -11,9 +11,7 @@
 
 EXP::RenderLoop::RenderLoop(EXP::Renderer *renderer)
 {
-    this->renderer = renderer;
-    this->should_loop.store(true);
-    this->called_once_draw_ready.store(true);
+    initialize(renderer);
 }
 
 void EXP::RenderLoop::Loop()
@@ -99,4 +97,11 @@ void EXP::RenderLoop::draw_ready()
 void EXP::RenderLoop::empty()
 {
     //
+}
+
+void EXP::RenderLoop::initialize(EXP::Renderer *renderer)
+{
+    this->renderer = renderer;
+    this->should_loop.store(true);
+    this->called_once_draw_ready.store(true);
 }

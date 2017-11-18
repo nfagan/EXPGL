@@ -18,6 +18,7 @@ EXP::RenderTarget::RenderTarget(std::vector<EXP::Window*> windows)
     set_window_titles();
     glfwPollEvents();
     windows[0]->Focus();
+    set_window_offsets();
 }
 
 EXP::RenderTarget::~RenderTarget()
@@ -57,7 +58,12 @@ EXP::Window* EXP::RenderTarget::GetPrimaryWindow() const
     return GetWindow(0);
 }
 
-void EXP::RenderTarget::SetWindowOffsets(TILING tile_type)
+void EXP::RenderTarget::SetTileType(TILING tile_type)
+{
+    this->tile_type = tile_type;
+}
+
+void EXP::RenderTarget::set_window_offsets()
 {
     //  vertical layouts to come
     assert(tile_type == HORIZONTAL);

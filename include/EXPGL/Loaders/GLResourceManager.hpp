@@ -12,7 +12,7 @@
 #include <EXPGL/Mesh/MeshLibrary.hpp>
 #include <EXPGL/Model/Model.hpp>
 #include <EXPGL/Loaders/TextureLoader.hpp>
-#include <EXPGL/Util/EXPGL_ASSERT.hpp>
+#include <EXPUtil/assert/EXP_ASSERT.h>
 #include <EXPGL/Resource/GLResourcePrimitive.hpp>
 #include <EXPGL/Resource/GLResourceIdentifier.hpp>
 #include <typeinfo>
@@ -22,11 +22,23 @@ namespace EXP {
     class GLResourceManager
     {
     public:
-        GLResourceManager(void);
-        ~GLResourceManager(void);
+        GLResourceManager(EXP::RenderTarget *target)
+        {
+            this->target = target;
+            texture_loader = std::make_unique<TextureLoader>();
+            n_items = 0;
+        }
+        
+        ~GLResourceManager()
+        {
+            for (unsigned i = 0; i < items.size(); ++i)
+            {
+                delete items[i];
+            }
+        }
         
         template<typename T, typename... A>
-        T* Create(EXP::RenderTarget *target, A... args)
+        T* Create(A... args)
         {
             static_assert(std::is_base_of<EXP::GLResourcePrimitive, T>::value,
                           "Template type must be derived from GLResourcePrimitive.");
@@ -44,23 +56,33 @@ namespace EXP {
             return item;
         }
         
-        Model* CreateRectangle(EXP::RenderTarget *target)
+        Model* CreateRectangle(void)
         {
-            Mesh *mesh = Create<Mesh>(target);
+            Mesh *mesh = Create<Mesh>();
             MeshLibrary::make_quad(mesh);
             mesh->Finalize(target);
-            Material *mat = Create<Material>(target);
-            Model *model = Create<Model>(target, mesh, mat);
+            Material *mat = Create<Material>();
+            Model *model = Create<Model>(mesh, mat);
             return model;
         }
         
-        Model* CreateSphere(RenderTarget *target, int vertex_count = 128)
+        Model* CreateSphere(int vertex_count = 128)
         {
-            Mesh *mesh = Create<Mesh>(target);
+            Mesh *mesh = Create<Mesh>();
             MeshLibrary::make_sphere(mesh, vertex_count);
             mesh->Finalize(target);
-            Material *mat = Create<Material>(target);
-            Model *model = Create<Model>(target, mesh, mat);
+            Material *mat = Create<Material>();
+            Model *model = Create<Model>(mesh, mat);
+            return model;
+        }
+        
+        Model* CreateTriangle(void)
+        {
+            Mesh *mesh = Create<Mesh>();
+            MeshLibrary::make_triangle(mesh);
+            mesh->Finalize(target);
+            Material *mat = Create<Material>();
+            Model *model = Create<Model>(mesh, mat);
             return model;
         }
         
@@ -70,14 +92,14 @@ namespace EXP {
             {
                 if (items[i]->GetIdentifier().GetName() == name)
                 {
-                    EXPGL_ASSERT(false, "An item with the name `" << name << "` already exists." << std::endl);
+                    throw std::runtime_error("An item with the name `" + name + "` already exists.");
                 }
             }
             
             std::string current_name = resource->GetIdentifier().GetName();
             auto it = indices.find(current_name);
             //  shouldn't happen (TM)
-            EXPGL_ASSERT(it != indices.end(), "Name `" << current_name << "` was not present???");
+            EXP_ASSERT(it != indices.end(), "Name `" << current_name << "` was not present???");
             unsigned index = it->second;
             indices.erase(it);
             indices[name] = index;
@@ -87,9 +109,12 @@ namespace EXP {
         T* Get(std::string name)
         {
             auto it = indices.find(name.c_str());
-            EXPGL_ASSERT(it != indices.end(), "No items with the name `" << name << "` were present.");
+            if (it == indices.end())
+            {
+                throw std::runtime_error("No items with the name `" + name + "` were present.");
+            }
             GLResourcePrimitive *item = items[it->second];
-            EXPGL_ASSERT(std::type_index(typeid(T)) == types[it->second],
+            EXP_ASSERT(std::type_index(typeid(T)) == types[it->second],
                          "The type of the retreived item must match its original type.");
             return static_cast<T*>(item);
         }
@@ -103,7 +128,7 @@ namespace EXP {
                 if (items[i]->GetIdentifier().GetTag() == tag)
                 {
                     T* item = dynamic_cast<T*>(items[i]);
-                    EXPGL_ASSERT(item, "The type of the retreived item must match its original type.");
+                    EXP_ASSERT(item, "The type of the retreived item must match its original type.");
                     res.push_back(item);
                 }
             }
@@ -116,7 +141,13 @@ namespace EXP {
             return texture_loader->GetTexture(filename);
         };
     private:
-        TextureLoader *texture_loader;
+        void initialize(RenderTarget *target)
+        {
+            this->target = target;
+        }
+        
+        RenderTarget *target = nullptr;
+        std::unique_ptr<TextureLoader> texture_loader;
         std::vector<GLResourcePrimitive*> items;
         std::vector<std::type_index> types;
         std::unordered_map<std::string, unsigned int> indices;

@@ -27,7 +27,7 @@ namespace EXP {
         
         ~RenderTarget(void);
         
-        void SetWindowOffsets(TILING tile_type);
+        void SetTileType(TILING tile_type);
         
         EXP::Rect<int> GetFullRect(void) const;
         EXP::Window* GetPrimaryWindow(void) const;
@@ -40,6 +40,7 @@ namespace EXP {
         TILING tile_type = HORIZONTAL;
         
         void set_window_titles(void);
+        void set_window_offsets(void);
     };
 }
 

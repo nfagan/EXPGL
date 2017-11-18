@@ -27,6 +27,7 @@
 
 #include <EXPGL/Model/Model.hpp>
 
+#include <EXPGL/Render/GLPipeline.hpp>
 #include <EXPGL/Render/RenderLoop.hpp>
 #include <EXPGL/Render/Renderer.hpp>
 #include <EXPGL/Render/RenderTarget.hpp>

@@ -48,7 +48,7 @@ EXP::GLContextManager::~GLContextManager()
     {
         delete render_targets[i];
     }
-    delete has_fullscreen_window;
+    delete[] has_fullscreen_window;
 }
 
 bool EXP::GLContextManager::DidInitialize()

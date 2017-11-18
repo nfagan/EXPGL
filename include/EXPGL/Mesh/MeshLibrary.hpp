@@ -50,6 +50,38 @@ namespace EXP {
                 mesh->SetTopology(Mesh::TRIANGLES);
             }
         }
+        
+        static const void make_triangle(Mesh *mesh)
+        {
+            using std::array;
+            
+            static const float vertex_data[24] = {
+                -1.0f, -1.0f, 0.0f, 0.0f, 1.0f, 0.0f, 1.0f, 0.0f,
+                1.0f, -1.0f, 0.0f, 0.0f, 1.0f, 0.0f, 1.0f, 0.0f,
+                0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f, 1.0f, 0.0f
+            };
+            
+            for (unsigned i = 0; i < 3; ++i)
+            {
+                Vertex vertex;
+                float x = vertex_data[i*8+0];
+                float y = vertex_data[i*8+1];
+                float z = vertex_data[i*8+2];
+                float u = vertex_data[i*8+3];
+                float v = vertex_data[i*8+4];
+                float nx = vertex_data[i*8+5];
+                float ny = vertex_data[i*8+6];
+                float nz = vertex_data[i*8+7];
+                
+                vertex.set_position(array<float, 3>{x, y, z});
+                vertex.set_uv(array<float, 2>{u, v});
+                vertex.set_normal(array<float, 3>{nx, ny, nz});
+                
+                mesh->AddVertex(vertex);
+                mesh->SetTopology(Mesh::TRIANGLES);
+            }
+        }
+        
         static const void make_sphere(Mesh *mesh, int vertex_count)
         {
             using std::array;
@@ -76,7 +108,6 @@ namespace EXP {
                 }
             }
             
-            unsigned int n_indices = (vertex_count-1) * (vertex_count*2+2) - 2;
             unsigned int first_index = 0;
             unsigned int next_index = first_index + vertex_count;
             std::vector<unsigned int> indices;
