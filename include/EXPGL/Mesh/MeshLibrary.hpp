@@ -42,9 +42,9 @@ namespace EXP {
                 float ny = vertex_data[i*8+6];
                 float nz = vertex_data[i*8+7];
                 
-                vertex.set_position(array<float, 3>{x, y, z});
-                vertex.set_uv(array<float, 2>{u, v});
-                vertex.set_normal(array<float, 3>{nx, ny, nz});
+                vertex.set_position(array<float, 3>{{x, y, z}});
+                vertex.set_uv(array<float, 2>{{u, v}});
+                vertex.set_normal(array<float, 3>{{nx, ny, nz}});
                 
                 mesh->AddVertex(vertex);
                 mesh->SetTopology(Mesh::TRIANGLES);
@@ -73,9 +73,9 @@ namespace EXP {
                 float ny = vertex_data[i*8+6];
                 float nz = vertex_data[i*8+7];
                 
-                vertex.set_position(array<float, 3>{x, y, z});
-                vertex.set_uv(array<float, 2>{u, v});
-                vertex.set_normal(array<float, 3>{nx, ny, nz});
+                vertex.set_position(array<float, 3>{{x, y, z}});
+                vertex.set_uv(array<float, 2>{{u, v}});
+                vertex.set_normal(array<float, 3>{{nx, ny, nz}});
                 
                 mesh->AddVertex(vertex);
                 mesh->SetTopology(Mesh::TRIANGLES);
@@ -100,9 +100,9 @@ namespace EXP {
                     
                     Vertex vertex;
                     
-                    vertex.set_position(array<float, 3>{x_pos, y_pos, 0.0f});
-                    vertex.set_uv(array<float, 2>{x_segment, y_segment});
-                    vertex.set_normal(array<float, 3>{x_pos, y_pos, z_pos});
+                    vertex.set_position(array<float, 3>{{x_pos, y_pos, 0.0f}});
+                    vertex.set_uv(array<float, 2>{{x_segment, y_segment}});
+                    vertex.set_normal(array<float, 3>{{x_pos, y_pos, z_pos}});
                     
                     mesh->AddVertex(vertex);
                 }

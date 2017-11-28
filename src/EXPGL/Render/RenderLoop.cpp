@@ -9,9 +9,11 @@
 #include <EXPGL/Render/RenderLoop.hpp>
 #include <EXPGL/Model/Model.hpp>
 
-EXP::RenderLoop::RenderLoop(EXP::Renderer *renderer)
+EXP::RenderLoop::RenderLoop(std::shared_ptr<EXP::Renderer> renderer)
 {
-    initialize(renderer);
+    this->renderer = renderer;
+    this->should_loop.store(true);
+    this->called_once_draw_ready.store(true);
 }
 
 void EXP::RenderLoop::Loop()
@@ -97,11 +99,4 @@ void EXP::RenderLoop::draw_ready()
 void EXP::RenderLoop::empty()
 {
     //
-}
-
-void EXP::RenderLoop::initialize(EXP::Renderer *renderer)
-{
-    this->renderer = renderer;
-    this->should_loop.store(true);
-    this->called_once_draw_ready.store(true);
 }

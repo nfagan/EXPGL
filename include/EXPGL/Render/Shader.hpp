@@ -10,6 +10,7 @@
 #define Shader_hpp
 
 #include <gl.h>
+#include <EXPGL/Resource/GLResourcePrimitive.hpp>
 #include <glm/glm.hpp>
 #include <glm/gtc/type_ptr.hpp>
 #include <stdio.h>
@@ -17,7 +18,7 @@
 
 namespace EXP {
     
-    class Shader
+    class Shader : public GLResourcePrimitive
     {
     public:
         enum SHADER_TYPES

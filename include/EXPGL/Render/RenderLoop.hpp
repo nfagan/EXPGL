@@ -23,7 +23,7 @@ namespace EXP {
     class RenderLoop
     {
     public:
-        RenderLoop(EXP::Renderer *renderer);
+        RenderLoop(std::shared_ptr<EXP::Renderer> renderer);
         ~RenderLoop() = default;
         
         void Loop(void);
@@ -43,13 +43,12 @@ namespace EXP {
         std::function<void(EXP::RenderLoop*)> on_loop = &EXP::RenderLoop::empty;
         std::function<void(EXP::RenderLoop*)> once_draw_ready = &EXP::RenderLoop::empty;
         
-        void initialize(Renderer *renderer);
         void empty();
         void user_loop(void);
         void render_loop(void);
         void draw_ready(void);
         
-        EXP::Renderer *renderer = nullptr;
+        std::shared_ptr<EXP::Renderer> renderer;
     };
 }
 

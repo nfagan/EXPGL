@@ -19,9 +19,7 @@
 namespace EXP {
     
     class Material : public GLResourcePrimitive
-    {
-        friend class MaterialLoader;
-        
+    {        
     public:
         Material();
         virtual ~Material() = default;

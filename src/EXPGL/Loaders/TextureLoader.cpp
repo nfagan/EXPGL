@@ -10,6 +10,7 @@
 #define STB_IMAGE_IMPLEMENTATION
 #include <stb/stb_image.h>
 #include <gl.h>
+#include <iostream>
 
 EXP::TextureLoader::TextureLoader() {}
 
@@ -63,7 +64,7 @@ EXP::Texture* EXP::TextureLoader::GetTexture(const char *filename)
         
         stbi_image_free(data);
     } else {
-        fprintf(stderr, "Could not load texture %s", filename);
+        std::cout << "Failed to load texture: " << filename << std::endl;
         stbi_image_free(data);
         return NULL;
     }

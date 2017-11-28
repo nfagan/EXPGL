@@ -16,12 +16,14 @@ EXP::Mesh::Mesh() : EXP::GLResourcePrimitive()
     //
 }
 
-EXP::Mesh::~Mesh() {
+EXP::Mesh::~Mesh()
+{
     for (unsigned i = 0; i < n_vaos; ++i) {
         glDeleteVertexArrays(1, &vaos[i]);
     }
     delete[] vaos;
     glDeleteBuffers(1, &vbo);
+    glDeleteBuffers(1, &ebo);
 }
 
 void EXP::Mesh::SetTopology(EXP::Mesh::TOPOLOGY topology)
@@ -36,16 +38,19 @@ void EXP::Mesh::SetIndices(std::vector<unsigned int> indices)
 
 void EXP::Mesh::AddVertex(EXP::Vertex vertex)
 {
-    if (vertices.size() > 0)
+    if (vertices.size() > 0 && !vertex.sizes_match(vertices[0]))
     {
-        EXP_ASSERT(vertex.sizes_match(vertices[0]), "Vertices must have consistent numbers of elements.");
+        throw std::runtime_error("Vertices must have consistent numbers of elements.");
     }
     vertices.push_back(vertex);
 }
 
 void EXP::Mesh::Initialize(EXP::RenderTarget *target)
 {
-    EXP_ASSERT(!IsInitialized(), "Mesh was already initialized.");
+    if (IsInitialized())
+    {
+        throw std::runtime_error("Mesh was already initialized.");
+    }
     glGenBuffers(1, &vbo);
     glGenBuffers(1, &ebo);
     n_vaos = target->Size();
@@ -55,8 +60,14 @@ void EXP::Mesh::Initialize(EXP::RenderTarget *target)
 
 void EXP::Mesh::Finalize(EXP::RenderTarget *target)
 {
-    EXP_ASSERT(IsInitialized(), "Mesh was not yet initialized.");
-    EXP_ASSERT(!IsFinalized(), "Mesh was already finalized.");
+    if (!IsInitialized())
+    {
+        throw std::runtime_error("Mesh was not yet initialized.");
+    }
+    if (IsFinalized())
+    {
+        throw std::runtime_error("Mesh was already finalized.");
+    }
     for (unsigned i = 0; i < n_vaos; ++i)
     {
         target->GetWindow(i)->MakeCurrent();
@@ -140,7 +151,7 @@ void EXP::Mesh::create_vao(unsigned int index)
     glBufferData(GL_ARRAY_BUFFER, sizeof(float) * n_vertex_elements, &vertex_data[0], GL_STATIC_DRAW);
     
     //  position
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, stride, (void*)offset);
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, stride, (void*)(offset*sizeof(float)));
     glEnableVertexAttribArray(0);
     offset += 3;
     

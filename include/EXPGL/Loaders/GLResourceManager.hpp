@@ -60,30 +60,21 @@ namespace EXP {
         {
             Mesh *mesh = Create<Mesh>();
             MeshLibrary::make_quad(mesh);
-            mesh->Finalize(target);
-            Material *mat = Create<Material>();
-            Model *model = Create<Model>(mesh, mat);
-            return model;
+            return make_model(mesh);
         }
         
         Model* CreateSphere(int vertex_count = 128)
         {
             Mesh *mesh = Create<Mesh>();
             MeshLibrary::make_sphere(mesh, vertex_count);
-            mesh->Finalize(target);
-            Material *mat = Create<Material>();
-            Model *model = Create<Model>(mesh, mat);
-            return model;
+            return make_model(mesh);
         }
         
         Model* CreateTriangle(void)
         {
             Mesh *mesh = Create<Mesh>();
             MeshLibrary::make_triangle(mesh);
-            mesh->Finalize(target);
-            Material *mat = Create<Material>();
-            Model *model = Create<Model>(mesh, mat);
-            return model;
+            return make_model(mesh);
         }
         
         void SetName(GLResourcePrimitive *resource, std::string name)
@@ -114,8 +105,10 @@ namespace EXP {
                 throw std::runtime_error("No items with the name `" + name + "` were present.");
             }
             GLResourcePrimitive *item = items[it->second];
-            EXP_ASSERT(std::type_index(typeid(T)) == types[it->second],
-                         "The type of the retreived item must match its original type.");
+            if (std::type_index(typeid(T)) != types[it->second])
+            {
+                throw std::runtime_error("The type of the retreived item must match its original type.");
+            }
             return static_cast<T*>(item);
         }
         
@@ -141,9 +134,13 @@ namespace EXP {
             return texture_loader->GetTexture(filename);
         };
     private:
-        void initialize(RenderTarget *target)
+        
+        Model* make_model(Mesh *mesh)
         {
-            this->target = target;
+            mesh->Finalize(target);
+            Material *mat = Create<Material>();
+            Model *model = Create<Model>(mesh, mat);
+            return model;
         }
         
         RenderTarget *target = nullptr;

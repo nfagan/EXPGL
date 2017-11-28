@@ -16,83 +16,78 @@
 #include <cassert>
 
 namespace EXP {
-    class GLPipeline
+class GLPipeline
+{
+public:
+    GLPipeline(GLContextManager *manager) : context(manager)
     {
-    public:
-        GLPipeline(GLContextManager *manager) : context(manager)
-        {
-            is_initialized = false;
-        }
+        is_initialized = false;
+    }
+    
+    ~GLPipeline() = default;
+    
+    void Begin(int index = 0)
+    {
+        assert(context);
+        target = context->CreateRenderTarget(context->OpenWindow(index, nullptr));
+        begin(target);
         
-        ~GLPipeline()
+    }
+    void Begin(int index, int width, int height)
+    {
+        assert(context);
+        target = context->CreateRenderTarget(context->OpenWindow(index, width, height, nullptr));
+        begin(target);
+    }
+    
+    std::shared_ptr<Renderer>& GetRenderer()
+    {
+        ensure_initialized();
+        return renderer;
+    }
+    
+    std::shared_ptr<RenderLoop>& GetLoop()
+    {
+        ensure_initialized();
+        return loop;
+    }
+    
+    std::shared_ptr<GLResourceManager>& GetResource()
+    {
+        ensure_initialized();
+        return resource;
+    }
+    
+    RenderTarget* GetTarget() const
+    {
+        ensure_initialized();
+        return target;
+    }
+    
+private:
+    bool is_initialized;
+    GLContextManager *context;
+    RenderTarget *target;
+    std::shared_ptr<Renderer> renderer;
+    std::shared_ptr<GLResourceManager> resource;
+    std::shared_ptr<RenderLoop> loop;
+    
+    void ensure_initialized(void) const
+    {
+        if (!is_initialized)
         {
-            delete resource;
-            delete renderer;
-            delete loop;
+            throw std::runtime_error("A call to begin() must precede item access.");
         }
-        
-        void Begin(int index = 0)
-        {
-            assert(context);
-            target = context->CreateRenderTarget(context->OpenWindow(0, nullptr));
-            begin(target);
-            
-        }
-        void Begin(int index, int width, int height)
-        {
-            assert(context);
-            target = context->CreateRenderTarget(context->OpenWindow(0, width, height, nullptr));
-            begin(target);
-        }
-        
-        Renderer* GetRenderer()
-        {
-            ensure_initialized();
-            return renderer;
-        }
-        
-        RenderLoop* GetLoop()
-        {
-            ensure_initialized();
-            return loop;
-        }
-        
-        GLResourceManager* GetResource()
-        {
-            ensure_initialized();
-            return resource;
-        }
-        
-        RenderTarget* GetTarget() const
-        {
-            ensure_initialized();
-            return target;
-        }
-        
-    private:
-        bool is_initialized;
-        GLContextManager *context;
-        RenderTarget *target;
-        Renderer *renderer;
-        GLResourceManager *resource;
-        RenderLoop *loop;
-        
-        void ensure_initialized(void) const
-        {
-            if (!is_initialized)
-            {
-                throw std::runtime_error("A call to begin() must precede item access.");
-            }
-        }
-        
-        void begin(RenderTarget *target)
-        {
-            resource = new GLResourceManager(target);
-            renderer = new Renderer(target);
-            loop = new RenderLoop(renderer);
-            is_initialized = true;
-        }
-    };
+    }
+    
+    void begin(RenderTarget *target)
+    {
+        resource = std::make_shared<GLResourceManager>(target);
+        renderer = std::make_shared<Renderer>(target);
+        loop = std::make_shared<RenderLoop>(renderer);
+        is_initialized = true;
+    }
+};
 }
 
 #endif /* GLPipeline_hpp */
