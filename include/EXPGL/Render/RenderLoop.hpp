@@ -11,6 +11,7 @@
 
 #include <atomic>
 #include <vector>
+#include <memory>
 #include <functional>
 #include <unordered_map>
 #include <EXPUtil/thread/spinlock.hpp>

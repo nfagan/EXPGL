@@ -13,6 +13,7 @@
 #include <EXPGL/Render/Renderer.hpp>
 #include <EXPGL/Render/RenderLoop.hpp>
 #include <EXPGL/Loaders/GLResourceManager.hpp>
+#include <memory>
 #include <cassert>
 
 namespace EXP {
