@@ -77,7 +77,7 @@ namespace EXP {
             return make_model(mesh);
         }
         
-        void SetName(GLResourcePrimitive *resource, std::string name)
+        void SetName(GLResourcePrimitive *resource, const std::string &name)
         {
             for (unsigned i = 0; i < items.size(); ++i)
             {
@@ -97,7 +97,7 @@ namespace EXP {
         }
         
         template<typename T>
-        T* Get(std::string name)
+        T* Get(const std::string &name)
         {
             auto it = indices.find(name.c_str());
             if (it == indices.end())
@@ -113,7 +113,7 @@ namespace EXP {
         }
         
         template<typename T>
-        std::vector<T*> GetByTag(std::string tag)
+        std::vector<T*> GetByTag(const std::string &tag)
         {
             std::vector<T*> res;
             for (unsigned i = 0; i < items.size(); ++i)

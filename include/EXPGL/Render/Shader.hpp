@@ -52,7 +52,7 @@ namespace EXP {
         std::string get_code_from_file(const char *filename);
         
         int check_link_errors(unsigned id);
-        int check_compile_errors(unsigned id, std::string type);
+        int check_compile_errors(unsigned id, const std::string &type);
     };
 }
 

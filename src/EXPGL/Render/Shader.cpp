@@ -137,7 +137,7 @@ bool EXP::Shader::Link()
     return (bool)success;
 }
 
-int EXP::Shader::check_compile_errors(unsigned id, std::string shader_type_name)
+int EXP::Shader::check_compile_errors(unsigned id, const std::string &shader_type_name)
 {
     
     int success;

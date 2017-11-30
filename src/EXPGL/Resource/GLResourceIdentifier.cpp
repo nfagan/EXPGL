@@ -29,12 +29,12 @@ void EXP::GLResourceIdentifier::SetTag(std::string tag)
     this->tag = tag;
 }
 
-std::string EXP::GLResourceIdentifier::GetName() const
+const std::string& EXP::GLResourceIdentifier::GetName() const
 {
     return name;
 }
 
-std::string EXP::GLResourceIdentifier::GetTag() const
+const std::string& EXP::GLResourceIdentifier::GetTag() const
 {
     return tag;
 }

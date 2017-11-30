@@ -23,8 +23,8 @@ namespace EXP {
         void SetTag(std::string tag);
         void SetId(unsigned id);
         
-        std::string GetName(void) const;
-        std::string GetTag(void) const;
+        const std::string& GetName(void) const;
+        const std::string& GetTag(void) const;
         unsigned GetId(void) const;
         
         void clone_from(const GLResourceIdentifier& source);

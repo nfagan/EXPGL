@@ -137,7 +137,7 @@ EXP::Material* EXP::Model::GetMaterial() const
     return material.load();
 }
 
-glm::mat4 EXP::Model::GetTransformationMatrix(EXP::Rect<float> screen) const
+glm::mat4 EXP::Model::GetTransformationMatrix(const EXP::Rect<float> &screen) const
 {
     return get_transformation_matrix(screen);
 }

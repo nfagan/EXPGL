@@ -8,7 +8,6 @@
 
 #include <EXPGL/Render/Renderer.hpp>
 #include <iostream>
-#include <EXPGL/Util/EXPGL_ASSERT.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 
 EXP::Renderer::Renderer(EXP::RenderTarget *target)
@@ -84,7 +83,7 @@ void EXP::Renderer::draw(EXP::Model *model, EXP::Window *window, unsigned index)
     else
     {
         //  3D not yet implemented
-        EXPGL_ASSERT(false, "Rendering of 3D models not yet implemented.");
+        throw std::runtime_error("Rendering of 3D models not yet implemented.");
     }
     
     shader->SetMat4("model", model->GetTransformationMatrix(srect));

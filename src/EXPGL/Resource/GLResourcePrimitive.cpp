@@ -20,12 +20,12 @@ EXP::GLResourceIdentifier EXP::GLResourcePrimitive::GetIdentifier() const
     return identifier;
 }
 
-void EXP::GLResourcePrimitive::SetTag(std::string tag)
+void EXP::GLResourcePrimitive::SetTag(const std::string &tag)
 {
     identifier.SetTag(tag);
 }
 
-void EXP::GLResourcePrimitive::set_identifier(EXP::GLResourceIdentifier identifier)
+void EXP::GLResourcePrimitive::set_identifier(const EXP::GLResourceIdentifier &identifier)
 {
     this->identifier = identifier;
 }

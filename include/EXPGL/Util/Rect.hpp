@@ -27,7 +27,7 @@ namespace EXP {
         }
         friend bool operator <= (const Rect<T> &r, T scalar)
         {
-            return r.rect[0] < scalar && r.rect[1] < scalar && r.rect[2] < scalar && r.rect[3] < scalar;
+            return r.rect[0] <= scalar && r.rect[1] <= scalar && r.rect[2] <= scalar && r.rect[3] <= scalar;
         }
         friend bool operator > (const Rect<T> &r, T scalar)
         {

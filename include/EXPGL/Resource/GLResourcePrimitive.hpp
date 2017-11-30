@@ -22,14 +22,12 @@ namespace EXP {
     public:
         GLResourcePrimitive();
         virtual ~GLResourcePrimitive() = default;
-        
         virtual GLResourceIdentifier GetIdentifier(void) const;
-        
         virtual void Initialize(RenderTarget *target);
+        virtual void SetTag(const std::string &tag);
         
-        virtual void SetTag(std::string tag);
     protected:
-        virtual void set_identifier(GLResourceIdentifier identifier);
+        virtual void set_identifier(const GLResourceIdentifier &identifier);
         GLResourceIdentifier identifier;
     };
 }

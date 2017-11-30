@@ -55,7 +55,7 @@ namespace EXP {
         virtual EXP::Shader* GetShader(void) const;
         virtual EXP::Material* GetMaterial(void) const;
         
-        virtual glm::mat4 GetTransformationMatrix(Rect<float> screen) const;
+        virtual glm::mat4 GetTransformationMatrix(const Rect<float> &screen) const;
         glm::vec3 get_units_position(const Rect<float> &screen) const;
         glm::vec3 get_units_scale(const Rect<float> &screen) const;
         

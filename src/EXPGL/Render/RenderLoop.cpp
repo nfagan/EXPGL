@@ -31,7 +31,7 @@ void EXP::RenderLoop::CancelLoop()
     should_loop.store(false);
 }
 
-void EXP::RenderLoop::Queue(const std::vector<Model *> &models)
+void EXP::RenderLoop::Queue(const std::vector<Model*> &models)
 {
     queue_lock.lock();
     for (unsigned i = 0; i < models.size(); i++)
