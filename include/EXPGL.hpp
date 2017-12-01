@@ -32,10 +32,11 @@
 #include <EXPGL/Render/Renderer.hpp>
 #include <EXPGL/Render/RenderTarget.hpp>
 #include <EXPGL/Render/Shader.hpp>
-#include <EXPGL/Render/Shader2D.hpp>
+#include <EXPGL/Shaders/ShaderLibrary.hpp>
 
 #include <EXPGL/Texture/Texture.hpp>
 
+#include <EXPGL/Util/Common.hpp>
 #include <EXPGL/Util/Colors.hpp>
 #include <EXPGL/Util/Positions2D.hpp>
 #include <EXPGL/Util/Rect.hpp>

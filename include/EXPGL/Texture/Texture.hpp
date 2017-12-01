@@ -22,12 +22,12 @@ namespace EXP {
         Texture(unsigned id, int width, int height);
         virtual ~Texture();
         
-        virtual void Activate(void);
+        virtual void Activate();
         virtual void SetIndex(unsigned index);
         
-        int GetWidth(void) const;
-        int GetHeight(void) const;
-        int GetIndex(void) const;
+        int GetWidth() const;
+        int GetHeight() const;
+        int GetIndex() const;
     protected:
         unsigned index;
         unsigned id;

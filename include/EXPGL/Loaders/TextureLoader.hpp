@@ -18,8 +18,8 @@ namespace EXP {
     class TextureLoader
     {
     public:
-        TextureLoader(void);
-        ~TextureLoader(void);
+        TextureLoader();
+        ~TextureLoader();
         
         Texture* GetTexture(const char* filename);
     private:

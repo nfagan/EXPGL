@@ -30,9 +30,9 @@ namespace EXP {
         void Focus(void);
         void SetPosition(int x, int y);
         
-        GLFWwindow* GetWindow(void) const { return window; };
-        unsigned GetMonitorIndex(void) const { return monitor_index; };
-        GLFWmonitor* GetMonitor(void) const { return monitor; };
+        GLFWwindow* GetWindow() const { return window; };
+        unsigned GetMonitorIndex() const { return monitor_index; };
+        GLFWmonitor* GetMonitor() const { return monitor; };
         unsigned GetId() const { return id; };
         Rect<int>* GetRect() const { return rect; };
         

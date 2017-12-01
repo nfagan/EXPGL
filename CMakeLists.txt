@@ -18,7 +18,7 @@ include_directories(${EXPUtil_INCLUDE_DIR})
 link_directories(${CMAKE_SOURCE_DIR}/lib)
 link_directories(${EXPUtil_LIBRARY_DIR})
 
-file(GLOB_RECURSE SOURCES "src/EXPGL/*.c" "src/EXPGL/*.cpp" "include/EXPGL/*.hpp" "include/EXPGL/*.h" "src/glad/glad.c")
+file(GLOB_RECURSE SOURCES "src/EXPGL/*.c" "src/EXPGL/*.cpp" "include/EXPGL/*.hpp" "include/EXPGL/*.h" "include/EXPGL.hpp" "src/glad/glad.c")
 
 add_library(EXPGL STATIC ${SOURCES})
 

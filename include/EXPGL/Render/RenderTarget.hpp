@@ -24,15 +24,14 @@ namespace EXP {
         };
         
         RenderTarget(std::vector<EXP::Window*> windows);
-        
-        ~RenderTarget(void);
+        ~RenderTarget();
         
         void SetTileType(TILING tile_type);
         
-        EXP::Rect<int> GetFullRect(void) const;
-        EXP::Window* GetPrimaryWindow(void) const;
+        EXP::Rect<int> GetFullRect() const;
+        EXP::Window* GetPrimaryWindow() const;
         EXP::Window* GetWindow(unsigned i) const;
-        unsigned Size(void) const;
+        unsigned Size() const;
         
     private:
         std::vector<EXP::Window*> windows;

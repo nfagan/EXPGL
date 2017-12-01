@@ -23,13 +23,13 @@ namespace EXP {
         GLContextManager();
         ~GLContextManager();
         
-        bool DidInitialize(void);
+        bool DidInitialize();
         
         Window* OpenWindow(unsigned index, Window *other);
         Window* OpenWindow(unsigned index, unsigned width, unsigned height, Window *other);
         void CloseWindow(Window *window);
         void CloseTarget(RenderTarget *target);
-        void PollEvents(void);
+        void PollEvents();
         
         RenderTarget* CreateRenderTarget(Window *window);
         RenderTarget* CreateRenderTarget(std::vector<EXP::Window*> windows);

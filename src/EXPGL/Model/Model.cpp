@@ -12,18 +12,14 @@
 
 EXP::Model::Model(EXP::Mesh *mesh, EXP::Material *material) : EXP::GLResourcePrimitive()
 {
-    is_2d = true;
     SetMesh(mesh);
     SetMaterial(material);
     SetPosition(glm::vec3(0.0f));
     SetRotation(glm::vec3(0.0f));
     SetScale(glm::vec3(1.0f));
     SetShader(nullptr);
-}
-
-bool EXP::Model::Is2D() const
-{
-    return is_2d;
+    SetUnits(EXP::util::units::NORMALIZED);
+    SetProjectionType(EXP::util::projection_types::ORTHOGRAPHIC);
 }
 
 void EXP::Model::Draw(unsigned index)
@@ -97,9 +93,14 @@ void EXP::Model::SetRotation(glm::vec2 rotation)
     SetRotation(glm::vec3(rotation, 1.0f));
 }
 
-void EXP::Model::SetUnits(EXP::Model::UNITS units)
+void EXP::Model::SetUnits(EXP::util::units::UNITS units)
 {
-    this->units = units;
+    this->units.store(units);
+}
+
+void EXP::Model::SetProjectionType(util::projection_types::PROJECTION_TYPES projection_type)
+{
+    this->projection_type.store(projection_type);
 }
 
 void EXP::Model::SetMesh(EXP::Mesh *mesh)
@@ -107,9 +108,14 @@ void EXP::Model::SetMesh(EXP::Mesh *mesh)
     this->mesh.store(mesh);
 }
 
-EXP::Model::UNITS EXP::Model::GetUnits() const
+EXP::util::units::UNITS EXP::Model::GetUnits() const
 {
-    return units;
+    return units.load();
+}
+
+EXP::util::projection_types::PROJECTION_TYPES EXP::Model::GetProjectionType() const
+{
+    return projection_type.load();
 }
 
 glm::vec3 EXP::Model::GetPosition() const
@@ -154,6 +160,8 @@ glm::mat4 EXP::Model::get_transformation_matrix(const Rect<float> &screen) const
 
 glm::vec3 EXP::Model::get_units_scale(const Rect<float> &screen) const
 {
+    using namespace util::units;
+    
     glm::vec3 local_scale = GetScale();
     if (units == NORMALIZED)
     {
@@ -165,6 +173,8 @@ glm::vec3 EXP::Model::get_units_scale(const Rect<float> &screen) const
 
 glm::vec3 EXP::Model::get_units_position(const Rect<float> &screen) const
 {
+    using namespace util::units;
+    
     glm::vec3 pos = GetPosition();
     if (units == NORMALIZED || units == MIXED)
     {

@@ -20,9 +20,9 @@ namespace EXP {
         InputXY(EXP::RenderTarget *target);
         virtual ~InputXY() = default;
         
-        virtual glm::vec2 GetCoordinates(void) const;
-        virtual void UpdateCoordinates(void);
-        virtual void PrintCoordinates(void) const;
+        virtual glm::vec2 GetCoordinates() const;
+        virtual void UpdateCoordinates();
+        virtual void PrintCoordinates() const;
     protected:
         EXP::RenderTarget *target;
         std::atomic<float> x;

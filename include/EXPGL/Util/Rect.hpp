@@ -25,6 +25,10 @@ namespace EXP {
             return Rect<X>(static_cast<X>(rect[0]), static_cast<X>(rect[1]), static_cast<X>(rect[2]),
                              static_cast<X>(rect[3]));
         }
+        friend bool operator < (const Rect<T> &r, T scalar)
+        {
+            return r.rect[0] < scalar && r.rect[1] < scalar && r.rect[2] < scalar && r.rect[3] < scalar;
+        }
         friend bool operator <= (const Rect<T> &r, T scalar)
         {
             return r.rect[0] <= scalar && r.rect[1] <= scalar && r.rect[2] <= scalar && r.rect[3] <= scalar;

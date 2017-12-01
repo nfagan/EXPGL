@@ -20,51 +20,16 @@ namespace EXP {
 class GLPipeline
 {
 public:
-    GLPipeline(GLContextManager *manager) : context(manager)
-    {
-        is_initialized = false;
-    }
-    
+    GLPipeline(GLContextManager *manager);
     ~GLPipeline() = default;
     
-    void Begin(int index = 0)
-    {
-        assert(context);
-        target = context->CreateRenderTarget(context->OpenWindow(index, nullptr));
-        begin(target);
-        
-    }
-    void Begin(int index, int width, int height)
-    {
-        assert(context);
-        target = context->CreateRenderTarget(context->OpenWindow(index, width, height, nullptr));
-        begin(target);
-    }
+    void Begin(int index = 0);
+    void Begin(int index, int width, int height);
     
-    std::shared_ptr<Renderer>& GetRenderer()
-    {
-        ensure_initialized();
-        return renderer;
-    }
-    
-    std::shared_ptr<RenderLoop>& GetLoop()
-    {
-        ensure_initialized();
-        return loop;
-    }
-    
-    std::shared_ptr<GLResourceManager>& GetResource()
-    {
-        ensure_initialized();
-        return resource;
-    }
-    
-    RenderTarget* GetTarget() const
-    {
-        ensure_initialized();
-        return target;
-    }
-    
+    std::shared_ptr<Renderer> GetRenderer() const;
+    std::shared_ptr<RenderLoop> GetRenderLoop() const;
+    std::shared_ptr<GLResourceManager> GetResource() const;
+    RenderTarget* GetTarget() const;
 private:
     bool is_initialized;
     GLContextManager *context;
@@ -73,21 +38,8 @@ private:
     std::shared_ptr<GLResourceManager> resource;
     std::shared_ptr<RenderLoop> loop;
     
-    void ensure_initialized(void) const
-    {
-        if (!is_initialized)
-        {
-            throw std::runtime_error("A call to begin() must precede item access.");
-        }
-    }
-    
-    void begin(RenderTarget *target)
-    {
-        resource = std::make_shared<GLResourceManager>(target);
-        renderer = std::make_shared<Renderer>(target);
-        loop = std::make_shared<RenderLoop>(renderer);
-        is_initialized = true;
-    }
+    void ensure_initialized(void) const;
+    void begin(RenderTarget *target);
 };
 }
 

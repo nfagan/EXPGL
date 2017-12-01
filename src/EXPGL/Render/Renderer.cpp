@@ -9,6 +9,7 @@
 #include <EXPGL/Render/Renderer.hpp>
 #include <iostream>
 #include <glm/gtc/matrix_transform.hpp>
+#include <EXPGL/Util/Common.hpp>
 
 EXP::Renderer::Renderer(EXP::RenderTarget *target)
 {
@@ -75,7 +76,7 @@ void EXP::Renderer::draw(EXP::Model *model, EXP::Window *window, unsigned index)
     Rect<float> wrect = static_cast<Rect<float>>(*(window->GetRect()));
     Rect<float> srect = static_cast<Rect<float>>(target->GetFullRect());
     
-    if (model->Is2D())
+    if (model->GetProjectionType() == EXP::util::projection_types::ORTHOGRAPHIC)
     {
         shader->SetMat4("projection", glm::mat4(1.0f));
         shader->SetMat4("view", GetProjectionMatrix2D(wrect));
@@ -83,7 +84,7 @@ void EXP::Renderer::draw(EXP::Model *model, EXP::Window *window, unsigned index)
     else
     {
         //  3D not yet implemented
-        throw std::runtime_error("Rendering of 3D models not yet implemented.");
+        throw std::runtime_error("Rendering with a perspective projection not yet implemented.");
     }
     
     shader->SetMat4("model", model->GetTransformationMatrix(srect));

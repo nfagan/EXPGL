@@ -21,7 +21,7 @@ namespace EXP {
         ~Renderer() = default;
         
         void Queue(EXP::Model *model);
-        void Draw(void);
+        void Draw();
         
         glm::mat4 GetProjectionMatrix2D(const EXP::Rect<float> &window_rect) const;
         glm::mat4 GetProjectionMatrix3D(const EXP::Rect<float> &window_rect) const;

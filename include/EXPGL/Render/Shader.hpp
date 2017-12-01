@@ -28,14 +28,14 @@ namespace EXP {
             GEOMETRY
         };
         
-        Shader(void) = default;
-        virtual ~Shader(void);
+        Shader() = default;
+        virtual ~Shader();
         
         bool AttachFromFile(const char *filename, SHADER_TYPES shader_type);
         bool AttachFromSource(const char *src, SHADER_TYPES shader_type);
-        bool Link(void);
-        void Start(void);
-        void Stop(void);
+        bool Link();
+        void Start();
+        void Stop();
         
         void SetMat4(const char* name, glm::mat4 value) const;
         void SetVec3(const char *name, glm::vec3 value) const;
@@ -44,7 +44,7 @@ namespace EXP {
         void SetFloat(const char *name, float value) const;
         
     private:
-        unsigned ID;
+        unsigned id;
         
         unsigned shader_ids[3];
         unsigned n_shader_ids = 0;

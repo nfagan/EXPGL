@@ -31,8 +31,8 @@ namespace EXP {
         virtual void AddVertex(Vertex vertex);
         virtual void Initialize(EXP::RenderTarget *target);
         virtual void Finalize(EXP::RenderTarget *target);
-        virtual bool IsInitialized(void) const;
-        virtual bool IsFinalized(void) const;
+        virtual bool IsInitialized() const;
+        virtual bool IsFinalized() const;
         virtual void Draw(unsigned index) const;
         virtual void Bind(unsigned index) const;
         virtual void Unbind() const;

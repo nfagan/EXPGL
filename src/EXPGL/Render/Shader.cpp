@@ -15,12 +15,12 @@
 
 EXP::Shader::~Shader()
 {
-    glDeleteProgram(ID);
+    glDeleteProgram(id);
 }
 
 void EXP::Shader::Start()
 {
-    glUseProgram(ID);
+    glUseProgram(id);
 }
 
 void EXP::Shader::Stop()
@@ -92,42 +92,42 @@ bool EXP::Shader::AttachFromSource(const char *shader_code, EXP::Shader::SHADER_
 
 void EXP::Shader::SetMat4(const char *name, glm::mat4 value) const
 {
-    unsigned int loc = glGetUniformLocation(ID, name);
+    unsigned int loc = glGetUniformLocation(id, name);
     glUniformMatrix4fv(loc, 1, GL_FALSE, glm::value_ptr(value));
 }
 
 void EXP::Shader::SetVec3(const char *name, glm::vec3 value) const
 {
-    unsigned int loc = glGetUniformLocation(ID, name);
+    unsigned int loc = glGetUniformLocation(id, name);
     glUniform3f(loc, value.x, value.y, value.z);
 }
 
 void EXP::Shader::SetInt(const char *name, int value) const
 {
-    glUniform1i(glGetUniformLocation(ID, name), value);
+    glUniform1i(glGetUniformLocation(id, name), value);
 }
 
 void EXP::Shader::SetBool(const char *name, bool value) const
 {
-    glUniform1i(glGetUniformLocation(ID, name), (int)value);
+    glUniform1i(glGetUniformLocation(id, name), (int)value);
 }
 
 void EXP::Shader::SetFloat(const char *name, float value) const
 {
-    glUniform1f(glGetUniformLocation(ID, name), value);
+    glUniform1f(glGetUniformLocation(id, name), value);
 }
 
 bool EXP::Shader::Link()
 {
-    ID = glCreateProgram();
+    id = glCreateProgram();
     for (int i = 0; i < n_shader_ids; ++i)
     {
-        glAttachShader(ID, shader_ids[i]);
+        glAttachShader(id, shader_ids[i]);
     }
     
-    glLinkProgram(ID);
+    glLinkProgram(id);
     
-    int success = check_link_errors(ID);
+    int success = check_link_errors(id);
     
     for (int i = 0; i < n_shader_ids; ++i)
     {

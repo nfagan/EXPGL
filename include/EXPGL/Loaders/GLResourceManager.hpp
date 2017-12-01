@@ -9,6 +9,8 @@
 #ifndef ResourceManager_hpp
 #define ResourceManager_hpp
 
+#include <EXPGL/Render/Shader.hpp>
+#include <EXPGL/Shaders/ShaderLibrary.hpp>
 #include <EXPGL/Mesh/MeshLibrary.hpp>
 #include <EXPGL/Model/Model.hpp>
 #include <EXPGL/Loaders/TextureLoader.hpp>
@@ -22,20 +24,8 @@ namespace EXP {
     class GLResourceManager
     {
     public:
-        GLResourceManager(EXP::RenderTarget *target)
-        {
-            this->target = target;
-            texture_loader = std::make_unique<TextureLoader>();
-            n_items = 0;
-        }
-        
-        ~GLResourceManager()
-        {
-            for (unsigned i = 0; i < items.size(); ++i)
-            {
-                delete items[i];
-            }
-        }
+        GLResourceManager(EXP::RenderTarget *target);
+        ~GLResourceManager();
         
         template<typename T, typename... A>
         T* Create(A... args)
@@ -56,45 +46,12 @@ namespace EXP {
             return item;
         }
         
-        Model* CreateRectangle(void)
-        {
-            Mesh *mesh = Create<Mesh>();
-            MeshLibrary::make_quad(mesh);
-            return make_model(mesh);
-        }
+        Shader* CreateGenericShader();
+        Model* CreateRectangle();
+        Model* CreateSphere(int vertex_count = 128);
+        Model* CreateTriangle();
         
-        Model* CreateSphere(int vertex_count = 128)
-        {
-            Mesh *mesh = Create<Mesh>();
-            MeshLibrary::make_sphere(mesh, vertex_count);
-            return make_model(mesh);
-        }
-        
-        Model* CreateTriangle(void)
-        {
-            Mesh *mesh = Create<Mesh>();
-            MeshLibrary::make_triangle(mesh);
-            return make_model(mesh);
-        }
-        
-        void SetName(GLResourcePrimitive *resource, const std::string &name)
-        {
-            for (unsigned i = 0; i < items.size(); ++i)
-            {
-                if (items[i]->GetIdentifier().GetName() == name)
-                {
-                    throw std::runtime_error("An item with the name `" + name + "` already exists.");
-                }
-            }
-            
-            std::string current_name = resource->GetIdentifier().GetName();
-            auto it = indices.find(current_name);
-            //  shouldn't happen (TM)
-            EXP_ASSERT(it != indices.end(), "Name `" << current_name << "` was not present???");
-            unsigned index = it->second;
-            indices.erase(it);
-            indices[name] = index;
-        }
+        void SetName(GLResourcePrimitive *resource, const std::string &name);
         
         template<typename T>
         T* Get(const std::string &name)
@@ -134,21 +91,14 @@ namespace EXP {
             return texture_loader->GetTexture(filename);
         };
     private:
-        
-        Model* make_model(Mesh *mesh)
-        {
-            mesh->Finalize(target);
-            Material *mat = Create<Material>();
-            Model *model = Create<Model>(mesh, mat);
-            return model;
-        }
-        
         RenderTarget *target = nullptr;
         std::unique_ptr<TextureLoader> texture_loader;
         std::vector<GLResourcePrimitive*> items;
         std::vector<std::type_index> types;
         std::unordered_map<std::string, unsigned int> indices;
         unsigned n_items;
+        
+        Model* make_model(Mesh *mesh);
     };
 }
 

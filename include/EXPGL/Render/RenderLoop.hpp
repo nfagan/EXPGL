@@ -27,10 +27,10 @@ namespace EXP {
         RenderLoop(std::shared_ptr<EXP::Renderer> renderer);
         ~RenderLoop() = default;
         
-        void Loop(void);
-        void CancelLoop(void);
+        void Loop();
+        void CancelLoop();
         void Queue(const std::vector<Model*> &models);
-        void ClearQueue(void);
+        void ClearQueue();
         void OnLoop(std::function<void(EXP::RenderLoop*)> on_loop);
         void OnceDrawReady(std::function<void(EXP::RenderLoop*)> once_ready);
         
