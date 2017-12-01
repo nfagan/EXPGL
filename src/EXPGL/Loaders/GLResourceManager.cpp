@@ -68,7 +68,7 @@ void EXP::GLResourceManager::SetName(GLResourcePrimitive *resource, const std::s
         }
     }
     
-    const std::string &current_name = resource->GetIdentifier().GetName();
+    std::string current_name = resource->GetIdentifier().GetName();
     auto it = indices.find(current_name);
     if (it == indices.end())
     {

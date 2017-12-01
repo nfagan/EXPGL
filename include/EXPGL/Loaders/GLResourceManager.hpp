@@ -17,6 +17,7 @@
 #include <EXPUtil/assert/EXP_ASSERT.h>
 #include <EXPGL/Resource/GLResourcePrimitive.hpp>
 #include <EXPGL/Resource/GLResourceIdentifier.hpp>
+#include <memory>
 #include <typeinfo>
 #include <typeindex>
 
